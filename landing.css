@@ -36,7 +36,7 @@ background-repeat: no-repeat;
 
 
 .container1 .sidebar{
-    background-color:rgba(179, 192, 211, 0.425) ;
+    background-color:rgba(218, 223, 230, 0.425) ;
     min-width: 200px;
     height: 100%;
     position: relative;
@@ -78,7 +78,7 @@ background-repeat: no-repeat;
 .main-content{
 
     flex-grow: 1;
-    background-color:rgba(179, 192, 211, 0.425) ;
+    background-color:rgba(218, 223, 230, 0.425) ;
     height: 100%;
     overflow-y: auto;
     display: block;
@@ -86,36 +86,28 @@ background-repeat: no-repeat;
     align-items: center;
    
 }
-.main-content .boxes1{
 
+#statushidden{
     height: 50px;
     width: 80%;
     border:  1px solid rgba(63, 60, 60, 0.171);
     background-color: white;
     border-radius: 5px;
     margin: auto;
-
 }
-.main-content .boxes2{
 
+#addhidden{
     height: 50px;
     width: 80%;
     border:  1px solid rgba(63, 60, 60, 0.171);
     background-color: white;
     border-radius: 5px;
     margin: auto;
+ 
 
 }
 
-.main-content .boxes{
-    margin: auto;
-    height: 200px;
-    width: 80%;
-    border:  1px solid rgba(63, 60, 60, 0.171);
-    background-color: white;
-    border-radius: 5px;
 
-}
 
 .top-bar nav ul {
 
@@ -153,4 +145,14 @@ p:hover{
     display: block;
     text-align: left;
     font-size: 1.5em;
+}
+
+
+.container1 .sidebar .search1{
+
+    border-radius: 5px;
+    margin: auto;
+    width: 90%;
+    height: 30px;
+    
 }
