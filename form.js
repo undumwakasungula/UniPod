@@ -35,7 +35,6 @@ function gotoExternal(){
     window.location.href="externalsignup.html";
 };
 
-
 upform.getElementById("signUpform").addEventListener("submit", function (event){
     
     event.preventDefault();
