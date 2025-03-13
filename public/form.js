@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("User created:", userCredential.user);
                 if (password === confirm_password) {
                     alert("Account created successfully!");
-                    window.location.href = "studentLogin.html";
+                    window.location.href = "index.html";
                 } else {
                     alert("Passwords are not a match");
                 }
