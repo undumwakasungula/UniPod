@@ -1,51 +1,30 @@
-document.getElementById("stafflog").addEventListener("submit", function (event){
-    
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function() {
+    const formstaffup = document.getElementById("staff-form");
+    const formstafflog= document.getElementById("stafflog");
 
-    
-    const passwords = document.getElementById("Passwordset").value.trim();
-    const emails = document.getElementById("Emailset").value;
-    
-   
-
-    if(passwords && emails){
-    
-        window.location.href="main.html";
-        
-    }
-    else {
-        alert("Please fill out the form"); 
-        
-
+    if(formstafflog){
+        formstafflog.addEventListener("submit", function staffloginfunc(event){
+            event.preventDefault();
+            const email = document.getElementById("Emailset").value;
+            const password = document.getElementById("Passwordset").value;
+            if(email && password){
+               window.location.href="main.html";
+            }
+        });
     }
 
+    if(formstaffup){
+        formstaffup.addEventListener("submit", function staffsignupfunc (event){
+            event.preventDefault();
+    
+            const password = document.getElementById("Password3").value;
+            const confirm_password = document.getElementById("Password4").value;
+            if(password===confirm_password){
+                window.location.href="StaffLogin.html";
+            }else{
+                alert("Passwords are not a match");
+            }
+        });
+    }
 
 });
-
-
-form2.getElementById("staff-form").addEventListener("submit", function (event){
-    
-    event.preventDefault();
-
-    
-    let password = document.getElementById("Password3").value.trim();
-    let confirm_password = document.getElementById("Password4").value.trim();
-   
-
-    if(password===confirm_password){
-    
-        window.location.href="StaffLogin.html";
-        
-    }
-    else {
-        alert("Passwords are not a match"); 
-        
-
-    }
-
-
-});
-
-
-
-
