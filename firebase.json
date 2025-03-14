@@ -13,40 +13,40 @@
     ],
     "rewrites": [
       {
-        "source": "index.html",
-        "destination": "index.html"
+        "source": "/index.html",
+        "destination": "/index.html"
       },
       {
-        "source": "StudentSignup.html",
-        "destination": "StudentSignup.html"
+        "source": "/StudentSignup.html",
+        "destination": "/StudentSignup.html"
       },
       {
-        "source": "signUp_selector.html",
-        "destination": "signUp_selector.html"
+        "source": "/signUp_selector.html",
+        "destination": "/signUp_selector.html"
       },
       {
-        "source": "main.html",
-        "destination": "main.html"
+        "source": "/main.html",
+        "destination": "/main.html"
       },
       {
-        "source": "StaffLogin.html",
-        "destination": "StaffLogin.html"
+        "source": "/StaffLogin.html",
+        "destination": "/StaffLogin.html"
       },
       {
-        "source": "staffSignup.html",
-        "destination": "staffSignup.html"
+        "source": "/staffSignup.html",
+        "destination": "/staffSignup.html"
       },
       {
-        "source": "home.html",
-        "destination": "home.html"
+        "source": "/home.html",
+        "destination": "/home.html"
       },
       {
-        "source": "externallogin.html",
-        "destination": "externallogin.html"
+        "source": "/externallogin.html",
+        "destination": "/externallogin.html"
       },
       {
-        "source": "Maintainance.html",
-        "destination": "Maintainance.html"
+        "source": "/Maintainance.html",
+        "destination": "/Maintainance.html"
       }
     ],
     "headers": [
