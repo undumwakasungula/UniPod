@@ -10,22 +10,17 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "headers": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
       }
-    ],
-    "headers": [
-    {
-      "source": "**",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache"
-        }
-      ]
-    }
-  ]
+
+   ]
   }
 }
