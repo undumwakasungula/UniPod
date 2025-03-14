@@ -48,3 +48,16 @@ addparagraph.addEventListener("click", function addEquipmentt(){
     statushide.style.visibility= "hidden";
   }
 } );
+
+
+function gotoStudent() {
+  window.location.href = "StudentSignup.html";
+};
+
+function gotoStaff() {
+  window.location.href = "staffSignup.html";
+};
+
+function gotoExternal() {
+  window.location.href = "externalsignup.html";
+};
