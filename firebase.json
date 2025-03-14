@@ -27,6 +27,26 @@
       {
         "source": "/main.html",
         "destination": "/main.html"
+      },
+      {
+        "source": "/StaffLogin.html",
+        "destination": "/StaffLogin.html"
+      },
+      {
+        "source": "/staffSignup.html",
+        "destination": "/staffSignup.html"
+      },
+      {
+        "source": "/home.html",
+        "destination": "/home.html"
+      },
+      {
+        "source": "/externallogin.html",
+        "destination": "/externallogin.html"
+      },
+      {
+        "source": "/Maintainance.html",
+        "destination": "/Maintainance.html"
       }
     ],
     "headers": [
