@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (button_activity) {
         button_activity.addEventListener("click", function ghost() {
-            window.location.href = "signUp_selector.html";
+            window.location.href = "./signUp_selector.html";
         });
     }
     if (upform) {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 console.log("User created:", userCredential.user);
                 alert("Account created successfully!");
-                window.location.href = "index.html";
+                window.location.href = "./index.html";
 
             }catch (error) {
                 console.error("Error creating account:", error.message);
@@ -65,13 +65,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 function gotoStudent() {
-    window.location.href = "StudentSignup.html";
+    window.location.href = "./StudentSignup.html";
 };
 
 function gotoStaff() {
-    window.location.href = "staffSignup.html";
+    window.location.href = "./staffSignup.html";
 };
 
 function gotoExternal() {
-    window.location.href = "externalsignup.html";
+    window.location.href = "./externalsignup.html";
 };

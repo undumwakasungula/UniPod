@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const email = document.getElementById("Emailsett").value;
             const password = document.getElementById("Passwordsett").value;
             if(email && password){
-                window.location.href="main.html";
+                window.location.href="./main.html";
             }
         });
     }

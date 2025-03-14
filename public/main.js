@@ -51,13 +51,13 @@ addparagraph.addEventListener("click", function addEquipmentt(){
 
 
 function gotoStudent() {
-  window.location.href = "StudentSignup.html";
+  window.location.href = "./StudentSignup.html";
 };
 
 function gotoStaff() {
-  window.location.href = "staffSignup.html";
+  window.location.href = "./staffSignup.html";
 };
 
 function gotoExternal() {
-  window.location.href = "externalsignup.html";
+  window.location.href = "./externalsignup.html";
 };
