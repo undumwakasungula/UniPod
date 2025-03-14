@@ -13,49 +13,49 @@
     ],
     "rewrites": [
       {
-        "source": "/index.html",
-        "destination": "/index.html"
+        "source": "index.html",
+        "destination": "index.html"
       },
       {
-        "source": "/StudentSignup.html",
-        "destination": "/StudentSignup.html"
+        "source": "StudentSignup.html",
+        "destination": "StudentSignup.html"
       },
       {
-        "source": "/signUp_selector.html",
-        "destination": "/signUp_selector.html"
+        "source": "signUp_selector.html",
+        "destination": "signUp_selector.html"
       },
       {
-        "source": "/main.html",
-        "destination": "/main.html"
+        "source": "main.html",
+        "destination": "main.html"
       },
       {
-        "source": "/StaffLogin.html",
-        "destination": "/StaffLogin.html"
+        "source": "StaffLogin.html",
+        "destination": "StaffLogin.html"
       },
       {
-        "source": "/staffSignup.html",
-        "destination": "/staffSignup.html"
+        "source": "staffSignup.html",
+        "destination": "staffSignup.html"
       },
       {
-        "source": "/home.html",
-        "destination": "/home.html"
+        "source": "home.html",
+        "destination": "home.html"
       },
       {
-        "source": "/externallogin.html",
-        "destination": "/externallogin.html"
+        "source": "externallogin.html",
+        "destination": "externallogin.html"
       },
       {
-        "source": "/Maintainance.html",
-        "destination": "/Maintainance.html"
+        "source": "Maintainance.html",
+        "destination": "Maintainance.html"
       }
     ],
     "headers": [
       {
-        "source": "**/*.@(html|js|css)",
+        "source": "**/*.html",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "no-cache"
+            "value": "no-cache, no-store, must-revalidate"
           },
           {
             "key": "Pragma",
@@ -64,6 +64,24 @@
           {
             "key": "Expires",
             "value": "0"
+          }
+        ]
+      },
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
           }
         ]
       }

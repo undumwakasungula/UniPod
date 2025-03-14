@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const email = document.getElementById("Emailset").value;
             const password = document.getElementById("Passwordset").value;
             if(email && password){
-               window.location.href="/main.html";
+               window.location.href="main.html";
             }
         });
     }
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const password = document.getElementById("Password3").value;
             const confirm_password = document.getElementById("Password4").value;
             if(password===confirm_password){
-                window.location.href="/StaffLogin.html";
+                window.location.href="StaffLogin.html";
             }else{
                 alert("Passwords are not a match");
             }
