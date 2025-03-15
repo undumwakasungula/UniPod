@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const forgot_password = document.getElementById("resetPassword");
     
     if (forgot_password) {
-        forgot_password.addEventListener("click", function resetPassword() {
+        forgot_password.addEventListener("click", function ForgotPassword() {
 
             const email = prompt("Enter your email address:");
             if (email) {
