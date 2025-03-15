@@ -1,30 +1,37 @@
+import { app } from "/firebaseConfig.js"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+const auth = getAuth(app);
+
+
 document.addEventListener("DOMContentLoaded", function() {
-    const formstaffup = document.getElementById("staff-form");
-    const formstafflog= document.getElementById("stafflog");
+    const down = document.getElementById("staff-form");
 
-    if(formstafflog){
-        formstafflog.addEventListener("submit", function staffloginfunc(event){
-            event.preventDefault();
-            const email = document.getElementById("Emailset").value;
-            const password = document.getElementById("Passwordset").value;
-            if(email && password){
-               window.location.href="/main.html";
-            }
-        });
-    }
 
-    if(formstaffup){
-        formstaffup.addEventListener("submit", function staffsignupfunc (event){
+    if(down){
+        down.addEventListener("submit", async(event)=>{
             event.preventDefault();
-    
+            const email = document.getElementById("staffmail").value;
             const password = document.getElementById("Password3").value;
             const confirm_password = document.getElementById("Password4").value;
-            if(password===confirm_password){
-                window.location.href="StaffLogin.html";
-            }else{
+
+            if (password !== confirm_password) {
+
                 alert("Passwords are not a match");
+                return;
+            }
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                console.log("User created:", userCredential.user);
+                alert("Account created successfully!");
+                window.location.href = "/index.html";
+
+            }catch (error) {
+                console.error("Error creating account:", error.message);
+                alert("Error: " + error.message);
             }
         });
     }
 
+
+ 
 });

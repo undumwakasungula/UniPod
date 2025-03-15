@@ -1,4 +1,4 @@
-import { app } from "../firebaseConfig.js"
+import { app } from "./firebaseConfig.js"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 //import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
