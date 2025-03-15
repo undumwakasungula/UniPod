@@ -156,3 +156,22 @@ p:hover{
     height: 30px;
     
 }
+
+/* Default: Desktop view */
+#menuButton {
+    display: none;
+  }
+  
+  /* Mobile view: Show menu button, hide navigation menu */
+@media (max-width: 768px) {
+    #menuButton {
+      display: block;
+    }
+    #menu {
+      display: none;
+    }
+    #menu.active {
+        display: block; /* Show menu when activated via button */
+      }
+}
+  

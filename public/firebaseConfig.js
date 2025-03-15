@@ -1,14 +1,10 @@
-// Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-//import { getAuth } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-//import { getFirestore } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js"; // Import Auth
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js"; // Import Firestore
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAuVPMEyPKqEuic6uSV48AUycDald94Gqo",
   authDomain: "unipod-management.firebaseapp.com",
@@ -22,5 +18,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-        
-export { app};
+const auth = getAuth(app); // Initialize Auth
+const db = getFirestore(app); // Initialize Firestore
+
+// Export Firebase services for use in your app
+export { app, analytics, auth, db };

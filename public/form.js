@@ -1,6 +1,6 @@
-import { app } from "./firebaseConfig.js"
+import { app, db } from "./firebaseConfig.js"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
-//import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 const auth = getAuth(app);
 document.addEventListener("DOMContentLoaded", function() {
@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
             let email = document.getElementById("signUpEmail").value;
             let password = document.getElementById("signUpPassword").value.trim();
             let confirm_password = document.getElementById("confPassword").value.trim();
+            const role = "student";
             
            if (password !== confirm_password) {
 
@@ -48,8 +49,16 @@ document.addEventListener("DOMContentLoaded", function() {
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 console.log("User created:", userCredential.user);
-                alert("Account created successfully!");
+
+                    // Register user details and role in Firestore
+                const userDocRef = doc(db, "users", "userdetail");
+                await setDoc(userDocRef, {
+                email: email,
+                role: role
+            });
+                            alert("Account created successfully!");
                 window.location.href = "index.html";
+
 
             }catch (error) {
                 console.error("Error creating account:", error.message);
@@ -68,7 +77,29 @@ document.addEventListener("DOMContentLoaded", function() {
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 console.log("Signed in successfully:", userCredential.user);
-                window.location.href = "/main.html";
+
+
+                // Fetch the user's role from Firestore
+                const userDocRef = doc(db, "users", "userdetail"); // Reference the 'userdetail' document in Firestore
+                const userDoc = await getDoc(userDocRef); // Fetch the document
+
+                if (userDoc.exists()) {
+                const userData = userDoc.data(); // Extract data from the document
+                const role = userData.role; // Retrieve the role field
+
+                // Redirect based on the user's role
+                if (role === "staff") {
+                    window.location.href = "/main.html";
+                } else if (role === "student") {
+                    window.location.href = "/external_student_dashboard.html";
+                } else if (role === "external") {
+                    window.location.href = "/external_student_dashboard.html";
+                } else {
+                      console.error("Role not recognized!");
+                }
+            } else {
+                console.error("No user data found in Firestore!");
+              }
             }catch (error) {
                 console.error("Error signing in:", error.message);
                 alert("Error: " + error.message);
@@ -80,14 +111,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 });
-function gotoStudent() {
-    window.location.href = "/StudentSignup.html";
-};
 
-function gotoStaff() {
-    window.location.href = "/staffSignup.html";
-};
 
-function gotoExternal() {
-    window.location.href = "/externalsignup.html";
-};

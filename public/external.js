@@ -1,5 +1,6 @@
-import { app } from "/firebaseConfig.js"
+import { app, db } from "/firebaseConfig.js"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 const auth = getAuth(app);
 
 
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const email = document.getElementById("externalmail").value;
             const password = document.getElementById("Password1").value;
             const confirm_password = document.getElementById("Password2").value;
+            const role="external";
 
             if (password !== confirm_password) {
 
@@ -22,8 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 console.log("User created:", userCredential.user);
-                alert("Account created successfully!");
-                window.location.href = "/index.html";
+                const userDocRef = doc(db, "users", "userdetail");
+                await setDoc(userDocRef, {
+                email: email,
+                role: role
+               });
+            alert("Account created successfully!");
+            window.location.href = "/index.html";
 
             }catch (error) {
                 console.error("Error creating account:", error.message);
