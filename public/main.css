@@ -20,7 +20,7 @@ body{
 @media screen and (max-width: 720px){
     .container{
         width:80vh;
-        height: fit-content;
+        height: 70vh;
     
         margin: 0 auto;
         justify-content: center;
