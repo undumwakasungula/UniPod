@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log("User created:", userCredential.user);
 
                     // Register user details and role in Firestore
-                const userDocRef = doc(db, "users", "userdetail");
+                const userDocRef = doc(db, "users", userCredential.user.uid);
                 await setDoc(userDocRef, {
                 email: email,
                 role: role
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
                 // Fetch the user's role from Firestore
-                const userDocRef = doc(db, "users", "userdetail"); // Reference the 'userdetail' document in Firestore
+                const userDocRef = doc(db, "users",userCredential.user.uid ); // Reference the 'userdetail' document in Firestore
                 const userDoc = await getDoc(userDocRef); // Fetch the document
 
                 if (userDoc.exists()) {

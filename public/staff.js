@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 console.log("User created:", userCredential.user);
-                const userDocRef = doc(db, "users", "userdetail");
+                const userDocRef = doc(db, "users", userCredential.user.uid);
                 await setDoc(userDocRef, {
                 email: email,
                 role: role
