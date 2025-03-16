@@ -8,13 +8,25 @@ body{
 }
 
 .container{
-    max-width: 60%;
+    width: 80%;
+    min-width: 80vh;
     height: fit-content;
     margin: 0 auto;
     background-color: rgb(4, 4, 51);
     justify-content: center;
     border-radius: 5px;
 
+}
+@media screen and (max-width: 768px){
+    .container{
+        width: 90%;
+        min-width: 90vh;
+        height: fit-content;
+        max-height: 80vh;
+        margin: 0 auto;
+        justify-content: center;
+
+    }
 }
 .container label{
 
