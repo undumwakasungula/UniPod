@@ -19,9 +19,9 @@ body{
 }
 @media screen and (max-width: 720px){
     .container{
-        width:70%;
+        width:80vh;
         height: fit-content;
-        max-height: 80vh;
+    
         margin: 0 auto;
         justify-content: center;
 
