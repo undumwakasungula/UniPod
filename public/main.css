@@ -17,10 +17,9 @@ body{
     border-radius: 5px;
 
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 720px){
     .container{
-        width: 90%;
-        min-width: 90vh;
+        width:70%;
         height: fit-content;
         max-height: 80vh;
         margin: 0 auto;
