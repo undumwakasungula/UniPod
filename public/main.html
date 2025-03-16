@@ -3,31 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet"  href="landing.css">
+    <title>Staff main_dashboard</title>
+    <link rel="stylesheet"  href="staff_dashboard.css">
 </head>
 <body>
-    <button id="menuButton" onclick="toggleMenu()">☰ Menu</button>
-    <div class="top-bar">
-        <nav id="menu">
-            <ul> 
-                <li> <a href="$">Booking</a></li>
-                <li> <a href="$">Department</a></li>
-                <li> <a href="$">Membership</a></li>
-                <li> <a href="$">Projects</a></li>
-                <li> <a href="$">Track</a></li>
-                <li> <a href="$">Reports</a></li>
-                <li> <a href="Maintainance.html">Maintainance</a></li>
-        
-            </ul>
-
-        </nav>
-
+  
+    <div class="side-bar">
+        <p id="reception" class="paragraph_select">Reception</p>
+        <p id="workshop" class="paragraph_select">Workshop </p>
     </div>
-    <div class="container">
-            
-     
+    <div class="main_dashboard">
+        <div class="left-main" id="left-main" style="visibility: hidden;">
+            <div id="reception_id" style="display: none;">
+                <p class="paragraph_select">DCI/O</p>
+                <p class="paragraph_select">Payments</p>
+                <p class="paragraph_select">Booking</p>
+                <p class="paragraph_select">Membership</p>
+            </div>
+            <div id="workshop_id" style="display: none;">
+                <p class="paragraph_select">Computer Room</p>
+                <p class="paragraph_select">Adudio Visual Creative</p>
+                <p class="paragraph_select">Electronics(EPL)</p>
+                <p class="paragraph_select">Mechanical</p>
+                <p class="paragraph_select">Wood</p>
+                <p class="paragraph_select">CNC</p>
+            </div>
+        </div>
+        <div class="right-main" >
+          <p id="welcome_remark" style="display: block;">Welcome to UMIS</p>
+
+        </div>
     </div>
+     <script src="/staff_dashboard.js"></script>
     <script type="module" src="/form.js"></script>
     <script src="/main.js"></script>
 </body>

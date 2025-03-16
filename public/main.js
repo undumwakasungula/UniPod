@@ -31,21 +31,21 @@ const addhide = document.getElementById("addhidden");
 
 statusparagraph.addEventListener("click", function statusEquipment(){
   
-  if(statushide.style.visibility==="hidden"){
-    statushide.style.visibility= "visible";
+  if(statushide.style.display==="none"){
+    statushide.style.display= "block";
   }
-  if(statushide.style.visibility==="visible"){
-    addhide.style.visibility= "hidden";
+  if(statushide.style.display==="block"){
+    addhide.style.display= "none";
   }
 } );
 
 
 addparagraph.addEventListener("click", function addEquipmentt(){
-  if(addhide.style.visibility==="hidden"){
-    addhide.style.visibility= "visible";
+  if(addhide.style.display==="none"){
+    addhide.style.display= "block";
   }
-  if(addhide.style.visibility==="visible"){
-    statushide.style.visibility= "hidden";
+  if(addhide.style.display==="block"){
+    statushide.style.display= "none";
   }
 } );
 
