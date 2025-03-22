@@ -152,3 +152,118 @@ body{
     width: 100%;
     height: 70px;
   }
+
+
+  .tronics-equip-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(207, 62, 62);
+    overflow: auto;
+  }
+  
+  .tronics-project-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(27, 165, 34);
+    overflow: auto;
+  }
+  .compu-equip-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(207, 62, 62);
+    overflow: auto;
+  }
+
+  .audio-equip-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(27, 165, 34);
+    overflow: auto;
+  }
+
+  .audio-project-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(207, 62, 62);
+    overflow: auto;
+  }
+  .mech-equip-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(27, 165, 34);
+    overflow: auto;
+  }
+  .mech-project-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(207, 62, 62);
+    overflow: auto;
+  }
+  .wood-equip-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(27, 165, 34);
+    overflow: auto;
+  }
+  .wood-project-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(207, 62, 62);
+    overflow: auto;
+  }
+  .cnc-equip-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(27, 165, 34);
+    overflow: auto;
+  }
+  .cnc-project-window{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(207, 62, 62);
+    overflow: auto;
+  }
