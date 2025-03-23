@@ -6,14 +6,18 @@
     <title>Staff main_dashboard</title>
     <link rel="stylesheet"  href="staff_dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 </head>
 <body>
 
   
     <div class="side-bar">
-        <nav>
-            <ul>
+      <button id="menu_btn" class="menu_btn" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </button>
+        <nav class="nav-bar" id="nav-bar">
+            <ul id="nav-list"  class="nav-list">
                 <li id="reception"><a>Reception</a> </li>
                 <li id="workshop"><a>Workshop</a></li>
             </ul>    
@@ -89,7 +93,7 @@
               <label for="condition">Condition:</label>
               <select id="condition" name="condition">
                 <option value="Good">Good</option>
-                <option value="Not Good">Need Repair</option>
+                <option value="Not Good">Not Good</option>
               </select>
               <br>
               
@@ -107,11 +111,11 @@
               <table id="equip_table" class="equip_table">
                 <thead>
                   <tr>
-                    <th>Equipment</th>
-                    <th>Serial No</th>
-                    <th>Condition</th>
-                    <th>Availability</th>
-                    <th>Actions</th>
+                    <td>Equipment</td>
+                    <td>Serial No</td>
+                    <td>Condition</td>
+                    <td>Availability</td>
+                    <td>Actions</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -121,13 +125,13 @@
               </table><br><br>
               <label class="equip-label">analytics:</label><br>
 
-              <div id="analytics" class="analytics">
-                <p id="total_equip" class="total_equip">Total Equipment: 0</p>
-                <p id="good_equip" class="good_equip">Good Equipment: 0</p>
-                <p id="bad_equip" class="bad_equip">Bad Equipment: 0</p>
-                <p id="available_equip" class="available_equip">Available Equipment: 0</p>
-                <p id="not_available_equip" class="not_available_equip">Not Available Equipment: 0</p>
-              </div>
+              <div class="analytics">
+                <p>Total Equipment: <span id="totalEquipment">0</span></p>
+                <p>Good Equipment: <span id="goodEquipment">0</span></p>
+                <p>Bad Equipment: <span id="badEquipment">0</span></p>
+                <p>Available Equipment: <span id="availableEquipment">0</span></p>
+                <p>Not Available Equipment: <span id="notAvailableEquipment">0</span></p>
+            </div>
 
               <div class="space-down"></div>
               

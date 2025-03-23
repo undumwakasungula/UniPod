@@ -202,6 +202,7 @@ const fetchRealTimeData = () => {
   
       // Render the updated data in the table
       showTable(equipmentData);
+      updateAnalytics();
     });
   };
   
@@ -228,7 +229,7 @@ const fetchRealTimeData = () => {
       tableBody.innerHTML += row;
     });
   
-    // Attach click event listeners for edit and delete buttons
+    //event listeners for edit and delete buttons
     document.querySelectorAll(".edit-btn").forEach((button) => {
       button.addEventListener("click", (e) => handleEdit(e.target.dataset.id));
     });
@@ -262,6 +263,7 @@ const handleEdit = (id) => {
         alert("Error: " + error.message);
       }
     }
+    updateAnalytics();
   };
   
   // Delete functionality
@@ -279,8 +281,77 @@ const handleEdit = (id) => {
             alert("Error: " + error.message);
           }
     }
+    updateAnalytics();
 
   };
+  function updateAnalytics() {
+    const rows = document.querySelectorAll("table tbody tr");
+
+    let totalEquipment = 0;
+    let goodEquipment = 0;
+    let badEquipment = 0;
+    let availableEquipment = 0;
+    let notAvailableEquipment = 0;
+
+    rows.forEach(row => {
+        console.log(row.cells[2]?.textContent.trim(), row.cells[3]?.textContent.trim());
+        totalEquipment++;
+        if (row.cells.length >= 4) {
+            const condition = row.cells[2].textContent.trim();
+            const availability = row.cells[3].textContent.trim();
+            
+
+            if (condition === "Good") {
+                goodEquipment++;
+            } else {
+                badEquipment++;
+            }
+    
+            if (availability === "Available") {
+                availableEquipment++;
+            } else {
+                notAvailableEquipment++;
+            }
+        }
+        
+
+    });
+
+    // calculated values
+    const totalElement = document.getElementById("totalEquipment");
+    const goodElement = document.getElementById("goodEquipment");
+    const badElement = document.getElementById("badEquipment");
+    const availableElement = document.getElementById("availableEquipment");
+    const notAvailableElement = document.getElementById("notAvailableEquipment");
+
+    if (totalElement) totalElement.textContent = totalEquipment;
+    if (goodElement) goodElement.textContent = goodEquipment;
+    if (badElement) badElement.textContent = badEquipment;
+    if (availableElement) availableElement.textContent = availableEquipment;
+    if (notAvailableElement) notAvailableElement.textContent = notAvailableEquipment;
+}
+
+updateAnalytics();
+
+function toggleMenu(){
+    const menu_button = document.getElementById("menu_btn");
+    const nav_list = document.querySelector("ul");
+    const left_main = document.querySelector(".left-main");
+    menu_button.addEventListener("click", function(){
+        if(nav_list.style.display === "none"){
+            nav_list.style.display = "block";
+        }else{
+            nav_list.style.display = "none";
+        }
+        if(left_main.style.display === "none"){
+            left_main.style.display = "block";
+        }
+        else{
+            left_main.style.display = "none";
+        }
+    });
+}
+toggleMenu();
 
 
 });
