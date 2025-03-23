@@ -1,3 +1,5 @@
+import { db } from "./firebaseConfig.js"
+import { doc, collection,deleteDoc,onSnapshot, setDoc,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 document.addEventListener("DOMContentLoaded", function () {
     const compu_equip_window = document.getElementById("compu-equip-window");
     const audio_equip_window = document.getElementById("audio-equip-window");  
@@ -22,6 +24,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const mecha_projects = document.getElementById("mech-projects");
     const wood_projects = document.getElementById("wood-projects");
     const cnc_projects = document.getElementById("cnc-projects");
+
+    //add equipment form trigger btn
+    const equip_trigger = document.getElementById("add_equip_btn");
+    const equip_form = document.getElementById("equipmentForm");
+    const  equip_close = document.getElementById("cancel");
+    //tesing skeleton
+    const skeleton = document.querySelector(".skeleton-screen");
+    const mainDashboard = document.querySelector(".main_dashboard");
+  
+    // Simulate loading delay
+    setTimeout(() => {
+      skeleton.style.display = "none"; // Hide skeleton
+      tronics_equip_window.style.visibility = "visible"; // Show actual content
+    }, 3000);
+
 
 
     if (compu_equip) {
@@ -131,10 +148,152 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+    if (equip_trigger) {
+        equip_trigger.addEventListener("click", function () {
+            if (equip_form.style.display === "none") {
+                equip_form.style.display = "block";
+            }
+        }
+    );
+    }
+    if (equip_close) {
+        equip_close.addEventListener("click", function () {
+            if (equip_form.style.display === "block") {
+                equip_form.style.display = "none";
+            }
+        }
+    );
+    }
+    if (equip_form) {
+        equip_form.addEventListener("submit", async (event) =>{
+            
+            event.preventDefault();
 
+            let equipment = document.getElementById("equipment").value;
+            let serial = document.getElementById("serial").value;
+            let condition = document.getElementById("condition").value;
+            let availability = document.getElementById("availability").value;
+            
+            
+
+            try {
+       
+                    //storing equipment details in Firestore
+                const equipmentDocRef = doc(collection(db, "ElectronicsLab"));
+                await setDoc(equipmentDocRef, {
+                Equipment: equipment,
+                Serial: serial, 
+                Condition: condition,
+                Availability: availability
+            });
+                alert("Equipment added successfully!");
+                equip_form.style.display = "none"; 
+
+            }catch (error) {
+                console.error("Error adding equipment:", error.message);
+                alert("Error: " + error.message);
+            }
+
+
+        });
+    }
+
+// Fetch equipment data from Firestore
+const fetchRealTimeData = () => {
+    const equipmentRef = collection(db, "ElectronicsLab"); // Use collection to reference the entire collection
     
+    // Listen for real-time updates
+    onSnapshot(equipmentRef, (snapshot) => {
+        console.log("Snapshot triggered!");
+      const equipmentData = [];
+      snapshot.forEach((doc) => {
+        equipmentData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
+      });
+  
+      // Render the updated data in the table
+      showTable(equipmentData);
+    });
+  };
+  
+  fetchRealTimeData();
+  
+  const showTable = (equipmentData) => {
+    const tableBody = document.querySelector("#equip_table tbody");
+    tableBody.innerHTML = ""; // Clear existing rows
+    
+    equipmentData.forEach((item) => {
+      const row = `
+        <tr>
+          <td>${item.Equipment}</td>
+          <td>${item.Serial}</td>
+          <td>${item.Condition}</td>
+          <td>${item.Availability}</td>
+          <td>
+          <div class="action-buttons">
+            <button class="edit-btn" data-id="${item.id}">Edit</button>
+            <button class="delete-btn" data-id="${item.id}">Delete</button>
+          </div>
+        </td>
+      `;
+      tableBody.innerHTML += row;
+    });
+  
+    // Attach click event listeners for edit and delete buttons
+    document.querySelectorAll(".edit-btn").forEach((button) => {
+      button.addEventListener("click", (e) => handleEdit(e.target.dataset.id));
+    });
+  
+    document.querySelectorAll(".delete-btn").forEach((button) => {
+      button.addEventListener("click", (e) => handleDelete(e.target.dataset.id));
+    });
+  };
+  
+  // Edit functionality
+const handleEdit = (id) => {
+    console.log(`Editing item with ID: ${id}`);
+    const equipment = prompt("Enter new equipment name:");
+    const serial = prompt("Enter new serial number:");
+    const condition = prompt("Enter new condition:");
+    const availability = prompt("Enter new availability:");
 
+    if (equipment || serial || condition || availability) {
+      try {
+        // Use Firestore's updateDoc() to update the specific document
+        const itemRef = doc(db, "ElectronicsLab", id);
+        updateDoc(itemRef, {
+          Equipment: equipment,
+          Serial: serial,
+          Condition: condition,
+          Availability: availability
+        });
+        alert("Item updated successfully!");
+      } catch (error) {
+        console.error("Error updating item:", error);
+        alert("Error: " + error.message);
+      }
+    }
+  };
+  
+  // Delete functionality
+  const handleDelete = async (id) => {
+    console.log(`Deleting item with ID: ${id}`);
+    const Confirm_message = confirm("Are you sure you want to delete this item?");
+    if (Confirm_message){
+        try {
+            // Use Firestore's deleteDoc() to delete the specific document
+            const itemRef = doc(db, "ElectronicsLab", id);
+            await deleteDoc(itemRef);
+            alert("Item deleted successfully!");
+          } catch (error) {
+            console.error("Error deleting item:", error);
+            alert("Error: " + error.message);
+          }
+    }
 
+  };
 
 
 });
+
+  
+    

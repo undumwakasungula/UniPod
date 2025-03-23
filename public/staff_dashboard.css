@@ -155,15 +155,16 @@ body{
 
 
   .tronics-equip-window{
-    display: flex;
+    display: block;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(207, 62, 62);
+    
     overflow: auto;
+    overflow-x: auto;
+    
   }
+
   
   .tronics-project-window{
     display: flex;
@@ -267,3 +268,211 @@ body{
     background-color: rgb(207, 62, 62);
     overflow: auto;
   }
+
+  .equip-label{
+    font-family: "segoe UI", sans-serif;
+    font-weight: 900;
+    font-size: 15pt;
+    margin-left: 20px;
+    font-style: normal;
+    
+  }
+
+  .add_equip_btn{
+    font-family: "segoe UI", sans-serif;
+    font-weight: 900;
+    font-size: 14pt;
+    margin-left: 20px;
+    font-style: normal;
+    background-color: #564cda;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .search_equip{
+    height: 37px;
+    width:30%;
+    border-radius: 10px;
+    margin-right: 10px;
+    justify-content: right;
+
+
+  }
+
+  .search_icon {
+    display: none; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px; 
+    margin-left: 100px
+  }
+ 
+  @media (max-width: 600px) { 
+    .search_equip {
+      display: none; 
+    }
+  
+    .search_icon {
+      display: block; 
+    }
+  }
+
+  .equip_table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 10px 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .equip_table thead {
+    background-color: #0078D7;
+    color: white;
+  }
+  
+  .equip_table th, .equip_table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    
+  }
+  
+  .equip_table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .equip_table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  .action-buttons{
+    display: flex;
+    gap:10px;
+  }
+  button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .edit-btn {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .edit-btn:hover {
+    background-color: #218838; 
+  }
+  
+  .delete-btn {
+    padding: 5px 10px;
+    background-color: #dc3545; 
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333; 
+  }
+  
+  form {
+    margin-bottom: 20px;
+    width: 70%;
+    max-width: 350px;
+    position: fixed;
+    z-index: 1000; 
+    background-color: white; 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  input, select, button {
+    padding: 8px;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 300px;
+  }
+
+
+  /* Overall skeleton screen container */
+.skeleton-screen {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #f3f3f3; /* Light background */
+  padding: 20px;
+}
+
+/* Sidebar skeleton styling */
+.skeleton-sidebar {
+  width: 20%;
+  background-color: #e0e0e0; /* Gray sidebar */
+  margin-right: 20px;
+}
+
+.skeleton-item {
+  width: 80%;
+  height: 20px;
+  margin: 20px auto;
+  background-color: #d6d6d6;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+/* Main content skeleton styling */
+.skeleton-main {
+  width: 80%;
+}
+
+.skeleton-header {
+  width: 60%;
+  height: 30px;
+  background-color: #d6d6d6;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+/* Skeleton table styling */
+.skeleton-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.skeleton-cell {
+  flex: 1;
+  height: 20px;
+  background-color: #e0e0e0;
+  margin-right: 10px;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+.skeleton-cell:last-child {
+  margin-right: 0;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #d6d6d6;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}

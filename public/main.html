@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff main_dashboard</title>
     <link rel="stylesheet"  href="staff_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
+
   
     <div class="side-bar">
         <nav>
@@ -17,6 +20,7 @@
         </nav>
 
     </div>
+
     <div class="main_dashboard">
         <div class="left-main" id="left-main" style="visibility: hidden;">
             <div id="reception_id" style="display: none;">
@@ -55,35 +59,112 @@
           <p id="welcome_remark" style="display: block;">Welcome to UMIS</p>
           <div id="compu-room" class="content-windows" style="display: none;">
             <div id="compu-equip-window" class="compu-equip-window" style="display: none;"></div>
-            welcome to computers</div>
+            </div>
           <div id="audio-visual" class="content-windows" style="display:none;">
             <div id="audio-equip-window" class="audio-equip-window" style="display: none;"></div>
             <div id="audio-project-window" class="audio-project-window" style="display: none;"></div>
-            welcome to audio-visual</div>
+            </div>
           <div id="electronics" class="content-windows" style="display: none;">
             
-          <div id="tronics-equip-window" class="equip-window" style="display: none;">
-            jfiuhjif fjjfghiuhrih fuhfhirhir
-            rfhuhuhit hfuhrir rfhrihirf
+          <div id="tronics-equip-window" class="tronics-equip-window" style="display: none;">
+            
+                    <!-- Skeleton Screen -->
+        <div class="skeleton-screen">
+          <div class="skeleton-sidebar">
+              <div class="skeleton-item"></div>
+              <div class="skeleton-item"></div>
           </div>
-          <div id="tronics-project-window" class="project-window" style="display: none;">jnvnjhf
-            fjfhhfhfihjif rnfurhfihjfr
-            rfjihjir
+          <div class="skeleton-main">
+              <div class="skeleton-header"></div>
+              <div class="skeleton-table">
+                  <div class="skeleton-row">
+                      <div class="skeleton-cell"></div>
+                      <div class="skeleton-cell"></div>
+                      <div class="skeleton-cell"></div>
+                      <div class="skeleton-cell"></div>
+                      <div class="skeleton-cell"></div>
+                  </div>
+                  <div class="skeleton-row">
+                      <div class="skeleton-cell"></div>
+                      <div class="skeleton-cell"></div>
+                      <div class="skeleton-cell"></div>
+                      <div class="skeleton-cell"></div>
+                      <div class="skeleton-cell"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+            <label class="equip-label">Equipment detail:</label><br><br>
+            <button id="add_equip_btn" class="add_equip_btn">Add equipment</button>
+            <input type="search" id="search_equip" class="search_equip" placeholder="Search equipment">
+            <button class="search_icon">
+              <i class="fa fa-search"></i>
+            </button>
+            
+            <form id="equipmentForm" style="display: none;">
+              <label for="equipment">Equipment:</label>
+              <input type="text" id="equipment" name="equipment" required>
+              <br>
+              
+              <label for="serial">Serial No:</label>
+              <input type="text" id="serial" name="serial" required>
+              <br>
+              
+              <label for="condition">Condition:</label>
+              <select id="condition" name="condition">
+                <option value="Good">Good</option>
+                <option value="Not Good">Need Repair</option>
+              </select>
+              <br>
+              
+              <label for="availability">Availability:</label>
+              <select id="availability" name="availability">
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+              </select>
+              <br>
+          
+              <button type="submit">Add Equipment</button>
+              <button type="button" id="cancel">Cancel</button>
+            </form>
+            <div id="equip_table" class="equip_table">
+              <table id="equip_table" class="equip_table">
+                <thead>
+                  <tr>
+                    <th>Equipment</th>
+                    <th>Serial No</th>
+                    <th>Condition</th>
+                    <th>Availability</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+              </table>
+              
+              
+               
+          </div>
+          <div id="tronics-project-window" class="tronics-project-window" style="display: none;">
+        
           </div>
             
             
             
             
             
-            welcome to electronics</div>
+          </div>
           <div id="mechanical" class="content-windows" style="display: none;">
             <div id="mech-equip-window" class="mech-equip-window" style="display: none;"></div>
             <div id="mech-project-window" class="mech-project-window" style="display: none;"></div>
-            welcome to mechanical</div>
+            </div>
           <div id="wood" class="content-windows" style="display: none;">
             <div id="wood-equip-window" class="wood-equip-window" style="display: none;"></div>
             <div id="wood-project-window" class="wood-project-window" style="display: none;"></div>
-            welcome to wood</div>
+            </div>
           <div id="cnc" class="content-windows" style="display: none;"> 
             <div id="cnc-equip-window" class="cnc-equip-window" style="display: none;"></div>
             <div id="cnc-project-window" class="cnc-project-window" style="display: none;"></div>
@@ -98,6 +179,6 @@
      <script src="/staff_dashboard.js"></script>
     <script type="module" src="/form.js"></script>
     <script src="/main.js"></script>
-    <script src="/workshop_flow.js"></script>
+    <script type="module" src="/workshop_flow.js"></script>
 </body>
 </html>
