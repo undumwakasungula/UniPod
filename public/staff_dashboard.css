@@ -8,13 +8,18 @@ body{
 
 
 .side-bar{
-    background-color:rgb(133, 133, 143);
+    background-color:whitesmoke ;
     height: 50px;
+    width: 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    position: fixed;
     border-top-left-radius:10PX;
     border-top-right-radius:10PX;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    position: relative;
 }
 
 .main_dashboard{
@@ -35,16 +40,19 @@ body{
     position: relative;
     box-sizing: border-box;
     border-right: rgb(158, 158, 158) 1px solid;
+    overflow: auto;
+    
 }
 
 .menu_btn{
   display: none;
-  size:15pt;
+  position: relative;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
-  align-self: left;
+  font-size: 36px;
+  margin: 0;
+  padding: 8px 16px;
 
 }
 
@@ -116,11 +124,12 @@ body{
   
   .side-bar a {
     text-decoration: none; 
-    color: white; 
+    color: rgb(112, 109, 109); 
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     padding: 5px 10px; 
     border-radius: 5px;
+    font-weight: bold;
 
     cursor: default;
   }
@@ -387,6 +396,9 @@ body{
   }
   
   form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
     width: 60%;
     max-width: 350px;
@@ -463,4 +475,8 @@ body{
 
   }
   
+}
+.input_field{
+
+  width:80%
 }
