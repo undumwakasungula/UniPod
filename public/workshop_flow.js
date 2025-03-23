@@ -29,16 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const equip_trigger = document.getElementById("add_equip_btn");
     const equip_form = document.getElementById("equipmentForm");
     const  equip_close = document.getElementById("cancel");
-    //tesing skeleton
-    const skeleton = document.querySelector(".skeleton-screen");
-    const mainDashboard = document.querySelector(".main_dashboard");
-  
-    // Simulate loading delay
-    setTimeout(() => {
-      skeleton.style.display = "none"; // Hide skeleton
-      tronics_equip_window.style.visibility = "visible"; // Show actual content
-    }, 3000);
-
 
 
     if (compu_equip) {

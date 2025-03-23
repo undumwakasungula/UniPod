@@ -156,12 +156,10 @@ body{
 
   .tronics-equip-window{
     display: block;
-    flex-direction: column;
     width: 100%;
     height: 100%;
-    
-    overflow: auto;
-    overflow-x: auto;
+    max-height: 100vh;
+    overflow-y: auto;
     
   }
 
@@ -294,7 +292,7 @@ body{
   .search_equip{
     height: 37px;
     width:30%;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-right: 10px;
     justify-content: right;
 
@@ -322,14 +320,19 @@ body{
 
   .equip_table {
     width: 90%;
+    height: auto;
     border-collapse: collapse;
     margin: 10px 10px;
     font-family: Arial, sans-serif;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
   }
   
   .equip_table thead {
     background-color: #0078D7;
     color: white;
+
   }
   
   .equip_table th, .equip_table td {
@@ -400,79 +403,20 @@ body{
     max-width: 300px;
   }
 
-
-  /* Overall skeleton screen container */
-.skeleton-screen {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  background-color: #f3f3f3; /* Light background */
-  padding: 20px;
-}
-
-/* Sidebar skeleton styling */
-.skeleton-sidebar {
-  width: 20%;
-  background-color: #e0e0e0; /* Gray sidebar */
-  margin-right: 20px;
-}
-
-.skeleton-item {
-  width: 80%;
-  height: 20px;
-  margin: 20px auto;
-  background-color: #d6d6d6;
-  border-radius: 4px;
-  animation: shimmer 1.5s infinite ease-in-out;
-}
-
-/* Main content skeleton styling */
-.skeleton-main {
-  width: 80%;
-}
-
-.skeleton-header {
-  width: 60%;
-  height: 30px;
-  background-color: #d6d6d6;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  animation: shimmer 1.5s infinite ease-in-out;
-}
-
-/* Skeleton table styling */
-.skeleton-table {
+.analytics{
   display: flex;
   flex-direction: column;
+  width: 90%;
+  max-height:90vh;
+  border: 1px solid black;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(27, 144, 165);
+  overflow: auto;
 }
 
-.skeleton-row {
-  display: flex;
-  margin-bottom: 10px;
-}
+.space-down{
 
-.skeleton-cell {
-  flex: 1;
-  height: 20px;
-  background-color: #e0e0e0;
-  margin-right: 10px;
-  border-radius: 4px;
-  animation: shimmer 1.5s infinite ease-in-out;
-}
-
-.skeleton-cell:last-child {
-  margin-right: 0;
-}
-
-/* Shimmer effect */
-@keyframes shimmer {
-  0% {
-    background-color: #e0e0e0;
-  }
-  50% {
-    background-color: #d6d6d6;
-  }
-  100% {
-    background-color: #e0e0e0;
-  }
+  height: 100px;
 }
