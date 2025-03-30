@@ -339,7 +339,7 @@ body{
     margin-left: 100px
   }
  
- @media (max-width: 600px) { 
+ @media (max-width: 480px) { 
     /*.search_equip {
       display: none; 
     }
@@ -434,7 +434,7 @@ body{
     overflow: auto;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     form {
         position: fixed;
         width: 90%;
@@ -481,7 +481,7 @@ body{
 }
 
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 480px) {
   .menu_btn {
     display: block;
   }
