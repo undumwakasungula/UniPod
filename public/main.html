@@ -158,45 +158,34 @@
   
               
               <form id="projectForm" style="display: none;">
-                <label for="equipment">Project:</label>
-                <input type="text" id="equipment" name="equipment" class="input_field" required>
+                <label for="project">Project:</label>
+                <input type="text" id="tronics_project" name="project" class="input_field" required>
                 <br>
-                <label for="equipment">Client:</label>
-                <input type="text" id="equipment" name="equipment" class="input_field" required>
+                <label for="client">Client:</label>
+                <input type="text" id="tronics_client" name="client" class="input_field" required>
                 <br>
+                              
                 
-                <label for="serial">P-No:</label>
-                <input type="text" id="serial" name="serial" class="input_field" required>
-                <br>
-                
-                <label for="condition">Status:</label>
-                <select id="condition" name="condition">
-                  <option value="Active">Active</option>
-                  <option value="Not Active">Inactive</option>
-                </select>
-                <br>
-                
-                <label for="availability">Duration(Wks):</label>
-                <select id="availability" name="availability">
-                  <option value="4">4</option>
-                  <option value="8">8</option>
-                  <option value="above 8">>8</option>
-                </select>
+                <label for="tronics_duration">Duration(Wks):</label>
+                <input type="number" id="tronics_duration" name="duration" class="input_field" required>
+
                 <br>
             
                 <button type="submit">Create</button>
-                <button type="button" id="cancel_project">Cancel</button>
+                <button type="button" id="tronics_cancel_project">Cancel</button>
               </form>
               <div id="project_table_div" class="equip_table">
-                <table id="project_table" class="equip_table">
+                <table id="tronics_project_table" class="equip_table">
                   <thead>
                     <tr>
                       <td>Project</td>
                       <td>Client</td>
                       <td>P-No</td>
                       <td>Status</td>
-                      <td>Autho-</td>
+                      <td>Autho</td>
                       <td>Duration</td>
+                      <td>Date</td>
+                      <td>Actions</td>
                     </tr>
                   </thead>
                   <tbody>
@@ -209,8 +198,9 @@
   
                 <div class="analytics">
                   <p>Total Projects: <span id="totalProjects">0</span></p>
-                  <p>P(Authalization): <span id="Authalization">0</span></p>
-                  <p>Active: <span id="Active Projects">0</span></p>
+                  <p>P(Authorization): <span id="Auth_projects">0</span></p>
+                  <p>Active: <span id="ActiveProjects">0</span></p>
+                  <p>Complete: <span id="CompleteProjects">0</span></p>
                   
                 </div>
   

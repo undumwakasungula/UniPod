@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //add project form trigger btn
     const project_trigger = document.getElementById("add_project_btn");
     const project_form = document.getElementById("projectForm");
-    const project_close = document.getElementById("cancel_project");
+    const project_close = document.getElementById("tronics_cancel_project");
 
 
 
@@ -213,6 +213,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
+
+
 // Fetch equipment data from Firestore
 const fetchRealTimeData = () => {
     const equipmentRef = collection(db, "ElectronicsLab"); // Use collection to reference the entire collection
@@ -249,7 +252,8 @@ const fetchRealTimeData = () => {
             <button class="edit-btn" data-id="${item.id}">Edit</button>
             <button class="delete-btn" data-id="${item.id}">Delete</button>
           </div>
-        </td>
+          </td>
+        </tr>
       `;
       tableBody.innerHTML += row;
     });
@@ -357,6 +361,210 @@ const handleEdit = (id) => {
 }
 
 updateAnalytics();
+
+if (project_form) {
+    
+    project_form.addEventListener("submit", async (event) =>{
+
+        event.preventDefault();
+
+        let project = document.getElementById("tronics_project").value;
+        let client = document.getElementById("tronics_client").value;
+        
+        let duration = document.getElementById("tronics_duration").value;
+        let projectID = generateProjectID(); 
+        let currentTime = new Date();
+        let timestamp = currentTime.toISOString(); 
+        
+
+        try {
+   
+                //storing projects details in Firestore
+            const projectsDocRef = doc(collection(db, "ElectronicsLabProjects"));
+            await setDoc(projectsDocRef, {
+            Project: project,
+            Client: client,
+            Project_ID: projectID,
+            Duration: duration,
+            Create_Date: timestamp
+        });
+            alert("project created successfully!");
+            project_form.style.display = "none"; 
+
+        }catch (error) {
+            console.error("Error creating projected:", error.message);
+            alert("Error: " + error.message);
+        }
+
+
+    });
+
+    function generateProjectID() {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let projectID = "";
+        for (let i = 0; i < 7; i++) {
+          const randomIndex = Math.floor(Math.random() * chars.length);
+          projectID += chars[randomIndex];
+        }
+        return projectID;
+      }
+      
+      
+}
+
+// Fetch project data from Firestore
+
+const fetchTronicsRealTimeDataProjects = () => {
+    const projectRef = collection(db, "ElectronicsLabProjects");
+    
+    // Listen for real-time updates
+    onSnapshot(projectRef, (snapshot) => {
+        console.log("Snapshot triggered!");
+      const projectsData = [];
+      snapshot.forEach((doc) => {
+        projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
+      });
+  
+      // Render the updated data in the table
+      showProjectTable(projectsData); 
+      updateProjectsAnalytics();
+    });
+  };
+  
+  fetchTronicsRealTimeDataProjects();
+  
+  const showProjectTable = (projectsData) => {
+    const tableBody = document.querySelector("#tronics_project_table tbody");
+    tableBody.innerHTML = ""; // Clear existing rows
+    
+    projectsData.forEach((item) => {
+
+        const createdAt = new Date(item.Create_Date);
+        const durationWeeks = item.Duration; // Assuming duration is in weeks
+
+        // Calculate the project's end date
+        const endDate = new Date(createdAt);
+        endDate.setDate(createdAt.getDate() + (durationWeeks * 7)); // Add duration (in weeks converted to days)
+
+        // Determine the project status
+        const currentDate = new Date(); // Get the current date
+        const Status = currentDate > endDate ? "Completed" : "In Progress";
+      const row = `
+        <tr>
+          <td>${item.Project}</td>
+          <td>${item.Client}</td>
+          <td>${item.Project_ID}</td>
+          <td>${Status}</td>
+          <td>${item.Authorization}</td>
+          <td>${item.Duration}</td>
+          <td>${item.Create_Date}</td>
+          <td>
+          <div class="action-buttons">
+            <button class="edit-btn" data-id="${item.id}">Edit</button>
+            <button class="delete-btn" data-id="${item.id}">Delete</button>
+          </div>
+          </td>
+        <tr>  
+      `;
+      tableBody.innerHTML += row;
+    });
+  
+    //event listeners for edit and delete buttons
+    document.querySelectorAll(".edit-btn").forEach((button) => {
+      button.addEventListener("click", (e) => Edithandler(e.target.dataset.id));
+    });
+  
+    document.querySelectorAll(".delete-btn").forEach((button) => {
+      button.addEventListener("click", (e) => handler_Delete(e.target.dataset.id));
+    });
+  };
+  
+  
+  // Edit functionality
+const Edithandler = (id) => {
+    console.log(`Editing item with ID: ${id}`);
+    const project = prompt("Enter new product name:");
+    const client = prompt("Enter new client name:");
+    const duration = prompt("Enter new duration:");
+
+    if (project || client|| duration) {
+      try {
+        // Use Firestore's updateDoc() to update the specific document
+        const itemRef = doc(db, "ElectronicsLabProjects", id);
+        updateDoc(itemRef, {
+            Project: project,
+            Client: client,
+            Duration: duration
+        });
+        alert("Item updated successfully!");
+      } catch (error) {
+        console.error("Error updating item:", error);
+        alert("Error: " + error.message);
+      }
+    }
+   
+  };
+  
+  // Delete functionality
+  const handler_Delete = async (id) => {
+    console.log(`Deleting item with ID: ${id}`);
+    const Confirm_message = confirm("Are you sure you want to delete this item?");
+    if (Confirm_message){
+        try {
+            // Use Firestore's deleteDoc() to delete the specific document
+            const itemRef = doc(db, "ElectronicsLabProjects", id);
+            await deleteDoc(itemRef);
+            alert("Item deleted successfully!");
+          } catch (error) {
+            console.error("Error deleting item:", error);
+            alert("Error: " + error.message);
+          }
+    }
+    
+
+  };
+  function updateProjectsAnalytics() {
+    
+    const rows = document.querySelectorAll("#project_table_div table tbody tr");
+
+    let totalProjects = 0;
+   // let Auth_projects = 0;
+    let ActiveProjects = 0;
+    let CompleteProjects = 0;
+    
+
+    rows.forEach(row => {
+        console.log(row.cells[3]?.textContent.trim(), row.cells[4]?.textContent.trim());
+        totalProjects++;
+        totalProjects++;
+        if (row.cells.length >= 4) {
+            const status = row.cells[3].textContent.trim();
+            //const authorize = row.cells[4].textContent.trim();
+            
+
+            if (status === "In Progress") {
+                ActiveProjects++;
+                
+            } else {
+                CompleteProjects++;
+            }
+    
+
+        }
+        
+
+    });
+
+    // calculated values
+    const totalP = document.getElementById("totalProjects");
+    const ActiveP = document.getElementById("ActiveProjects");
+    const CompleteP = document.getElementById("CompleteProjects");
+
+    if (totalP) totalP.textContent = totalProjects;
+    if (ActiveP) ActiveP.textContent = ActiveProjects;
+    if (CompleteP) CompleteP.textContent = CompleteProjects;
+  
+}
 
 function toggleMenu(){
     const menu_button = document.getElementById("menu_btn");

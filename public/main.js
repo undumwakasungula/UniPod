@@ -50,6 +50,8 @@ addparagraph.addEventListener("click", function addEquipmentt(){
 } );
 
 
+
+
 function gotoExternal() {
   window.location.href = "/externalsignup.html";
 }
