@@ -585,6 +585,23 @@ function toggleMenu(){
 toggleMenu();
 
 
+document.getElementById("search_project").addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#project_table_div tbody tr');
+  
+    rows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      if(searchValue===""){
+        row.classList.remove('highlight');
+      }
+      else if (rowText.includes(searchValue)) {
+        row.classList.add('highlight'); // Highlight matching rows
+      } else {
+        row.classList.remove('highlight'); // Remove highlight from non-matching rows
+      }
+    });
+  });
+
 });
 
   
