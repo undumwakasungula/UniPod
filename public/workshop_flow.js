@@ -502,6 +502,7 @@ const Edithandler = (id) => {
         alert("Error: " + error.message);
       }
     }
+    updateProjectsAnalytics();
    
   };
   
@@ -520,6 +521,7 @@ const Edithandler = (id) => {
             alert("Error: " + error.message);
           }
     }
+    updateProjectsAnalytics();
     
 
   };
@@ -528,14 +530,12 @@ const Edithandler = (id) => {
     const rows = document.querySelectorAll("#project_table_div table tbody tr");
 
     let totalProjects = 0;
-   // let Auth_projects = 0;
     let ActiveProjects = 0;
     let CompleteProjects = 0;
-    
+    // let Auth_projects = 0;
 
     rows.forEach(row => {
         console.log(row.cells[3]?.textContent.trim(), row.cells[4]?.textContent.trim());
-        totalProjects++;
         totalProjects++;
         if (row.cells.length >= 4) {
             const status = row.cells[3].textContent.trim();
@@ -549,12 +549,10 @@ const Edithandler = (id) => {
                 CompleteProjects++;
             }
     
-
         }
         
-
     });
-
+    
     // calculated values
     const totalP = document.getElementById("totalProjects");
     const ActiveP = document.getElementById("ActiveProjects");
@@ -565,7 +563,7 @@ const Edithandler = (id) => {
     if (CompleteP) CompleteP.textContent = CompleteProjects;
   
 }
-
+updateProjectsAnalytics();
 function toggleMenu(){
     const menu_button = document.getElementById("menu_btn");
     const nav_list = document.querySelector("ul");
