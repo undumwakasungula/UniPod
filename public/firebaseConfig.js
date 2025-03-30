@@ -19,7 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app); // Initialize Auth
-const db = getFirestore(app,  {localCache: persistentLocalCache()}); // Initialize Firestore
+const db = getFirestore(app); // Initialize Firestore
 
 // Export Firebase services for use in your app
 export { app, analytics, auth, db };
