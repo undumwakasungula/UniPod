@@ -1,5 +1,6 @@
-import { db } from "./firebaseConfig.js"
+/*import { db } from "./firebaseConfig.js"
 import { doc, collection,deleteDoc,onSnapshot, setDoc,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+*/
 document.addEventListener("DOMContentLoaded", function () {
     const compu_equip_window = document.getElementById("compu-equip-window");
     const audio_equip_window = document.getElementById("audio-equip-window");  
@@ -29,6 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const equip_trigger = document.getElementById("add_equip_btn");
     const equip_form = document.getElementById("equipmentForm");
     const  equip_close = document.getElementById("cancel");
+    //add project form trigger btn
+    const project_trigger = document.getElementById("add_project_btn");
+    const project_form = document.getElementById("projectForm");
+    const project_close = document.getElementById("cancel_project");
+
 
 
     if (compu_equip) {
@@ -80,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (cnc_equip) {
         cnc_equip.addEventListener("click", function cncEquip() {
+            
             if (cnc_equip_window.style.display === "none") {
                 cnc_equip_window.style.display = "block";
             }
@@ -100,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (tronics_projects) {
         tronics_projects.addEventListener("click", function tronicsProjects() {
+            
             if (tronics_projects_window.style.display === "none") {
                 tronics_projects_window.style.display = "block";
             }
@@ -138,6 +146,23 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+    if (project_trigger) {
+        project_trigger.addEventListener("click", function () {
+            if (project_form.style.display === "none") {
+                project_form.style.display = "block";
+            }
+        }
+    );
+    }
+    if (project_close) {
+        project_close.addEventListener("click", function () {
+            if (project_form.style.display === "block") {
+                project_form.style.display = "none";
+            }
+        }
+    );
+    }
+
     if (equip_trigger) {
         equip_trigger.addEventListener("click", function () {
             if (equip_form.style.display === "none") {

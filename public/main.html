@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff main_dashboard</title>
     <link rel="stylesheet"  href="staff_dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 
 </head>
 <body>
-
-  
     <div class="side-bar">
       <button id="menu_btn" class="menu_btn" onclick="toggleMenu()">
-        <i class="fa fa-bars"></i>
+        menu
       </button>
         <nav class="nav-bar" id="nav-bar">
             <ul id="nav-list"  class="nav-list">
@@ -73,13 +70,18 @@
           <div id="tronics-equip-window" class="tronics-equip-window" style="display: none;">
             
 
-
             <label class="equip-label">Equipment detail:</label><br><br>
-            <button id="add_equip_btn" class="add_equip_btn">Add equipment</button>
-            <input type="search" id="search_equip" class="search_equip" placeholder="Search equipment">
-            <button class="search_icon">
-              <i class="fa fa-search"></i>
-            </button>
+          <div class="search_add_area">
+            <div class="search_area" >
+              <input type="search" id="search_equip" class="search_equip" placeholder="Search equipment"></input>
+            </div>
+          <div class="add_b">
+            <button id="add_equip_btn" class="add_equip_btn">+ Add</button>
+          </div>
+
+            
+          </div>
+
             
             <form id="equipmentForm" style="display: none;">
               <label for="equipment">Equipment:</label>
@@ -107,6 +109,7 @@
               <button type="submit">Add Equipment</button>
               <button type="button" id="cancel">Cancel</button>
             </form>
+
             <div id="equip_table" class="equip_table">
               <table id="equip_table" class="equip_table">
                 <thead>
@@ -123,6 +126,8 @@
                 </tbody>
 
               </table><br><br>
+            </div>
+
               <label class="equip-label">analytics:</label><br>
 
               <div class="analytics">
@@ -131,7 +136,7 @@
                 <p>Bad Equipment: <span id="badEquipment">0</span></p>
                 <p>Available Equipment: <span id="availableEquipment">0</span></p>
                 <p>Not Available Equipment: <span id="notAvailableEquipment">0</span></p>
-            </div>
+              </div>
 
               <div class="space-down"></div>
               
@@ -139,14 +144,85 @@
                
           </div>
           <div id="tronics-project-window" class="tronics-project-window" style="display: none;">
-        
+            <label class="equip-label">Project detail:</label><br><br>
+            <div class="search_add_area">
+              <div class="search_area" >
+                <input type="search" id="search_project" class="search_equip" placeholder="Search"></input>
+              </div>
+            <div class="add_b">
+              <button id="add_project_btn" class="add_equip_btn">+ Create</button>
+            </div>
+  
+              
+            </div>
+  
+              
+              <form id="projectForm" style="display: none;">
+                <label for="equipment">Project:</label>
+                <input type="text" id="equipment" name="equipment" class="input_field" required>
+                <br>
+                <label for="equipment">Client:</label>
+                <input type="text" id="equipment" name="equipment" class="input_field" required>
+                <br>
+                
+                <label for="serial">P-No:</label>
+                <input type="text" id="serial" name="serial" class="input_field" required>
+                <br>
+                
+                <label for="condition">Status:</label>
+                <select id="condition" name="condition">
+                  <option value="Active">Active</option>
+                  <option value="Not Active">Inactive</option>
+                </select>
+                <br>
+                
+                <label for="availability">Duration(Wks):</label>
+                <select id="availability" name="availability">
+                  <option value="4">4</option>
+                  <option value="8">8</option>
+                  <option value="above 8">>8</option>
+                </select>
+                <br>
+            
+                <button type="submit">Create</button>
+                <button type="button" id="cancel_project">Cancel</button>
+              </form>
+              <div id="project_table_div" class="equip_table">
+                <table id="project_table" class="equip_table">
+                  <thead>
+                    <tr>
+                      <td>Project</td>
+                      <td>Client</td>
+                      <td>P-No</td>
+                      <td>Status</td>
+                      <td>Autho-</td>
+                      <td>Duration</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+                  </tbody>
+  
+                </table><br><br>
+              </div>  
+                <label class="equip-label">analytics:</label><br>
+  
+                <div class="analytics">
+                  <p>Total Projects: <span id="totalProjects">0</span></p>
+                  <p>P(Authalization): <span id="Authalization">0</span></p>
+                  <p>Active: <span id="Active Projects">0</span></p>
+                  
+                </div>
+  
+                <div class="space-down"></div>
+                
+          
+
           </div>
             
+        </div> 
             
-            
-            
-            
-          </div>
+          
           <div id="mechanical" class="content-windows" style="display: none;">
             <div id="mech-equip-window" class="mech-equip-window" style="display: none;"></div>
             <div id="mech-project-window" class="mech-project-window" style="display: none;"></div>

@@ -304,7 +304,9 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   if(DCIO_btn){
+    
     DCIO_btn.addEventListener("click", function getDCIO(){
+      
         if(welcome_message.style.display==="block"){
           welcome_message.style.display= "none";
         }
