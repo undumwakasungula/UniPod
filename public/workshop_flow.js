@@ -201,12 +201,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 Condition: condition,
                 Availability: availability
             });
-                alert("Equipment added successfully!");
                 equip_form.style.display = "none"; 
+                showEquipSuccessMessage();
+                
 
             }catch (error) {
                 console.error("Error adding equipment:", error.message);
-                alert("Error: " + error.message);
+                showEquipfailMessage()
             }
 
 
@@ -269,50 +270,77 @@ const fetchRealTimeData = () => {
   };
   
   // Edit functionality
-const handleEdit = (id) => {
+  const handleEdit = (id) => {
     console.log(`Editing item with ID: ${id}`);
-    const equipment = prompt("Enter new equipment name:");
-    const serial = prompt("Enter new serial number:");
-    const condition = prompt("Enter new condition:");
-    const availability = prompt("Enter new availability:");
-
-    if (equipment || serial || condition || availability) {
-      try {
-        // Use Firestore's updateDoc() to update the specific document
-        const itemRef = doc(db, "ElectronicsLab", id);
-        updateDoc(itemRef, {
-          Equipment: equipment,
-          Serial: serial,
-          Condition: condition,
-          Availability: availability
-        });
-        alert("Item updated successfully!");
-      } catch (error) {
-        console.error("Error updating item:", error);
-        alert("Error: " + error.message);
+  
+    // Prompt the user for updates 
+    const equipment = prompt("Enter new equipment name (leave empty to keep existing):");
+    const serial = prompt("Enter new serial number (leave empty to keep existing):");
+    const condition = prompt("Enter new condition (leave empty to keep existing):");
+    const availability = prompt("Enter new availability (leave empty to keep existing):");
+  
+    try {
+      
+      const itemRef = doc(db, "ElectronicsLab", id);
+  
+      
+      const updates = {};
+  
+      
+      if (equipment) updates.Equipment = equipment;
+      if (serial) updates.Serial = serial;
+      if (condition) updates.Condition = condition;
+      if (availability) updates.Availability = availability;
+  
+      // If there are updates, proceed with Firestore's updateDoc()
+      if (Object.keys(updates).length > 0) {
+        updateDoc(itemRef, updates)
+          .then(() => {
+            showEquipupdateMessage();
+          })
+          .catch((error) => {
+            console.error("Error updating item:", error);
+            showEquipupdatefailMessage();
+          });
+      } else {
+        console.log("No updates provided.");
       }
+      
+      updateAnalytics();
+    } catch (error) {
+      console.error("Error handling edit operation:", error);
     }
+  };
+  
+  
+  const handleDelete = async (id, event) => {
+    if(event) event.preventDefault();
+    console.log(`Deleting item with ID: ${id}`);
+  
+    window.alert = () => {};
+  
+    
+    const confirmMessage = confirm("Are you sure you want to delete this item?");
+    if (confirmMessage) {
+      try {
+        
+        const itemRef = doc(db, "ElectronicsLab", id);
+        await deleteDoc(itemRef);
+  
+       
+        showEquipdeleteMessage();
+      } catch (error) {
+        console.error("Error deleting item:", error);
+        showEquipdeletefailMessage();
+      }
+    } else {
+      console.log("Delete operation was canceled.");
+    }
+  
+    // Ensure analytics are updated after deletion attempt
     updateAnalytics();
   };
   
-  // Delete functionality
-  const handleDelete = async (id) => {
-    console.log(`Deleting item with ID: ${id}`);
-    const Confirm_message = confirm("Are you sure you want to delete this item?");
-    if (Confirm_message){
-        try {
-            // Use Firestore's deleteDoc() to delete the specific document
-            const itemRef = doc(db, "ElectronicsLab", id);
-            await deleteDoc(itemRef);
-            alert("Item deleted successfully!");
-          } catch (error) {
-            console.error("Error deleting item:", error);
-            alert("Error: " + error.message);
-          }
-    }
-    updateAnalytics();
-
-  };
   function updateAnalytics() {
     const rows = document.querySelectorAll("table tbody tr");
 
@@ -347,17 +375,17 @@ const handleEdit = (id) => {
     });
 
     // calculated values
-    const totalElement = document.getElementById("totalEquipment");
-    const goodElement = document.getElementById("goodEquipment");
-    const badElement = document.getElementById("badEquipment");
-    const availableElement = document.getElementById("availableEquipment");
-    const notAvailableElement = document.getElementById("notAvailableEquipment");
+    const total = document.getElementById("totalEquipment");
+    const goodElements = document.getElementById("goodEquipment");
+    const badElements = document.getElementById("badEquipment");
+    const availableElements = document.getElementById("availableEquipment");
+    const notAvailableElements = document.getElementById("notAvailableEquipment");
 
-    if (totalElement) totalElement.textContent = totalEquipment;
-    if (goodElement) goodElement.textContent = goodEquipment;
-    if (badElement) badElement.textContent = badEquipment;
-    if (availableElement) availableElement.textContent = availableEquipment;
-    if (notAvailableElement) notAvailableElement.textContent = notAvailableEquipment;
+    if (total) total.textContent = totalEquipment;
+    if (goodElements) goodElements.textContent = goodEquipment;
+    if (badElements) badElements.textContent = badEquipment;
+    if (availableElements) availableElements.textContent = availableEquipment;
+    if (notAvailableElements) notAvailableElements.textContent = notAvailableEquipment;
 }
 
 updateAnalytics();
@@ -388,12 +416,12 @@ if (project_form) {
             Duration: duration,
             Create_Date: timestamp
         });
-            alert("project created successfully!");
+            showProjectSuccessMessage();
             project_form.style.display = "none"; 
 
         }catch (error) {
             console.error("Error creating projected:", error.message);
-            alert("Error: " + error.message);
+            showProjectfailMessage();
         }
 
 
@@ -481,29 +509,45 @@ const fetchTronicsRealTimeDataProjects = () => {
   
   
   // Edit functionality
-const Edithandler = (id) => {
+  const Edithandler = (id) => {
     console.log(`Editing item with ID: ${id}`);
-    const project = prompt("Enter new product name:");
-    const client = prompt("Enter new client name:");
-    const duration = prompt("Enter new duration:");
-
-    if (project || client|| duration) {
-      try {
-        // Use Firestore's updateDoc() to update the specific document
-        const itemRef = doc(db, "ElectronicsLabProjects", id);
-        updateDoc(itemRef, {
-            Project: project,
-            Client: client,
-            Duration: duration
-        });
-        alert("Item updated successfully!");
-      } catch (error) {
-        console.error("Error updating item:", error);
-        alert("Error: " + error.message);
+  
+    // Prompt the user for updates 
+    const project = prompt("Enter project name (leave empty to keep existing):");
+    const client = prompt("Enter client(leave empty to keep existing):");
+    const duration = prompt("Enter duration (leave empty to keep existing):");
+  
+  
+    try {
+      
+      const itemRef = doc(db, "ElectronicsLabProjects", id);
+      
+      const updates = {};
+  
+      
+      if (project) updates.Project = project;
+      if (client) updates.Client = client;
+      if (duration) updates.Duration = duration;
+      
+  
+      // If there are updates, proceed with Firestore's updateDoc()
+      if (Object.keys(updates).length > 0) {
+        updateDoc(itemRef, updates)
+          .then(() => {
+            showProjectupdateMessage();
+          })
+          .catch((error) => {
+            console.error("Error updating item:", error);
+            showProjectupdatefailMessage();
+          });
+      } else {
+        console.log("No updates provided.");
       }
+      
+      updateProjectsAnalytics();
+    } catch (error) {
+      console.error("Error handling edit operation:", error);
     }
-    updateProjectsAnalytics();
-   
   };
   
   // Delete functionality
@@ -515,10 +559,10 @@ const Edithandler = (id) => {
             // Use Firestore's deleteDoc() to delete the specific document
             const itemRef = doc(db, "ElectronicsLabProjects", id);
             await deleteDoc(itemRef);
-            alert("Item deleted successfully!");
+            showProjectdeleteMessage();
           } catch (error) {
             console.error("Error deleting item:", error);
-            alert("Error: " + error.message);
+            showProjectdeletefailMessage();
           }
     }
     updateProjectsAnalytics();
@@ -601,6 +645,195 @@ document.getElementById("search_project").addEventListener('input', function () 
       }
     });
   });
+
+  document.getElementById("search_equip").addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#equip_table_div tbody tr');
+  
+    rows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      if(searchValue===""){
+        row.classList.remove('highlight');
+      }
+      else if (rowText.includes(searchValue)) {
+        row.classList.add('highlight'); // Highlight matching rows
+      } else {
+        row.classList.remove('highlight'); // Remove highlight from non-matching rows
+      }
+    });
+  });
+
+//functions for equip messages
+function showEquipSuccessMessage(){
+    const message = document.getElementById("equip_success_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+function showEquipfailMessage(){
+    const message = document.getElementById("equip_fail_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+function showEquipdeleteMessage(){
+    const message = document.getElementById("equip_delete_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+function showEquipdeletefailMessage(){
+    const message = document.getElementById("equip_deleteFail_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  function showEquipupdateMessage(){
+    const message = document.getElementById("equip_update_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+ function showEquipupdatefailMessage(){
+    const message = document.getElementById("equip_updateFail_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+
+function showEquipdeleteMessage(){
+    const message = document.getElementById("equip_delete_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+//functions for projects message
+
+function showProjectSuccessMessage(){
+    const message = document.getElementById("project_success_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+function showProjectfailMessage(){
+    const message = document.getElementById("project_fail_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+function showProjectdeleteMessage(){
+    const message = document.getElementById("project_delete_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+function showProjectdeletefailMessage(){
+    const message = document.getElementById("project_deleteFail_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  function showProjectupdateMessage(){
+    const message = document.getElementById("project_update_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+ function showProjectupdatefailMessage(){
+    const message = document.getElementById("project_updateFail_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
+
+function showProjectdeleteMessage(){
+    const message = document.getElementById("project_delete_message");
+    message.style.display = "flex";
+
+    setTimeout(() => {
+        message.style.display = "none";
+      }, 3000);
+
+
+
+
+}  
 
 });
 
