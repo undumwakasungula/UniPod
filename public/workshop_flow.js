@@ -25,7 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const mecha_projects = document.getElementById("mech-projects");
     const wood_projects = document.getElementById("wood-projects");
     const cnc_projects = document.getElementById("cnc-projects");
+  //same just small difference
 
+  const compu_equipdd = document.getElementById("compu-equipd");
+  const audio_equipdd = document.getElementById("audio-equipd");
+  const tronics_equipdd = document.getElementById("tronics-equipd");
+  const mecha_equipdd = document.getElementById("mech-equipd");
+  const wood_equipdd = document.getElementById("wood-equipd");
+  const cnc_equipdd = document.getElementById("cnc-equipd");
+  const audio_projectsdd = document.getElementById("audio-projectsd");
+  const tronics_projectsdd = document.getElementById("tronics-projectsd");
+  const mecha_projectsdd = document.getElementById("mech-projectsd");
+  const wood_projectsdd = document.getElementById("wood-projectsd");
+  const cnc_projectsdd= document.getElementById("cnc-projectsd");
     //add equipment form trigger btn
     const equip_trigger = document.getElementById("add_equip_btn");
     const equip_form = document.getElementById("equipmentForm");
@@ -40,11 +52,22 @@ document.addEventListener("DOMContentLoaded", function () {
     if (compu_equip) {
         compu_equip.addEventListener("click", function compuEquip() {
             if (compu_equip_window.style.display === "none") {
+                
                 compu_equip_window.style.display = "block";
             }
         });
     }
-    if (audio_equip) {
+    if (compu_equipdd) {
+        
+        compu_equipdd.addEventListener("click", function compuEquip() {
+            if (compu_equip_window.style.display === "none") {
+                
+                compu_equip_window.style.display = "block";
+            }
+        });
+    }
+    if (audio_equip ) {
+        
         audio_equip.addEventListener("click", function audioEquip() {
             if (audio_equip_window.style.display === "none") {
                 audio_equip_window.style.display = "block";
@@ -54,8 +77,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    if (tronics_equip) {
-        tronics_equip.addEventListener("click", function tronicsEquip() {
+
+    if (audio_equipdd) {
+        
+        audio_equipdd.addEventListener("click", function audioEquip() {
+            if (audio_equip_window.style.display === "none") {
+                audio_equip_window.style.display = "block";
+            }
+            if (audio_equip_window.style.display === "block") {
+                audio_projects_window.style.display = "none";
+            }
+        });
+    }
+    if (tronics_equip || tronics_equipdd) {
+        const targetEle = tronics_equip || tronics_equipdd;
+        targetEle.addEventListener("click", function tronicsEquip() {
             if (tronics_equip_window.style.display === "none") {
                 tronics_equip_window.style.display = "block";
             }
@@ -64,8 +100,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    if (mecha_equip) {
-        mecha_equip.addEventListener("click", function mechaEquip() {
+
+    if (tronics_equipdd) {
+        
+       tronics_equipdd.addEventListener("click", function tronicsEquip() {
+            if (tronics_equip_window.style.display === "none") {
+                tronics_equip_window.style.display = "block";
+            }
+            if (tronics_equip_window.style.display === "block") {
+                tronics_projects_window.style.display = "none";
+            }
+        });
+    }
+    if (mecha_equip || mecha_equipdd) {
+        const targetEle = mecha_equip || mecha_equipdd;
+        targetEle.addEventListener("click", function mechaEquip() {
             if (mech_equip_window.style.display === "none") {
                 mech_equip_window.style.display = "block";
             }
@@ -74,7 +123,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    if (wood_equip) {
+
+    if (mecha_equipdd) {
+        
+        mecha_equipdd.addEventListener("click", function mechaEquip() {
+            if (mech_equip_window.style.display === "none") {
+                mech_equip_window.style.display = "block";
+            }
+            if (mech_equip_window.style.display === "block") {
+                mech_projects_window.style.display = "none";
+            }
+        });
+    }
+    if (wood_equip ) {
+        
         wood_equip.addEventListener("click", function woodEquip() {
             if (wood_equip_window.style.display === "none") {
                 wood_equip_window.style.display = "block";
@@ -84,7 +146,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    if (cnc_equip) {
+
+    if (wood_equipdd) {
+        
+        wood_equipdd.addEventListener("click", function woodEquip() {
+            if (wood_equip_window.style.display === "none") {
+                wood_equip_window.style.display = "block";
+            }
+            if (wood_equip_window.style.display === "block") {
+                wood_projects_window.style.display = "none";
+            }
+        });
+    }
+    if (cnc_equip ) {
+        
         cnc_equip.addEventListener("click", function cncEquip() {
             
             if (cnc_equip_window.style.display === "none") {
@@ -95,7 +170,23 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    if (audio_projects) {
+
+
+    if (cnc_equipdd ) {
+        
+        cnc_equipdd.addEventListener("click", function cncEquip() {
+            
+            if (cnc_equip_window.style.display === "none") {
+                cnc_equip_window.style.display = "block";
+            }
+            if (cnc_equip_window.style.display === "block") {
+                cnc_projects_window.style.display = "none";
+            }
+        });
+    }
+    
+    if (audio_projects ) {
+        
         audio_projects.addEventListener("click", function audioProjects() {
             if (audio_projects_window.style.display === "none") {
                 audio_projects_window.style.display = "block";
@@ -105,7 +196,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    if (tronics_projects) {
+
+    if (audio_projectsdd ) {
+        
+        audio_projectsdd.addEventListener("click", function audioProjects() {
+            if (audio_projects_window.style.display === "none") {
+                audio_projects_window.style.display = "block";
+            }
+            if (audio_projects_window.style.display === "block") {
+                audio_equip_window.style.display = "none";
+            }
+        });
+    }
+    if (tronics_projects ) {
+        
         tronics_projects.addEventListener("click", function tronicsProjects() {
             
             if (tronics_projects_window.style.display === "none") {
@@ -116,7 +220,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+    if (tronics_projectsdd ) {
+        
+        tronics_projectsdd.addEventListener("click", function tronicsProjects() {
+            
+            if (tronics_projects_window.style.display === "none") {
+                tronics_projects_window.style.display = "block";
+            }
+            if (tronics_projects_window.style.display === "block") {
+                tronics_equip_window.style.display = "none";
+            }
+        });
+    }
+
     if (mecha_projects) {
+        
         mecha_projects.addEventListener("click", function mechaProjects() {
             if (mech_projects_window.style.display === "none") {
                 mech_projects_window.style.display = "block";
@@ -126,7 +244,22 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-    if (wood_projects) {
+
+
+    if (mecha_projectsdd) {
+        
+        mecha_projectsdd.addEventListener("click", function mechaProjects() {
+            if (mech_projects_window.style.display === "none") {
+                mech_projects_window.style.display = "block";
+            }
+            if (mech_projects_window.style.display === "block") {
+                mech_equip_window.style.display = "none";
+            }
+        });
+    }
+
+    if (wood_projects ) {
+        
         wood_projects.addEventListener("click", function woodProjects() {
             if (wood_projects_window.style.display === "none") {
                 wood_projects_window.style.display = "block";
@@ -136,7 +269,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    if (wood_projectsdd ) {
+        
+        wood_projectsdd.addEventListener("click", function woodProjects() {
+            if (wood_projects_window.style.display === "none") {
+                wood_projects_window.style.display = "block";
+            }
+            if (wood_projects_window.style.display === "block") {
+                wood_equip_window.style.display = "none";
+            }
+        });
+    }
+
     if (cnc_projects) {
+        
         cnc_projects.addEventListener("click", function cncProjects() {
             if (cnc_projects_window.style.display === "none") {
                 cnc_projects_window.style.display = "block";
@@ -146,6 +293,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    if (cnc_projectsdd) {
+        
+        cnc_projectsdd.addEventListener("click", function cncProjects() {
+            if (cnc_projects_window.style.display === "none") {
+                cnc_projects_window.style.display = "block";
+            }
+            if (cnc_projects_window.style.display === "block") {
+                cnc_equip_window.style.display = "none";
+            }
+        });
+    }
+
     if (project_trigger) {
         project_trigger.addEventListener("click", function () {
             if (project_form.style.display === "none") {
@@ -389,215 +549,171 @@ const fetchRealTimeData = () => {
 }
 
 updateAnalytics();
-
 if (project_form) {
-    
-    project_form.addEventListener("submit", async (event) =>{
-
+    project_form.addEventListener("submit", async (event) => {
         event.preventDefault();
-
         let project = document.getElementById("tronics_project").value;
         let client = document.getElementById("tronics_client").value;
-        
         let duration = document.getElementById("tronics_duration").value;
-        let projectID = generateProjectID(); 
+        let projectID = generateProjectID();
         let currentTime = new Date();
-        let timestamp = currentTime.toISOString(); 
-        
-
+        let timestamp = currentTime.toISOString();
         try {
-   
-                //storing projects details in Firestore
+            // Storing projects details in Firestore
             const projectsDocRef = doc(collection(db, "ElectronicsLabProjects"));
             await setDoc(projectsDocRef, {
-            Project: project,
-            Client: client,
-            Project_ID: projectID,
-            Duration: duration,
-            Create_Date: timestamp
-        });
+                Project: project,
+                Client: client,
+                Project_ID: projectID,
+                Duration: duration,
+                Create_Date: timestamp
+            });
             showProjectSuccessMessage();
-            project_form.style.display = "none"; 
-
-        }catch (error) {
-            console.error("Error creating projected:", error.message);
+            project_form.style.display = "none";
+        } catch (error) {
+            console.error("Error creating project:", error.message);
             showProjectfailMessage();
         }
-
-
     });
 
     function generateProjectID() {
         const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         let projectID = "";
         for (let i = 0; i < 7; i++) {
-          const randomIndex = Math.floor(Math.random() * chars.length);
-          projectID += chars[randomIndex];
+            const randomIndex = Math.floor(Math.random() * chars.length);
+            projectID += chars[randomIndex];
         }
         return projectID;
-      }
-      
-      
+    }
 }
 
 // Fetch project data from Firestore
-
 const fetchTronicsRealTimeDataProjects = () => {
     const projectRef = collection(db, "ElectronicsLabProjects");
-    
     // Listen for real-time updates
     onSnapshot(projectRef, (snapshot) => {
         console.log("Snapshot triggered!");
-      const projectsData = [];
-      snapshot.forEach((doc) => {
-        projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
-      });
-  
-      // Render the updated data in the table
-      showProjectTable(projectsData); 
-      updateProjectsAnalytics();
+        const projectsData = [];
+        snapshot.forEach((doc) => {
+            projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
+        });
+        // Render the updated data in the table
+        showProjectTable(projectsData);
+        updateProjectsAnalytics();
     });
-  };
-  
-  fetchTronicsRealTimeDataProjects();
-  
-  const showProjectTable = (projectsData) => {
+};
+fetchTronicsRealTimeDataProjects();
+
+const showProjectTable = (projectsData) => {
     const tableBody = document.querySelector("#tronics_project_table tbody");
     tableBody.innerHTML = ""; // Clear existing rows
-    
-    projectsData.forEach((item) => {
 
+    projectsData.forEach((item) => {
         const createdAt = new Date(item.Create_Date);
         const durationWeeks = item.Duration; // Assuming duration is in weeks
-
         // Calculate the project's end date
         const endDate = new Date(createdAt);
         endDate.setDate(createdAt.getDate() + (durationWeeks * 7)); // Add duration (in weeks converted to days)
-
         // Determine the project status
         const currentDate = new Date(); // Get the current date
         const Status = currentDate > endDate ? "Completed" : "In Progress";
-      const row = `
-        <tr>
-          <td>${item.Project}</td>
-          <td>${item.Client}</td>
-          <td>${item.Project_ID}</td>
-          <td>${Status}</td>
-          <td>${item.Authorization}</td>
-          <td>${item.Duration}</td>
-          <td>${item.Create_Date}</td>
-          <td>
-          <div class="action-buttons">
-            <button class="edit-btn" data-id="${item.id}">Edit</button>
-            <button class="delete-btn" data-id="${item.id}">Delete</button>
-          </div>
-          </td>
-        <tr>  
-      `;
-      tableBody.innerHTML += row;
+        const row = `
+            <tr>
+                <td>${item.Project}</td>
+                <td>${item.Client}</td>
+                <td>${item.Project_ID}</td>
+                <td>${Status}</td>
+                <td>${item.Authorization}</td>
+                <td>${item.Duration}</td>
+                <td>${item.Create_Date}</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="edit-btn" data-id="${item.id}">Edit</button>
+                        <button class="delete-btn" data-id="${item.id}">Delete</button>
+                    </div>
+                </td>
+            <tr>
+        `;
+        tableBody.innerHTML += row;
     });
-  
-    //event listeners for edit and delete buttons
+
+    // Event listeners for edit and delete buttons
     document.querySelectorAll(".edit-btn").forEach((button) => {
-      button.addEventListener("click", (e) => Edithandler(e.target.dataset.id));
+        button.addEventListener("click", (e) => Edithandler(e.target.dataset.id));
     });
-  
     document.querySelectorAll(".delete-btn").forEach((button) => {
-      button.addEventListener("click", (e) => handler_Delete(e.target.dataset.id));
+        button.addEventListener("click", (e) => handler_Delete(e.target.dataset.id));
     });
-  };
-  
-  
-  // Edit functionality
-  const Edithandler = (id) => {
+};
+
+// Edit functionality
+const Edithandler = (id) => {
     console.log(`Editing item with ID: ${id}`);
-  
-    // Prompt the user for updates 
+    // Prompt the user for updates
     const project = prompt("Enter project name (leave empty to keep existing):");
-    const client = prompt("Enter client(leave empty to keep existing):");
+    const client = prompt("Enter client (leave empty to keep existing):");
     const duration = prompt("Enter duration (leave empty to keep existing):");
-  
-  
     try {
-      
-      const itemRef = doc(db, "ElectronicsLabProjects", id);
-      
-      const updates = {};
-  
-      
-      if (project) updates.Project = project;
-      if (client) updates.Client = client;
-      if (duration) updates.Duration = duration;
-      
-  
-      // If there are updates, proceed with Firestore's updateDoc()
-      if (Object.keys(updates).length > 0) {
-        updateDoc(itemRef, updates)
-          .then(() => {
-            showProjectupdateMessage();
-          })
-          .catch((error) => {
-            console.error("Error updating item:", error);
-            showProjectupdatefailMessage();
-          });
-      } else {
-        console.log("No updates provided.");
-      }
-      
-      updateProjectsAnalytics();
+        const itemRef = doc(db, "ElectronicsLabProjects", id);
+        const updates = {};
+        if (project) updates.Project = project;
+        if (client) updates.Client = client;
+        if (duration) updates.Duration = duration;
+        // If there are updates, proceed with Firestore's updateDoc()
+        if (Object.keys(updates).length > 0) {
+            updateDoc(itemRef, updates)
+                .then(() => {
+                    showProjectupdateMessage();
+                })
+                .catch((error) => {
+                    console.error("Error updating item:", error);
+                    showProjectupdatefailMessage();
+                });
+        } else {
+            console.log("No updates provided.");
+        }
+        updateProjectsAnalytics();
     } catch (error) {
-      console.error("Error handling edit operation:", error);
+        console.error("Error handling edit operation:", error);
     }
-  };
-  
-  // Delete functionality
-  const handler_Delete = async (id) => {
+};
+
+// Delete functionality
+const handler_Delete = async (id) => {
     console.log(`Deleting item with ID: ${id}`);
     const Confirm_message = confirm("Are you sure you want to delete this item?");
-    if (Confirm_message){
+    if (Confirm_message) {
         try {
             // Use Firestore's deleteDoc() to delete the specific document
             const itemRef = doc(db, "ElectronicsLabProjects", id);
             await deleteDoc(itemRef);
             showProjectdeleteMessage();
-          } catch (error) {
+        } catch (error) {
             console.error("Error deleting item:", error);
             showProjectdeletefailMessage();
-          }
+        }
     }
     updateProjectsAnalytics();
-    
+};
 
-  };
-  function updateProjectsAnalytics() {
-    
-    const rows = document.querySelectorAll("#project_table_div table tbody tr");
-
-    let totalProjects = 0;
+function updateProjectsAnalytics() {
+    const rows = document.querySelectorAll("#tronics_project_table tbody tr"); 
+    let totalProjects = rows.length; 
     let ActiveProjects = 0;
     let CompleteProjects = 0;
-    // let Auth_projects = 0;
 
     rows.forEach(row => {
-        console.log(row.cells[3]?.textContent.trim(), row.cells[4]?.textContent.trim());
-        totalProjects++;
-        if (row.cells.length >= 4) {
+        if (row.cells.length >= 4) { 
             const status = row.cells[3].textContent.trim();
-            //const authorize = row.cells[4].textContent.trim();
-            
-
             if (status === "In Progress") {
                 ActiveProjects++;
-                
-            } else {
+            } else if (status === "Completed") {
                 CompleteProjects++;
             }
-    
         }
-        
     });
-    
-    // calculated values
+
+    // Update analytics display
     const totalP = document.getElementById("totalProjects");
     const ActiveP = document.getElementById("ActiveProjects");
     const CompleteP = document.getElementById("CompleteProjects");
@@ -605,24 +721,24 @@ const fetchTronicsRealTimeDataProjects = () => {
     if (totalP) totalP.textContent = totalProjects;
     if (ActiveP) ActiveP.textContent = ActiveProjects;
     if (CompleteP) CompleteP.textContent = CompleteProjects;
-  
 }
+
+// Initial update
 updateProjectsAnalytics();
+
 function toggleMenu(){
     const menu_button = document.getElementById("menu_btn");
-    const nav_list = document.querySelector("ul");
-    const left_main = document.querySelector(".left-main");
-    menu_button.addEventListener("click", function(){
-        if(nav_list.style.display === "none"){
-            nav_list.style.display = "block";
-        }else{
-            nav_list.style.display = "none";
-        }
-        if(left_main.style.display === "none"){
-            left_main.style.display = "block";
-        }
-        else{
-            left_main.style.display = "none";
+    const menu_bar = document.getElementById("menu_bar");
+    menu_button.addEventListener("click", (event)=>{
+
+        menu_bar.style.display = "block";
+        menu_bar.classList.toggle("open");
+        event.stopPropagation();
+
+    });
+    document.addEventListener("click", (event) => {
+        if (!menu_bar.contains(event.target) && !menu_btn.contains(event.target)) {
+            menu_bar.classList.remove("open");
         }
     });
 }
@@ -639,9 +755,9 @@ document.getElementById("search_project").addEventListener('input', function () 
         row.classList.remove('highlight');
       }
       else if (rowText.includes(searchValue)) {
-        row.classList.add('highlight'); // Highlight matching rows
+        row.classList.add('highlight'); 
       } else {
-        row.classList.remove('highlight'); // Remove highlight from non-matching rows
+        row.classList.remove('highlight'); 
       }
     });
   });
@@ -656,9 +772,9 @@ document.getElementById("search_project").addEventListener('input', function () 
         row.classList.remove('highlight');
       }
       else if (rowText.includes(searchValue)) {
-        row.classList.add('highlight'); // Highlight matching rows
+        row.classList.add('highlight');
       } else {
-        row.classList.remove('highlight'); // Remove highlight from non-matching rows
+        row.classList.remove('highlight'); 
       }
     });
   });

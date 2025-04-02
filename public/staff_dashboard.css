@@ -186,19 +186,18 @@ body{
     height: 100%;
     max-height: 100vh;
     overflow-y: auto;
+    overflow-x: scroll;
     
   }
 
   
   .tronics-project-window{
-    display: flex;
-    flex-direction: column;
+    display: block;
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: whitesmoke;
-    overflow: auto;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: scroll;
   }
   .compu-equip-window{
     display: flex;
@@ -520,7 +519,6 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: start;
-    background-color: #0078D7;
     border: none;
     width: auto;
     
@@ -566,3 +564,45 @@ body{
   border: 1px solid #ccc;
 }
 
+
+.menu_bar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu_bar ul li {
+  margin: 15px 0;
+  display: block;
+}
+
+.menu_bar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+.menu_bar {
+  position: fixed;
+  
+  top: 0;
+  left: -350px;
+  width: 250px;
+  height: 100%;
+  background-color:rgb(114, 109, 109);
+  color: white;
+  padding: 20px;
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
+  transition: left 0.3s ease; 
+  z-index: 1000px;
+}
+
+
+.menu_bar.open{
+  left:0;
+}
+
+/*@media (max-width: 768px) {
+  .menu_bar {
+      width: 70%; 
+  }
+}*/
