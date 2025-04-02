@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const compu_equipd = document.getElementById("compu-equipd");
     const audio_equipd = document.getElementById("audio-equipd");
     const tronics_equipd = document.getElementById("tronics-equipd");
-    const mecha_equipd = document.getElementById("mech-equipdd");
+    const mecha_equipd = document.getElementById("mech-equipd");
     const wood_equipd = document.getElementById("wood-equipd");
     const cnc_equipd= document.getElementById("cnc-equipd");
     const audio_projectsd = document.getElementById("audio-projectsd");
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
   if(audio_btnd){
-    audio_btnd.addEventListener("click", function getaudio(){
+    audio_btnd.addEventListener("click", function getaudioo(){
         if(welcome_message.style.display==="block"){
           welcome_message.style.display= "none";
         }
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
   if(electronics_btnd){
-    electronics_btnd.addEventListener("click", function getelectronics(){
+    electronics_btnd.addEventListener("click", function getelectronicso(){
         if(welcome_message.style.display==="block"){
           welcome_message.style.display= "none";
         }
@@ -219,10 +219,11 @@ document.addEventListener("DOMContentLoaded", function() {
           welcome_message.style.display= "none";
         }
         if(mechanical_section.style.display==="none"){
-            alert("hello");
+            
             mechanical_section.style.display= "block";
         }
         if(mechanical_section.style.display==="block"){
+            
             computer_section.style.display= "none";
             audio_section.style.display= "none";
             electronics_section.style.display= "none";
@@ -232,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if(mecha_equipd.style.display==="none" && mecha_projectsd.style.display==="none"){
             mecha_equipd.style.display= "block";
             mecha_projectsd.style.display= "block";
+            
         }
         if(mecha_equipd.style.display==="block" && mecha_projectsd.style.display==="block"){
             compu_equipd.style.display= "none";
@@ -264,10 +266,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if(cnc_equipd.style.display==="none" && cnc_projectsd.style.display==="none"){
             cnc_equipd.style.display= "block";
-            cnc_projects.style.display= "block";
+            cnc_projectsd.style.display= "block";
         }
         if(cnc_equipd.style.display==="block" && cnc_projectsd.style.display==="block"){
-            compu_equip.style.display= "none";
+            compu_equipd.style.display= "none";
             audio_equipd.style.display= "none";
             tronics_equipd.style.display= "none";
             mecha_equipd.style.display= "none";
