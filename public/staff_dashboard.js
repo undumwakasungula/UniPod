@@ -2,11 +2,17 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     const left_main = document.getElementById("left-main");
+    const left_main_board = document.getElementById("left-main_board");
     const reception = document.getElementById("reception");
     const workshop = document.getElementById("workshop");
+    const worksho = document.getElementById("worksho");
+    const recept = document.getElementById("recept");
     const sub_workshop = document.getElementById("workshop_subsection");
+    const sub_workshops = document.getElementById("workshops_subsection");
     const addReceptionist = document.getElementById("reception_id");
+    const addReceptionists = document.getElementById("receptions_id");
     const addWorkshop = document.getElementById("workshop_id");
+    const addWorkshops = document.getElementById("workshops_id");
     const computer_btn = document.getElementById("compu");
     const audio_btn = document.getElementById("audio");
     const electronics_btn = document.getElementById("tronics");
@@ -42,8 +48,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const mecha_projects = document.getElementById("mech-projects");
     const wood_projects = document.getElementById("wood-projects");
     const cnc_projects = document.getElementById("cnc-projects");
-  if(reception){
-    reception.addEventListener("click", function getreception(){
+
+
+
+  if(recept){
+    recept.addEventListener("click", function getreceptions(){
         const elements = document.querySelectorAll(".content-windows");
         const elements_b = document.querySelectorAll(".windows");
         if(sub_workshop.style.display==="block"){
@@ -74,8 +83,9 @@ document.addEventListener("DOMContentLoaded", function() {
         
       } );
   }
-  if(workshop){
-    workshop.addEventListener("click", function getworkshop(){
+
+  if(worksho){
+    worksho.addEventListener("click", function getworkshop(){
       const elements = document.querySelectorAll(".content-windows");
       const elements_b = document.querySelectorAll(".windows");
         if(sub_workshop.style.display==="none"){
@@ -100,6 +110,8 @@ document.addEventListener("DOMContentLoaded", function() {
       }
    } );
   }
+
+
   if(computer_btn){
     computer_btn.addEventListener("click", function getcomputer(){
 
