@@ -586,9 +586,9 @@ body{
   
   top: 0;
   left: -350px;
-  width: 250px;
+  width: 180px;
   height: 100%;
-  background-color:rgb(114, 109, 109);
+  background: linear-gradient(to bottom, #8cc3f0, #cfcd38);
   color: white;
   padding: 20px;
   box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);

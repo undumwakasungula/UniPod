@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>External/Student Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="F:\Wares\bootstrap-5.3.3-dist\css/bootstrap.min.css">-->
+  <!--<link rel="stylesheet" href="C:\Users\Nganor\Desktop\h\UniPod\public\external_student_dashboard.css">-->
+  <!--<script src="../../ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+  <!--<script src="../../maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+  <style type="text/css">
+    .menuOption
+      {
+          float: left; 
+          font-size: 35px;
+          text-decoration: none; 
+          clear: left;
+          text-align: center;
+          padding: 20px;
+          width: 100%;
+
+      }
+
+    a:link
+      {
+        text-decoration: none;
+      }
+
+    a:visited
+      {
+        text-decoration: none;
+      }
+
+    a:hover
+      {
+        text-decoration: none;
+      }
+
+    a:active
+      {
+        text-decoration: none;
+      }
+
+  </style>
+
 </head>
 <body>
-    <p> welcome to student and external dash board</p>
-    <script type="module"  src="/form.js"></script>
+  <div class="container-fluid">
+    <!--1st row-->
+      <div class="row" >
+        <div class="col-sm-12" style="background-color:#0091cc; text-align: center;">
+          <h1>Welcome To The Unipod Management Information System (UMIS)</h1>
+        </div>
+      </div>
+
+    <!-- 2nd row-->
+      <div class="row" style="background-color: #0091cc;">
+         <!--1st column-->
+                          <div class="col-sm-8" style="background-color:; text-align: center;">
+                              <h4></h2>
+                          </div>
+         <!--2nd column-->
+                          <div class="col-sm-2" style="background-color: #004b6a; text-align: center; color:white; ">
+                              <h4>CONTACT A TECHNICIAN</h4>
+                          </div>
+         <!--3rd column-->
+                          <div class="col-sm-2" style="background-color:#002939; text-align: center; color:white">
+                              <h4>USER ACCOUNT STATUS</h4>
+                          </div>
+      </div>
+    <!-- 3rd row -->
+        <div class="row" >
+      <!--menu Section-->
+          <div class="col-sm-5" style="background-color:#70d6ff; text-align: center; height: 500px;">
+             <div class="menuOption" style="background-color:;">
+                <a href="membership.html" target="contectArea" onmouseover="changeMenuOptnBcolor()">Membership</a>
+             </div>
+             <div class="menuOption" class="cleared">
+                <a href="spaces.html" target="contectArea">Spaces</a>
+             </div>
+             <div class="menuOption" class="cleared">
+                <a href="offices.html" target="contectArea">Offices</a>
+             </div> 
+             <div class="menuOption" class="cleared">
+                <a href="payments.html" target="contectArea">Payments</a>
+             </div> 
+          </div>
+      <!--content Section-->
+          <div class="col-sm-7" style="background-color:lavenderblush; text-align: center; height: 500px;">
+              <iframe src="membership.html" name="contectArea" style="width: 100%; height: 500px; border: none;"></iframe>
+          </div>
+        </div>
+
+  </div>
+  <script type="text/javascript">
+    changeMenuOptnBcolor()
+      {
+          document.getElementByClassName ("menuOption").style.background-color="#002939";
+      }
+  </script>
+
 </body>
+
+<!-- Mirrored from www.w3schools.com/bootstrap/tryit.asp?filename=trybs_grid_ex1&stacked=h by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Jan 2020 02:28:08 GMT -->
 </html>
