@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const compu_equipd = document.getElementById("compu-equipd");
     const audio_equipd = document.getElementById("audio-equipd");
     const tronics_equipd = document.getElementById("tronics-equipd");
-    const mecha_equipd = document.getElementById("mech-equip  `d");
+    const mecha_equipd = document.getElementById("mech-equipd");
     const wood_equipd = document.getElementById("wood-equipd");
     const cnc_equipd= document.getElementById("cnc-equipd");
     const audio_projectsd = document.getElementById("audio-projectsd");
