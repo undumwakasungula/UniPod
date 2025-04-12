@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
 
             let equipment = document.getElementById("wood-equipment").value;
-            let serial = document.getElementById("would-serial").value;
-            let condition = document.getElementById("would-condition").value;
+            let serial = document.getElementById("wood-serial").value;
+            let condition = document.getElementById("wood-condition").value;
             let availability = document.getElementById("wood-availability").value;
             
             
@@ -109,7 +109,7 @@ const fetchRealTimeData = () => {
   fetchRealTimeData();
   
   const showTable = (equipmentData) => {
-    const tableBody = document.querySelector("#wood-equip_table tbody");
+    const tableBody = document.querySelector("#wood_equip_table tbody");
     tableBody.innerHTML = ""; // Clear existing rows
     
     equipmentData.forEach((item) => {
@@ -410,7 +410,7 @@ const handler_Delete = async (id) => {
 
 function updateProjectsAnalytics() {
     const rows = document.querySelectorAll("#wood_project_table tbody tr"); 
-    let totalProjects = rows.length; 
+    let totalProjects = rows.length/2; 
     let ActiveProjects = 0;
     let CompleteProjects = 0;
 
@@ -426,8 +426,8 @@ function updateProjectsAnalytics() {
     });
 
     // Update analytics display
-    const totalP = document.getElementById("WoodAudiototalProjects");
-    const ActiveP = document.getElementById("WoodAudioActiveProjects");
+    const totalP = document.getElementById("WoodtotalProjects");
+    const ActiveP = document.getElementById("WoodActiveProjects");
     const CompleteP = document.getElementById("WoodCompleteProjects");
 
     if (totalP) totalP.textContent = totalProjects;
@@ -612,3 +612,41 @@ function showProjectdeleteMessage(){
 }  
 
 });
+
+document.getElementById("wood_search_project").addEventListener('input', debounce(function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#wood_project_table_div tbody tr');
+
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (searchValue === "" || rowText.includes(searchValue)) {
+            row.style.display = ""; // Show matching rows
+        } else {
+            row.style.display = "none"; // Hide non-matching rows
+        }
+    });
+}, 200)); 
+
+document.getElementById("wood_search_equip").addEventListener('input', debounce(function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#wood_equip_table_div tbody tr');
+
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (searchValue === "" || rowText.includes(searchValue)) {
+            row.style.display = ""; // Show matching rows
+            
+        } else {
+            row.style.display = "none"; // Hide non-matching rows
+        }
+    });
+}, 200)); 
+
+// Debounce function
+function debounce(func, delay) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+}

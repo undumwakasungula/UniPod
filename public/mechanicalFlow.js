@@ -109,7 +109,7 @@ const fetchRealTimeData = () => {
   fetchRealTimeData();
   
   const showTable = (equipmentData) => {
-    const tableBody = document.querySelector("#mech-equip_table tbody");
+    const tableBody = document.querySelector("#mech_equip_table tbody");
     tableBody.innerHTML = ""; // Clear existing rows
     
     equipmentData.forEach((item) => {
@@ -299,15 +299,15 @@ if (project_form) {
     }
 }
 
-// Fetch project data from Firestore
+// Fetching project data from Firestore
 const fetchTronicsRealTimeDataProjects = () => {
-    const projectRef = collection(db, "AudioVisualLabProjects");
-    // Listen for real-time updates
+    const projectRef = collection(db, "MechanicalLabProjects");
+    // Listening for real-time updates
     onSnapshot(projectRef, (snapshot) => {
         console.log("Snapshot triggered!");
         const projectsData = [];
         snapshot.forEach((doc) => {
-            projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
+            projectsData.push({ id: doc.id, ...doc.data() }); // Collecting data from each document
         });
         // Render the updated data in the table
         showProjectTable(projectsData);
@@ -410,7 +410,7 @@ const handler_Delete = async (id) => {
 
 function updateProjectsAnalytics() {
     const rows = document.querySelectorAll("#mech_project_table tbody tr"); 
-    let totalProjects = rows.length; 
+    let totalProjects = rows.length/2; 
     let ActiveProjects = 0;
     let CompleteProjects = 0;
 
@@ -613,3 +613,42 @@ function showProjectdeleteMessage(){
 }  
 
 });
+
+
+document.getElementById("mech_search_project").addEventListener('input', debounce(function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#mech_project_table_div tbody tr');
+
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (searchValue === "" || rowText.includes(searchValue)) {
+            row.style.display = ""; // Show matching rows
+        } else {
+            row.style.display = "none"; // Hide non-matching rows
+        }
+    });
+}, 200)); 
+
+document.getElementById("mech-search_equip").addEventListener('input', debounce(function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#mech_equip_table_div tbody tr');
+
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (searchValue === "" || rowText.includes(searchValue)) {
+            row.style.display = ""; // Show matching rows
+            
+        } else {
+            row.style.display = "none"; // Hide non-matching rows
+        }
+    });
+}, 200)); 
+
+// Debounce function
+function debounce(func, delay) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+}

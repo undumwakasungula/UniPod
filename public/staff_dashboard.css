@@ -185,8 +185,6 @@ body{
     width: 100%;
     height: 100%;
     max-height: 100vh;
-    overflow-y: auto;
-    overflow-x: scroll;
     
   }
 
@@ -196,8 +194,7 @@ body{
     width: 100%;
     height: 100%;
     max-height: 100vh;
-    overflow-y: auto;
-    overflow-x: scroll;
+ 
   }
   .compu-equip-window{
     display: flex;
@@ -206,7 +203,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    
   }
 
   .audio-equip-window{
@@ -216,8 +213,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    
-    overflow: auto;
+ 
   }
 
   .audio-project-window{
@@ -227,8 +223,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    
-    overflow: auto;
+
   }
   .mech-equip-window{
     display: flex;
@@ -237,8 +232,6 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    
-    overflow: auto;
   }
   .mech-project-window{
     display: flex;
@@ -247,7 +240,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    
   }
   .wood-equip-window{
     display: flex;
@@ -265,7 +258,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    
   }
   .cnc-equip-window{
     display: flex;
@@ -275,7 +268,7 @@ body{
     justify-content: center;
     align-items: center;
     
-    overflow: auto;
+    
   }
   .cnc-project-window{
     display: flex;
@@ -285,7 +278,6 @@ body{
     justify-content: center;
     align-items: center;
     
-    overflow: auto;
   }
 
   .equip-label{

@@ -697,7 +697,7 @@ const handler_Delete = async (id) => {
 
 function updateProjectsAnalytics() {
     const rows = document.querySelectorAll("#tronics_project_table tbody tr"); 
-    let totalProjects = rows.length; 
+    let totalProjects = rows.length/2; 
     let ActiveProjects = 0;
     let CompleteProjects = 0;
 
@@ -744,39 +744,43 @@ function toggleMenu(){
 toggleMenu();
 
 
-document.getElementById("search_project").addEventListener('input', function () {
+document.getElementById("search_project").addEventListener('input', debounce(function () {
     const searchValue = this.value.toLowerCase();
     const rows = document.querySelectorAll('#project_table_div tbody tr');
-  
-    rows.forEach(row => {
-      const rowText = row.textContent.toLowerCase();
-      if(searchValue===""){
-        row.classList.remove('highlight');
-      }
-      else if (rowText.includes(searchValue)) {
-        row.classList.add('highlight'); 
-      } else {
-        row.classList.remove('highlight'); 
-      }
-    });
-  });
 
-  document.getElementById("search_equip").addEventListener('input', function () {
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (searchValue === "" || rowText.includes(searchValue)) {
+            row.style.display = ""; // Show matching rows
+        } else {
+            row.style.display = "none"; // Hide non-matching rows
+        }
+    });
+}, 300)); 
+
+document.getElementById("search_equip").addEventListener('input', debounce(function () {
     const searchValue = this.value.toLowerCase();
     const rows = document.querySelectorAll('#equip_table_div tbody tr');
-  
+
     rows.forEach(row => {
-      const rowText = row.textContent.toLowerCase();
-      if(searchValue===""){
-        row.classList.remove('highlight');
-      }
-      else if (rowText.includes(searchValue)) {
-        row.classList.add('highlight');
-      } else {
-        row.classList.remove('highlight'); 
-      }
+        const rowText = row.textContent.toLowerCase();
+        if (searchValue === "" || rowText.includes(searchValue)) {
+            row.style.display = ""; // Show matching rows
+            
+        } else {
+            row.style.display = "none"; // Hide non-matching rows
+        }
     });
-  });
+}, 300)); 
+
+// Debounce function
+function debounce(func, delay) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+}
 
 //functions for equip messages
 function showEquipSuccessMessage(){

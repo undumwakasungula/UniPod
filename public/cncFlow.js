@@ -1,6 +1,6 @@
-/*import { db } from "./firebaseConfig.js"
+import { db } from "./firebaseConfig.js"
 import { doc, collection, deleteDoc, onSnapshot, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-*/
+
 document.addEventListener("DOMContentLoaded", function () {
 
     //computer equipment form trigger buttons
@@ -406,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateProjectsAnalytics() {
         const rows = document.querySelectorAll("#cnc_project_table tbody tr");
-        let totalProjects = rows.length;
+        let totalProjects = rows.length/2;
         let ActiveProjects = 0;
         let CompleteProjects = 0;
 
@@ -434,7 +434,52 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial update
     updateProjectsAnalytics();
 
+    function updateAnalytics() {
+        const rows = document.querySelectorAll("#cnc_equip_table tbody tr");
+    
+        let totalEquipment = 0;
+        let goodEquipment = 0;
+        let badEquipment = 0;
+        let availableEquipment = 0;
+        let notAvailableEquipment = 0;
+    
+        rows.forEach(row => {
+            console.log(row.cells[2]?.textContent.trim(), row.cells[3]?.textContent.trim());
+            totalEquipment++;
+            if (row.cells.length >= 4) {
+                const condition = row.cells[2].textContent.trim();
+                const availability = row.cells[3].textContent.trim();
+                
+    
+                if (condition === "Good") {
+                    goodEquipment++;
+                } else {
+                    badEquipment++;
+                }
+        
+                if (availability === "Available") {
+                    availableEquipment++;
+                } else {
+                    notAvailableEquipment++;
+                }
+            }
+            
+    
+        });
 
+        const total = document.getElementById("totalcncEquipment");
+        const goodElements = document.getElementById("goodcncEquipment");
+        const badElements = document.getElementById("badcncEquipment");
+        const availableElements = document.getElementById("cncavailableEquipment");
+        const notAvailableElements = document.getElementById("cncnotAvailableEquipment");
+    
+        if (total) total.textContent = totalEquipment;
+        if (goodElements) goodElements.textContent = goodEquipment;
+        if (badElements) badElements.textContent = badEquipment;
+        if (availableElements) availableElements.textContent = availableEquipment;
+        if (notAvailableElements) notAvailableElements.textContent = notAvailableEquipment;
+
+    }
 
     //functions for equip messages
     function showEquipSuccessMessage() {
@@ -608,3 +653,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+document.getElementById("cnc_search_project").addEventListener('input', debounce(function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#cnc_project_table_div tbody tr');
+
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (searchValue === "" || rowText.includes(searchValue)) {
+            row.style.display = ""; // Show matching rows
+        } else {
+            row.style.display = "none"; // Hide non-matching rows
+        }
+    });
+}, 200)); 
+document.getElementById("cnc_search_equip").addEventListener('input', debounce(function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#cnc_equip_table_div tbody tr');
+
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        if (searchValue === "" || rowText.includes(searchValue)) {
+            row.style.display = ""; // Show matching rows
+            
+        } else {
+            row.style.display = "none"; // Hide non-matching rows
+        }
+    });
+}, 200)); 
+
+// Debounce function
+function debounce(func, delay) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+    };
+}

@@ -326,3 +326,26 @@ function showEquipdeleteMessage(){
 }  
 
 });
+
+document.getElementById("compu_search_equip").addEventListener('input', debounce(function () {
+  const searchValue = this.value.toLowerCase();
+  const rows = document.querySelectorAll('#compu_equip_table_div tbody tr');
+
+  rows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      if (searchValue === "" || rowText.includes(searchValue)) {
+          row.style.display = ""; // Show matching rows
+      } else {
+          row.style.display = "none"; // Hide non-matching rows
+      }
+  });
+}, 200)); 
+
+// Debounce function
+function debounce(func, delay) {
+  let timeout;
+  return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}
