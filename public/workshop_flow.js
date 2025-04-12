@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //add equipment form trigger btn
     const equip_trigger = document.getElementById("add_equip_btn");
     const equip_form = document.getElementById("equipmentForm");
-    const  equip_close = document.getElementById("cancel");
+    const  equip_close = document.getElementById("equip-cancel");
     //add project form trigger btn
     const project_trigger = document.getElementById("add_project_btn");
     const project_form = document.getElementById("projectForm");

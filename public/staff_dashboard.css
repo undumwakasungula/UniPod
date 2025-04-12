@@ -206,7 +206,6 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(207, 62, 62);
     overflow: auto;
   }
 
@@ -217,7 +216,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(27, 165, 34);
+    
     overflow: auto;
   }
 
@@ -228,7 +227,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(207, 62, 62);
+    
     overflow: auto;
   }
   .mech-equip-window{
@@ -238,7 +237,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(27, 165, 34);
+    
     overflow: auto;
   }
   .mech-project-window{
@@ -248,7 +247,6 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(207, 62, 62);
     overflow: auto;
   }
   .wood-equip-window{
@@ -258,7 +256,6 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(27, 165, 34);
     overflow: auto;
   }
   .wood-project-window{
@@ -268,7 +265,6 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(207, 62, 62);
     overflow: auto;
   }
   .cnc-equip-window{
@@ -278,7 +274,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(27, 165, 34);
+    
     overflow: auto;
   }
   .cnc-project-window{
@@ -288,7 +284,7 @@ body{
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(207, 62, 62);
+    
     overflow: auto;
   }
 
@@ -588,7 +584,7 @@ body{
   left: -350px;
   width: 180px;
   height: 100%;
-  background: linear-gradient(to bottom, #8cc3f0, #cfcd38);
+  background: linear-gradient(to bottom, #8cc3f0, #ebe991);
   color: white;
   padding: 20px;
   box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);

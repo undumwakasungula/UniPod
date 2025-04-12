@@ -104,11 +104,232 @@
         <div class="right-main" >
           <p id="welcome_remark" style="display: block;">Welcome to UMIS</p>
           <div id="compu-room" class="content-windows" style="display: none;">
-            <div id="compu-equip-window" class="compu-equip-window" style="display: none;"></div>
+            <div id="compu-equip-window" class="compu-equip-window" style="display: none;">
+              <label class="equip-label">Equipment detail:</label><br>
+            <div id="compu-equip_success_message" class="message_div" style="display: none;">Equipment added succefully</div>
+            <div id="compu-equip_fail_message" class="message_div_neg" style="display: none;">Equipment addition was unsuccessful</div>
+            <div id="compu-equip_delete_message" class="message_div" style="display: none;">Equipment deletion was successful</div>
+            <div id="compu-equip_deleteFail_message" class="message_div_neg" style="display: none;">Equipment deletion was unsuccessful</div>
+            <div id="compu-equip_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="compu-equip_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessfull</div><br>
+          <div class="search_add_area">
+            <div class="search_area" >
+              <input type="search" id="compu_search_equip" class="search_equip" placeholder="Search equipment"></input>
+            </div>
+          <div class="add_b">
+            <button id="add_compu_equip_btn" class="add_equip_btn">+ Add</button>
+          </div>
+
+            
+          </div>
+
+            
+            <form id="compu-equipmentForm" style="display: none;">
+              <label for="equipment">Equipment:</label>
+              <input type="text" id="compu-equipment" name="equipment" class="input_field" required>
+              <br>
+              
+              <label for="serial">Serial No:</label>
+              <input type="text" id="compu-serial" name="serial" class="input_field" required>
+              <br>
+              
+              <label for="condition">Condition:</label>
+              <select id="compu-condition" name="condition">
+                <option value="Good">Good</option>
+                <option value="Not Good">Not Good</option>
+              </select>
+              <br>
+              
+              <label for="availability">Availability:</label>
+              <select id="compu-availability" name="availability">
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+              </select>
+              <br>
+          
+              <button type="submit">Add Equipment</button>
+              <button type="button" id="compu-cancel">Cancel</button>
+            </form>
+
+            <div id="equip_table_div" class="equip_table">
+              <table id="compu_equip_table" class="equip_table">
+                <thead>
+                  <tr>
+                    <td>Equipment</td>
+                    <td>Serial No</td>
+                    <td>Condition</td>
+                    <td>Availability</td>
+                    <td>Actions</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+              </table><br><br>
+            </div>
+
+              <label class="equip-label">analytics:</label><br>
+
+              <div class="analytics">
+                <p>Total Equipment: <span id="totalCompuEquipment">0</span></p>
+                <p>Good Equipment: <span id="goodCompuEquipment">0</span></p>
+                <p>Bad Equipment: <span id="badCompuEquipment">0</span></p>
+                <p>Available Equipment: <span id="CompuavailableEquipment">0</span></p>
+                <p>Not Available Equipment: <span id="CompunotAvailableEquipment">0</span></p>
+              </div>
+
+              <div class="space-down"></div>
+            </div>
             </div>
           <div id="audio-visual" class="content-windows" style="display:none;">
-            <div id="audio-equip-window" class="audio-equip-window" style="display: none;"></div>
-            <div id="audio-project-window" class="audio-project-window" style="display: none;"></div>
+            <div id="audio-equip-window" class="audio-equip-window" style="display: none;">
+              <label class="equip-label">Equipment detail:</label><br>
+            <div id="audio-equip_success_message" class="message_div" style="display: none;">Equipment added succefully</div>
+            <div id="audio-equip_fail_message" class="message_div_neg" style="display: none;">Equipment addition was unsuccessful</div>
+            <div id="audio-equip_delete_message" class="message_div" style="display: none;">Equipment deletion was successful</div>
+            <div id="audio-equip_deleteFail_message" class="message_div_neg" style="display: none;">Equipment deletion was unsuccessful</div>
+            <div id="audio-equip_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="audio-equip_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessfull</div><br>
+          <div class="search_add_area">
+            <div class="search_area" >
+              <input type="search" id="audio-search_equip" class="search_equip" placeholder="Search equipment"></input>
+            </div>
+          <div class="add_b">
+            <button id="audio-add_equip_btn" class="add_equip_btn">+ Add</button>
+          </div>
+
+            
+          </div>
+
+            
+            <form id="audio-equipmentForm" style="display: none;">
+              <label for="equipment">Equipment:</label>
+              <input type="text" id="audio-equipment" name="equipment" class="input_field" required>
+              <br>
+              
+              <label for="serial">Serial No:</label>
+              <input type="text" id="audio-serial" name="serial" class="input_field" required>
+              <br>
+              
+              <label for="condition">Condition:</label>
+              <select id="audio-condition" name="condition">
+                <option value="Good">Good</option>
+                <option value="Not Good">Not Good</option>
+              </select>
+              <br>
+              
+              <label for="availability">Availability:</label>
+              <select id="audio-availability" name="availability">
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+              </select>
+              <br>
+          
+              <button type="submit">Add Equipment</button>
+              <button type="button" id="audio-cancel">Cancel</button>
+            </form>
+
+            <div id="audio-equip_table_div" class="equip_table">
+              <table id="audio-equip_table" class="equip_table">
+                <thead>
+                  <tr>
+                    <td>Equipment</td>
+                    <td>Serial No</td>
+                    <td>Condition</td>
+                    <td>Availability</td>
+                    <td>Actions</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+              </table><br><br>
+            </div>
+
+              <label class="equip-label">analytics:</label><br>
+
+              <div class="analytics">
+                <p>Total Equipment: <span id="totalAudioEquipment">0</span></p>
+                <p>Good Equipment: <span id="goodAudioEquipment">0</span></p>
+                <p>Bad Equipment: <span id="badAudioEquipment">0</span></p>
+                <p>Available Equipment: <span id="AudioavailableEquipment">0</span></p>
+                <p>Not Available Equipment: <span id="AudionotAvailableEquipment">0</span></p>
+              </div>
+
+              <div class="space-down"></div>
+            </div>
+            <div id="audio-project-window" class="audio-project-window" style="display: none;">
+              <label class="equip-label">Project detail:</label><br>
+            <div id="audio-project_success_message" class="message_div" style="display: none;">Project created succefully</div>
+            <div id="audio-project_fail_message" class="message_div_neg" style="display: none;">Equipment creation was unsuccessful!</div>
+            <div id="audio-project_delete_message" class="message_div" style="display: none;">Project deletion was successful</div>
+            <div id="audio-project_deleteFail_message" class="message_div_neg" style="display: none;">Project deletion was unsuccessful!</div>
+            <div id="audio-project_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="audio-project_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessful!</div><br>
+            <div class="search_add_area">
+              <div class="search_area" >
+                <input type="search" id="audio-search_project" class="search_equip" placeholder="Search"></input>
+              </div>
+            <div class="add_b">
+              <button id="audio_add_project_btn" class="add_equip_btn">+ Create</button>
+            </div>
+  
+              
+            </div>
+  
+              
+            <form id="audio-projectForm" style="display: none;">
+              <label for="project">Project:</label>
+              <input type="text" id="audio_project" name="project" class="input_field" required>
+              <br>
+              <label for="client">Client:</label>
+              <input type="text" id="audio_client" name="client" class="input_field" required>
+              <br>
+              <label for="tronics_duration">Duration(Wks):</label>
+              <input type="number" id="audio_duration" name="duration" class="input_field" required>
+              <br>
+              <label for="tronics_pdf">Upload Quotation:</label>
+              <input type="file" id="audio_pdf" name="pdf" class="input_field" accept=".pdf" required>
+              <br>
+              <button type="submit">Create</button>
+              <button type="button" id="audio_cancel_project">Cancel</button>
+          </form>
+          
+              <div id="audio-project_table_div" class="equip_table">
+                <table id="audio_project_table" class="equip_table">
+                  <thead>
+                    <tr>
+                      <td>Project</td>
+                      <td>Client</td>
+                      <td>P-No</td>
+                      <td>Status</td>
+                      <td>Autho</td>
+                      <td>Duration</td>
+                      <td>Date</td>
+                      <td>Actions</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+                  </tbody>
+  
+                </table><br><br>
+              </div>  
+                <label class="equip-label">analytics:</label><br>
+  
+                <div class="analytics">
+                  <p>Total Projects: <span id="AudiototalProjects">0</span></p>
+                  <p>P(Authorization): <span id="AudioAuth_projects">0</span></p>
+                  <p>Active: <span id="AudioActiveProjects">0</span></p>
+                  <p>Complete: <span id="AudioCompleteProjects">0</span></p>
+                  
+                </div>
+  
+                <div class="space-down"></div>
+
+            </div>
             </div>
           <div id="electronics" class="content-windows" style="display: none;">
             
@@ -158,7 +379,7 @@
               <br>
           
               <button type="submit">Add Equipment</button>
-              <button type="button" id="cancel">Cancel</button>
+              <button type="button" id="equip-cancel">Cancel</button>
             </form>
 
             <div id="equip_table_div" class="equip_table">
@@ -214,23 +435,23 @@
             </div>
   
               
-              <form id="projectForm" style="display: none;">
-                <label for="project">Project:</label>
-                <input type="text" id="tronics_project" name="project" class="input_field" required>
-                <br>
-                <label for="client">Client:</label>
-                <input type="text" id="tronics_client" name="client" class="input_field" required>
-                <br>
-                              
-                
-                <label for="tronics_duration">Duration(Wks):</label>
-                <input type="number" id="tronics_duration" name="duration" class="input_field" required>
-
-                <br>
-            
-                <button type="submit">Create</button>
-                <button type="button" id="tronics_cancel_project">Cancel</button>
-              </form>
+            <form id="projectForm" style="display: none;">
+              <label for="project">Project:</label>
+              <input type="text" id="tronics_project" name="project" class="input_field" required>
+              <br>
+              <label for="client">Client:</label>
+              <input type="text" id="tronics_client" name="client" class="input_field" required>
+              <br>
+              <label for="tronics_duration">Duration(Wks):</label>
+              <input type="number" id="tronics_duration" name="duration" class="input_field" required>
+              <br>
+              <label for="tronics_pdf">Upload Quotation:</label>
+              <input type="file" id="tronics_pdf" name="pdf" class="input_field" accept=".pdf" required>
+              <br>
+              <button type="submit">Create</button>
+              <button type="button" id="tronics_cancel_project">Cancel</button>
+          </form>
+          
               <div id="project_table_div" class="equip_table">
                 <table id="tronics_project_table" class="equip_table">
                   <thead>
@@ -262,16 +483,7 @@
                 </div>
   
                 <div class="space-down"></div>
-<!--
-                <div class="project-grid">
-                  <div class="box">1</div>
-                  <div class="box">2</div>
-                  <div class="box">3</div>
-                  <div class="box">4</div>
-                  <div class="box">5</div>
 
-                </div>
-              -->
           
 
           </div>
@@ -280,16 +492,452 @@
             
           
           <div id="mechanical" class="content-windows" style="display: none;">
-            <div id="mech-equip-window" class="mech-equip-window" style="display: none;"></div>
-            <div id="mech-project-window" class="mech-project-window" style="display: none;"></div>
+            <div id="mech-equip-window" class="mech-equip-window" style="display: none;">
+              <label class="equip-label">Equipment detail:</label><br>
+            <div id="mech-equip_success_message" class="message_div" style="display: none;">Equipment added succefully</div>
+            <div id="mech-equip_fail_message" class="message_div_neg" style="display: none;">Equipment addition was unsuccessful</div>
+            <div id="mech-equip_delete_message" class="message_div" style="display: none;">Equipment deletion was successful</div>
+            <div id="mech-equip_deleteFail_message" class="message_div_neg" style="display: none;">Equipment deletion was unsuccessful</div>
+            <div id="mech-equip_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="mech-equip_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessfull</div><br>
+          <div class="search_add_area">
+            <div class="search_area" >
+              <input type="search" id="mech-search_equip" class="search_equip" placeholder="Search equipment"></input>
             </div>
+          <div class="add_b">
+            <button id="mech-add_equip_btn" class="add_equip_btn">+ Add</button>
+          </div>
+
+            
+          </div>
+
+            
+            <form id="mech-equipmentForm" style="display: none;">
+              <label for="equipment">Equipment:</label>
+              <input type="text" id="mech-equipment" name="equipment" class="input_field" required>
+              <br>
+              
+              <label for="serial">Serial No:</label>
+              <input type="text" id="mech-serial" name="serial" class="input_field" required>
+              <br>
+              
+              <label for="condition">Condition:</label>
+              <select id="mech-condition" name="condition">
+                <option value="Good">Good</option>
+                <option value="Not Good">Not Good</option>
+              </select>
+              <br>
+              
+              <label for="availability">Availability:</label>
+              <select id="mech-availability" name="availability">
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+              </select>
+              <br>
+          
+              <button type="submit">Add Equipment</button>
+              <button type="button" id="mech-cancel">Cancel</button>
+            </form>
+
+            <div id="equip_table_div" class="equip_table">
+              <table id="mech-equip_table" class="equip_table">
+                <thead>
+                  <tr>
+                    <td>Equipment</td>
+                    <td>Serial No</td>
+                    <td>Condition</td>
+                    <td>Availability</td>
+                    <td>Actions</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+              </table><br><br>
+            </div>
+
+              <label class="equip-label">analytics:</label><br>
+
+              <div class="analytics">
+                <p>Total Equipment: <span id="totalMechEquipment">0</span></p>
+                <p>Good Equipment: <span id="goodMechEquipment">0</span></p>
+                <p>Bad Equipment: <span id="badMechEquipment">0</span></p>
+                <p>Available Equipment: <span id="MechavailableEquipment">0</span></p>
+                <p>Not Available Equipment: <span id="MechnotAvailableEquipment">0</span></p>
+              </div>
+
+              <div class="space-down"></div>
+            </div>
+            <div id="mech-project-window" class="mech-project-window" style="display: none;">
+              <label class="equip-label">Project detail:</label><br>
+            <div id="mech-project_success_message" class="message_div" style="display: none;">Project created succefully</div>
+            <div id="mech-project_fail_message" class="message_div_neg" style="display: none;">Equipment creation was unsuccessful!</div>
+            <div id="mech-project_delete_message" class="message_div" style="display: none;">Project deletion was successful</div>
+            <div id="mech-project_deleteFail_message" class="message_div_neg" style="display: none;">Project deletion was unsuccessful!</div>
+            <div id="mech-project_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="mech-project_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessful!</div><br>
+            <div class="search_add_area">
+              <div class="search_area" >
+                <input type="search" id="mech-search_project" class="search_equip" placeholder="Search"></input>
+              </div>
+            <div class="add_b">
+              <button id="mech-add_project_btn" class="add_equip_btn">+ Create</button>
+            </div>
+  
+              
+            </div>
+  
+              
+            <form id="mech-projectForm" style="display: none;">
+              <label for="project">Project:</label>
+              <input type="text" id="mech_project" name="project" class="input_field" required>
+              <br>
+              <label for="client">Client:</label>
+              <input type="text" id="mech_client" name="client" class="input_field" required>
+              <br>
+              <label for="tronics_duration">Duration(Wks):</label>
+              <input type="number" id="mech_duration" name="duration" class="input_field" required>
+              <br>
+              <label for="tronics_pdf">Upload Quotation:</label>
+              <input type="file" id="mech_pdf" name="pdf" class="input_field" accept=".pdf" required>
+              <br>
+              <button type="submit">Create</button>
+              <button type="button" id="mech_cancel_project">Cancel</button>
+          </form>
+          
+              <div id="mech_project_table_div" class="equip_table">
+                <table id="mech_project_table" class="equip_table">
+                  <thead>
+                    <tr>
+                      <td>Project</td>
+                      <td>Client</td>
+                      <td>P-No</td>
+                      <td>Status</td>
+                      <td>Autho</td>
+                      <td>Duration</td>
+                      <td>Date</td>
+                      <td>Actions</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+                  </tbody>
+  
+                </table><br><br>
+              </div>  
+                <label class="equip-label">analytics:</label><br>
+  
+                <div class="analytics">
+                  <p>Total Projects: <span id="totalMechProjects">0</span></p>
+                  <p>P(Authorization): <span id="MechAuth_projects">0</span></p>
+                  <p>Active: <span id="MechActiveProjects">0</span></p>
+                  <p>Complete: <span id="MechCompleteProjects">0</span></p>
+                  
+                </div>
+  
+                <div class="space-down"></div>
+
+            </div>
+            </div>
+            <!--WOOOD WINDOWS-->
           <div id="wood" class="content-windows" style="display: none;">
-            <div id="wood-equip-window" class="wood-equip-window" style="display: none;"></div>
-            <div id="wood-project-window" class="wood-project-window" style="display: none;"></div>
+            <div id="wood-equip-window" class="wood-equip-window" style="display: none;">
+              <label class="equip-label">Equipment detail:</label><br>
+            <div id="wood-equip_success_message" class="message_div" style="display: none;">Equipment added succefully</div>
+            <div id="wood-equip_fail_message" class="message_div_neg" style="display: none;">Equipment addition was unsuccessful</div>
+            <div id="wood-equip_delete_message" class="message_div" style="display: none;">Equipment deletion was successful</div>
+            <div id="wood-equip_deleteFail_message" class="message_div_neg" style="display: none;">Equipment deletion was unsuccessful</div>
+            <div id="wood-equip_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="woood-equip_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessfull</div><br>
+          <div class="search_add_area">
+            <div class="search_area" >
+              <input type="search" id="wood-search_equip" class="search_equip" placeholder="Search equipment"></input>
+            </div>
+          <div class="add_b">
+            <button id="wood_add_equip_btn" class="add_equip_btn">+ Add</button>
+          </div>
+
+            
+          </div>
+
+            
+            <form id="wood-equipmentForm" style="display: none;">
+              <label for="equipment">Equipment:</label>
+              <input type="text" id="wood-equipment" name="equipment" class="input_field" required>
+              <br>
+              
+              <label for="serial">Serial No:</label>
+              <input type="text" id="wood-serial" name="serial" class="input_field" required>
+              <br>
+              
+              <label for="condition">Condition:</label>
+              <select id="wood-condition" name="condition">
+                <option value="Good">Good</option>
+                <option value="Not Good">Not Good</option>
+              </select>
+              <br>
+              
+              <label for="availability">Availability:</label>
+              <select id="wood-availability" name="availability">
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+              </select>
+              <br>
+          
+              <button type="submit">Add Equipment</button>
+              <button type="button" id="wood-cancel">Cancel</button>
+            </form>
+
+            <div id="wood_equip_table_div" class="equip_table">
+              <table id="wood_equip_table" class="equip_table">
+                <thead>
+                  <tr>
+                    <td>Equipment</td>
+                    <td>Serial No</td>
+                    <td>Condition</td>
+                    <td>Availability</td>
+                    <td>Actions</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+              </table><br><br>
+            </div>
+
+              <label class="equip-label">analytics:</label><br>
+
+              <div class="analytics">
+                <p>Total Equipment: <span id="totalWoodEquipment">0</span></p>
+                <p>Good Equipment: <span id="goodWoodEquipment">0</span></p>
+                <p>Bad Equipment: <span id="badWoodEquipment">0</span></p>
+                <p>Available Equipment: <span id="WoodavailableEquipment">0</span></p>
+                <p>Not Available Equipment: <span id="WoodnotAvailableEquipment">0</span></p>
+              </div>
+
+              <div class="space-down"></div>
+            </div>
+            <div id="wood-project-window" class="wood-project-window" style="display: none;">
+              <label class="equip-label">Project detail:</label><br>
+            <div id="wood-project_success_message" class="message_div" style="display: none;">Project created succefully</div>
+            <div id="wood-project_fail_message" class="message_div_neg" style="display: none;">Equipment creation was unsuccessful!</div>
+            <div id="woood-project_delete_message" class="message_div" style="display: none;">Project deletion was successful</div>
+            <div id="wood-project_deleteFail_message" class="message_div_neg" style="display: none;">Project deletion was unsuccessful!</div>
+            <div id="wood-project_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="woood-project_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessful!</div><br>
+            <div class="search_add_area">
+              <div class="search_area" >
+                <input type="search" id="wood_search_project" class="search_equip" placeholder="Search"></input>
+              </div>
+            <div class="add_b">
+              <button id="wood_add_project_btn" class="add_equip_btn">+ Create</button>
+            </div>
+  
+              
+            </div>
+  
+              
+            <form id="wood-projectForm" style="display: none;">
+              <label for="project">Project:</label>
+              <input type="text" id="wood_project" name="project" class="input_field" required>
+              <br>
+              <label for="client">Client:</label>
+              <input type="text" id="wood_client" name="client" class="input_field" required>
+              <br>
+              <label for="tronics_duration">Duration(Wks):</label>
+              <input type="number" id="wood_duration" name="duration" class="input_field" required>
+              <br>
+              <label for="tronics_pdf">Upload Quotation:</label>
+              <input type="file" id="wood_pdf" name="pdf" class="input_field" accept=".pdf" required>
+              <br>
+              <button type="submit">Create</button>
+              <button type="button" id="wood_cancel_project">Cancel</button>
+          </form>
+          
+              <div id="wood_project_table_div" class="equip_table">
+                <table id="wood_project_table" class="equip_table">
+                  <thead>
+                    <tr>
+                      <td>Project</td>
+                      <td>Client</td>
+                      <td>P-No</td>
+                      <td>Status</td>
+                      <td>Autho</td>
+                      <td>Duration</td>
+                      <td>Date</td>
+                      <td>Actions</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+                  </tbody>
+  
+                </table><br><br>
+              </div>  
+                <label class="equip-label">analytics:</label><br>
+  
+                <div class="analytics">
+                  <p>Total Projects: <span id="WoodtotalProjects">0</span></p>
+                  <p>P(Authorization): <span id="WoodAuth_projects">0</span></p>
+                  <p>Active: <span id="WoodActiveProjects">0</span></p>
+                  <p>Complete: <span id="WoodCompleteProjects">0</span></p>
+                  
+                </div>
+  
+                <div class="space-down"></div>
+
+            </div>
             </div>
           <div id="cnc" class="content-windows" style="display: none;"> 
-            <div id="cnc-equip-window" class="cnc-equip-window" style="display: none;"></div>
-            <div id="cnc-project-window" class="cnc-project-window" style="display: none;"></div>
+            <div id="cnc-equip-window" class="cnc-equip-window" style="display: none;">
+              <label class="equip-label">Equipment detail:</label><br>
+            <div id="cnc-equip_success_message" class="message_div" style="display: none;">Equipment added succefully</div>
+            <div id="cnc-equip_fail_message" class="message_div_neg" style="display: none;">Equipment addition was unsuccessful</div>
+            <div id="cnc-equip_delete_message" class="message_div" style="display: none;">Equipment deletion was successful</div>
+            <div id="cnc-equip_deleteFail_message" class="message_div_neg" style="display: none;">Equipment deletion was unsuccessful</div>
+            <div id="cnc-equip_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="cnc-equip_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessfull</div><br>
+          <div class="search_add_area">
+            <div class="search_area" >
+              <input type="search" id="cnc_search_equip" class="search_equip" placeholder="Search equipment"></input>
+            </div>
+          <div class="add_b">
+            <button id="cnc_add_equip_btn" class="add_equip_btn">+ Add</button>
+          </div>
+
+            
+          </div>
+
+            
+            <form id="cnc-equipmentForm" style="display: none;">
+              <label for="equipment">Equipment:</label>
+              <input type="text" id="cnc-equipment" name="equipment" class="input_field" required>
+              <br>
+              
+              <label for="serial">Serial No:</label>
+              <input type="text" id="cnc-serial" name="serial" class="input_field" required>
+              <br>
+              
+              <label for="condition">Condition:</label>
+              <select id="cnc-condition" name="condition">
+                <option value="Good">Good</option>
+                <option value="Not Good">Not Good</option>
+              </select>
+              <br>
+              
+              <label for="availability">Availability:</label>
+              <select id="cnc-availability" name="availability">
+                <option value="Available">Available</option>
+                <option value="Not Available">Not Available</option>
+              </select>
+              <br>
+          
+              <button type="submit">Add Equipment</button>
+              <button type="button" id="cnc-cancel">Cancel</button>
+            </form>
+
+            <div id="cnc_equip_table_div" class="equip_table">
+              <table id="cnc_equip_table" class="equip_table">
+                <thead>
+                  <tr>
+                    <td>Equipment</td>
+                    <td>Serial No</td>
+                    <td>Condition</td>
+                    <td>Availability</td>
+                    <td>Actions</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+              </table><br><br>
+            </div>
+
+              <label class="equip-label">analytics:</label><br>
+
+              <div class="analytics">
+                <p>Total Equipment: <span id="totalcncEquipment">0</span></p>
+                <p>Good Equipment: <span id="goodcncEquipment">0</span></p>
+                <p>Bad Equipment: <span id="badcncEquipment">0</span></p>
+                <p>Available Equipment: <span id="cncavailableEquipment">0</span></p>
+                <p>Not Available Equipment: <span id="cncnotAvailableEquipment">0</span></p>
+              </div>
+
+              <div class="space-down"></div>
+            </div>
+            <div id="cnc-project-window" class="cnc-project-window" style="display: none;">
+              <label class="equip-label">Project detail:</label><br>
+            <div id="cnc-project_success_message" class="message_div" style="display: none;">Project created succefully</div>
+            <div id="cnc-project_fail_message" class="message_div_neg" style="display: none;">Project creation was unsuccessful!</div>
+            <div id="cnc-project_delete_message" class="message_div" style="display: none;">Project deletion was successful</div>
+            <div id="cnc-project_deleteFail_message" class="message_div_neg" style="display: none;">Project deletion was unsuccessful!</div>
+            <div id="cnc-project_update_message" class="message_div" style="display: none;">Updated successully</div>
+            <div id="cnc-project_updateFail_message" class="message_div_neg" style="display: none;">Update unsuccessful!</div><br>
+            <div class="search_add_area">
+              <div class="search_area" >
+                <input type="search" id="cnc_search_project" class="search_equip" placeholder="Search"></input>
+              </div>
+            <div class="add_b">
+              <button id="cnc_add_project_btn" class="add_equip_btn">+ Create</button>
+            </div>
+  
+              
+            </div>
+  
+              
+            <form id="cnc-projectForm" style="display: none;">
+              <label for="project">Project:</label>
+              <input type="text" id="cnc_project" name="project" class="input_field" required>
+              <br>
+              <label for="client">Client:</label>
+              <input type="text" id="cnc_client" name="client" class="input_field" required>
+              <br>
+              <label for="tronics_duration">Duration(Wks):</label>
+              <input type="number" id="cnc_duration" name="duration" class="input_field" required>
+              <br>
+              <label for="tronics_pdf">Upload Quotation:</label>
+              <input type="file" id="cnc_pdf" name="pdf" class="input_field" accept=".pdf" required>
+              <br>
+              <button type="submit">Create</button>
+              <button type="button" id="cnc_cancel_project">Cancel</button>
+          </form>
+          
+              <div id="cnc_project_table_div" class="equip_table">
+                <table id="cnc_project_table" class="equip_table">
+                  <thead>
+                    <tr>
+                      <td>Project</td>
+                      <td>Client</td>
+                      <td>P-No</td>
+                      <td>Status</td>
+                      <td>Autho</td>
+                      <td>Duration</td>
+                      <td>Date</td>
+                      <td>Actions</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+                  </tbody>
+  
+                </table><br><br>
+              </div>  
+                <label class="equip-label">analytics:</label><br>
+  
+                <div class="analytics">
+                  <p>Total Projects: <span id="cnctotalProjects">0</span></p>
+                  <p>P(Authorization): <span id="cncAuth_projects">0</span></p>
+                  <p>Active: <span id="cncActiveProjects">0</span></p>
+                  <p>Complete: <span id="cncCompleteProjects">0</span></p>
+                  
+                </div>
+  
+                <div class="space-down"></div>
+
+            </div>
             cnc</div>
           
           <div id="DCIO" class="windows" style="display: none;">welcome to Check In</div>
@@ -304,5 +952,10 @@
     <script src="/main.js"></script>
     <script type="module" src="/workshop_flow.js"></script>
     <script src="/dashboard.js"></script>
+    <script type="module" src="computerlab.js"></script>
+    <script type="module" src="audioFlow.js"></script>
+    <script type="module" src="mechanicalFlow.js"></script>
+    <script type="module" src="woodFlow.js"></script>
+    <script type="module" src="cncFlow.js"></script>
 </body>
 </html>

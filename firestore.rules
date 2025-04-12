@@ -1,9 +1,38 @@
-rules_version = '2';
-service cloud.firestore {
+rules_version = '2'; 
+service cloud.firestore { 
   match /databases/{database}/documents {
+    match /AudioVisualLab/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /AudioVisualLabProjects/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /CNCLab/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /CNCLabProjects/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /ComputerLabEquip/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
     match /ElectronicsLab/{document} {
-      allow read, write: if request.auth != null && 
-                          (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff")
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /ElectronicsLabProjects/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /MechanicalLab/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /MechanicalLabProjects/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /WoodLab/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
+    }
+    match /WoodLabProjects/{document} {
+      allow read, write: if request.auth != null && (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "staff");
     }
   }
 }
