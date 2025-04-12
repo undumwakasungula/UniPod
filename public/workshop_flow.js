@@ -1,6 +1,5 @@
 import { db } from "./firebaseConfig.js"
 import { doc, collection,deleteDoc,onSnapshot, setDoc,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-
 document.addEventListener("DOMContentLoaded", function () {
     const compu_equip_window = document.getElementById("compu-equip-window");
     const audio_equip_window = document.getElementById("audio-equip-window");  
