@@ -7,23 +7,101 @@
 	<style type="text/css">
 		#statusArea
 			{
-				width: 100%;
+				margin: auto;
+				width: 80%;
 				height: fit-content;
+				background-color: rgba(243, 211, 27, 0.6);
+				/*background-color: #f3d31b;*/
+				padding: 20px;
+				margin-bottom: 25px;
+				border-radius: 25px;
+
 			}
-		#floatedDivs
+		#statusStrip
+			{
+				margin: auto;
+				margin-top: 15px;
+				margin-bottom: 15px;
+				padding: 30px;
+				text-align: center;
+				background-color: rgba(71 , 164, 71, 0.7);
+				clear: left;
+				width: 80%;
+				height: 65px;
+				border-radius: 15px;
+
+			}
+			
+
+		#applyButton
+			{
+				margin: auto;
+				padding: 30px;
+				background-color: rgba(71 , 164, 71, 0.7);
+				align-self: center;
+				text-align: center;
+				width: 80%;
+				border-radius: 15px;
+			}
+		#applyButton:hover
+			{
+				background-color: rgba(71 , 164, 71, 1.0);
+			}
+		#applyBtnLink
+			{
+				text-decoration: none;
+				color: black;
+				font: 25px fantasy;
+			}
+		#heading
+			{
+				margin: auto;
+				padding: 10px;	
+				text-align: center;
+				font: 35px verdana;
+			}
+		#firstSection
+			{
+				margin: auto;
+				width: 80%;
+			}
+		#statusIndicator
+			{
+				width: 25%; 
+				height: 60px; 
+				text-align:center;
+				background-color:rgba(255, 0, 0, 0.8);
+				border-radius: 10px;"
+			}
+		.floated
 			{
 				float: left;
 			}
+		h3{font: 25px verdana;}
+		h4{font: 15px verdana;}
 
 	</style>
 </head>
 <body>
-	<div>
-		<div id="statusArea">
-			<div class="floatedDivS" style="width: 40%; height: fit-content;"><h2>Membership status</h2></div>
-			<div class="floatedDivS" style="width: 60%; height: fit-content;"><p>Not a member. Please apply.</p></div>
+		<div id="heading" style="width: 60%;">
+			<h2>Membership status</h2>
 		</div>
-		<div></div>
-	</div>
+		<div id="statusArea">
+		<!-- 1 --><div id="firstSection">
+					<!-- a --><div style="height: 100px; width: 30%;" class="floated"><img src="Images\userIcon.png"></div>
+					<!-- b -->
+						<div style="height: 100px; width: 70%;" class="floated">
+							<h3>USER'S FULL NAME</h3>
+							<h4>STUDENT</h4>
+						</div>
+				  </div>
+		<!-- 2 -->
+				<div id="statusStrip">
+					<div style="width: 75%; height: 60px; text-align:left;" class="floated"><h4><strong>Status :</strong></h4></div>
+					<div class="floated" id="statusIndicator"><h4>Inactive</h4></div>
+				</div>
+		<!-- 3 -->
+				<div id="applyButton"><a href="applicationForm.html" id="applyBtnLink">Apply For Membership</a></div>
+				</div>
 </body>
 </html>
