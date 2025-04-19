@@ -25,11 +25,13 @@
     a:link
       {
         text-decoration: none;
+        color: black;
       }
 
     a:visited
       {
         text-decoration: none;
+        color: black;
       }
 
     a:hover
@@ -43,51 +45,49 @@
       }
 
   </style>
-
+<!-- keep these colors #0091cc, first row blue -->
+<!-- second row blue: #0091cc, second row button 1 blue: #004b6a, second row button 2 blue: #002939 -->
 </head>
 <body>
   <div class="container-fluid">
     <!--1st row-->
       <div class="row" >
-        <div class="col-sm-12" style="background-color:#0091cc; text-align: center;">
+        <div class="col-sm-12" style="background-color:#1d9dd7; text-align: center;">
           <h1>Welcome To The Unipod Management Information System (UMIS)</h1>
         </div>
       </div>
 
     <!-- 2nd row-->
-      <div class="row" style="background-color: #0091cc;">
+      <div class="row" style="background-color: #1d9dd7;">
          <!--1st column-->
                           <div class="col-sm-8" style="background-color:; text-align: center;">
                               <h4></h2>
                           </div>
          <!--2nd column-->
-                          <div class="col-sm-2" style="background-color: #004b6a; text-align: center; color:white; ">
-                              <h4>CONTACT A TECHNICIAN</h4>
+                          <div class="col-sm-2" style="background-color: #f3d31b; text-align: center; color: #1d9dd7;border-radius: 10px;">
+                              <h4><strong>CONTACT A TECHNICIAN</strong></h4>
                           </div>
          <!--3rd column-->
-                          <div class="col-sm-2" style="background-color:#002939; text-align: center; color:white">
-                              <h4>USER ACCOUNT STATUS</h4>
+                          <div class="col-sm-2" style="background-color: ; text-align: center; color: #f3d31b; border-radius: 10px;">
+                              <h4><strong>USER ACCOUNT STATUS</strong></h4>
                           </div>
       </div>
     <!-- 3rd row -->
         <div class="row" >
       <!--menu Section-->
-          <div class="col-sm-5" style="background-color:#70d6ff; text-align: center; height: 500px;">
+          <div class="col-sm-3" style="background-color:; text-align: center; height: 500px;">
              <div class="menuOption" style="background-color:;">
                 <a href="membership.html" target="contectArea" onmouseover="changeMenuOptnBcolor()">Membership</a>
              </div>
              <div class="menuOption" class="cleared">
                 <a href="spaces.html" target="contectArea">Spaces</a>
-             </div>
-             <div class="menuOption" class="cleared">
-                <a href="offices.html" target="contectArea">Offices</a>
              </div> 
              <div class="menuOption" class="cleared">
-                <a href="payments.html" target="contectArea">Payments</a>
+                <a href="payments.html" target="contectArea">Projects</a>
              </div> 
           </div>
       <!--content Section-->
-          <div class="col-sm-7" style="background-color:lavenderblush; text-align: center; height: 500px;">
+          <div class="col-sm-9" style="background-color:lavenderblush; text-align: center; height: 500px;">
               <iframe src="membership.html" name="contectArea" style="width: 100%; height: 500px; border: none;"></iframe>
           </div>
         </div>
