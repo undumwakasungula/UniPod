@@ -594,3 +594,133 @@ body{
       width: 70%; 
   }
 }*/
+
+
+img {
+  width: 100vw; 
+  height: 100vh; 
+  object-fit: cover; 
+  display: block;
+ }
+
+
+ compu_equip_table_div{
+  overscroll-behavior: smooth;
+  overflow-x: scroll;
+ }
+
+
+ header{
+   background-color: #0078D7;
+   color: white;
+   align-items: center;
+   justify-content: center;
+   top: 0;
+   margin: auto;
+
+
+
+ }
+ .payment_window{
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  overflow: auto;
+  
+}
+ 
+.grid-transaction{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
+.transaction-box{
+  background-color: whitesmoke;
+  
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .grid-transaction {
+      grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+.payment-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.payment-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.payment-method {
+  width: 30px;
+  height: 30px;
+}
+
+.details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.amount {
+  font-weight: bold;
+  color: #0073e6;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.pending { background: orange; color: white; }
+.approved { background: green; color: white; }
+
+.approve-btn {
+  background: #0073e6;
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.approve-btn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}

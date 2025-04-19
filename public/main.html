@@ -102,7 +102,8 @@
 
         </div>
         <div class="right-main" >
-          <p id="welcome_remark" style="display: block;">Welcome to UMIS</p>
+       <p id="welcome_remark" style="display: block;">Welcome to UMIS</p>
+          
           <div id="compu-room" class="content-windows" style="display: none;">
             <div id="compu-equip-window" class="compu-equip-window" style="display: none;">
               <label class="equip-label">Equipment detail:</label><br>
@@ -938,10 +939,56 @@
                 <div class="space-down"></div>
 
             </div>
-            cnc</div>
+            </div>
           
           <div id="DCIO" class="windows" style="display: none;">welcome to Check In</div>
-          <div id="Payment" class="windows" style="display:none;">welcome to Payment</div>
+          <div id="Payment" class="payment_window" style="display:none;">
+            <header>
+              <h2><strong>Payments Record</strong></h2>
+              <input type="search" id="search-transaction" placeholder="search payments"></input>
+              <select id="transaction-status" name="status">
+                <option value="all">All</option>
+                <option value="approved">Approved</option>
+                <option value="pending">Pending</option>
+              </select>
+              <br>
+              
+            </header>
+            <div class="grid-transaction">
+              <div class="transaction-box">
+                <section>
+                  <h1>Recent Transactions</h1>
+                  <div id="RecentTrans_list">
+
+
+                  </div>
+
+                </section>
+
+             
+
+              </div>
+              <div class="transaction-box">
+                <h2>Approved Payments</h2>
+
+              </div>
+              <div class="transaction-box">
+                <h2>Membership Wallet</h2>
+
+              </div>
+              <div class="transaction-box">
+                <h2>UniPod Wallet</h2>
+
+              </div>
+            </div>
+
+
+
+
+      
+          
+          <br><br><br>
+          </div>
           <div id="Booking" class="windows" style="display: none;">welcome to Booking</div>
           <div id="Membership" class="windows" style="display: none;">welcome to Membership</div>
         </div>
@@ -952,10 +999,11 @@
     <script src="/main.js"></script>
     <script type="module" src="/workshop_flow.js"></script>
     <script src="/dashboard.js"></script>
-    <script type="module" src="computerlab.js"></script>
-    <script type="module" src="audioFlow.js"></script>
-    <script type="module" src="mechanicalFlow.js"></script>
-    <script type="module" src="woodFlow.js"></script>
-    <script type="module" src="cncFlow.js"></script>
+    <script type="module" src="/computerlab.js"></script>
+    <script type="module" src="/audioFlow.js"></script>
+    <script type="module" src="/mechanicalFlow.js"></script>
+    <script type="module" src="/woodFlow.js"></script>
+    <script type="module" src="/cncFlow.js"></script>
+    <script type="module" src="/staff_payment.js"></script>
 </body>
 </html>
