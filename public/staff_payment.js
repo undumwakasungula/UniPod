@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>
             `;
-            listBody.appendChild(card);
+            listBody.innerHTML += card;
         });
         
 
