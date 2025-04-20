@@ -56,14 +56,22 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // Handle deletion functionality
         document.querySelectorAll(".delete-btn").forEach((button) => {
             button.addEventListener("click", function () {
                 const paymentId = this.getAttribute("data-id");
-                deleteDoc(doc(db, "ProjectPayments", paymentId)).then(() => {
-                    console.log(`Payment ${paymentId} deleted!`);
-                });
+        
+                // Show confirmation dialog
+                const confirmDelete = window.confirm("Are you sure you want to delete this payment?");
+                
+                if (confirmDelete) {
+                    deleteDoc(doc(db, "ProjectPayments", paymentId)).then(() => {
+                        console.log(`Payment ${paymentId} deleted!`);
+                    }).catch((error) => {
+                        console.error("Error deleting payment:", error);
+                    });
+                }
             });
         });
+        
     };
 });
