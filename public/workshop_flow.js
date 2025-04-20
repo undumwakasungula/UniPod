@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (audio_equip ) {
         
         audio_equip.addEventListener("click", function audioEquip() {
-            alert("ydydy");
+        
             if (audio_equip_window.style.display === "none") {
                 audio_equip_window.style.display = "block";
             }
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (audio_equipdd) {
         
         audio_equipdd.addEventListener("click", function audioEquip() {
-            alert("hello");
+            
             if (audio_equip_window.style.display === "none") {
                 audio_equip_window.style.display = "block";
             }
