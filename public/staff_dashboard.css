@@ -436,6 +436,7 @@ body{
     padding: 5px 10px;
     background-color: #dc3545; 
     color: white;
+    background-color: transparent;
   }
   
   .delete-btn:hover {
@@ -728,6 +729,7 @@ img {
 
 .approve-btn {
   background: #0073e6;
+  background-color: transparent;
   color: white;
   border: none;
   padding: 8px;
