@@ -39,17 +39,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <div class="card-footer">
                         <button class="approve-btn" data-id="${item.id}">
-                        
+                            <i class="fas fa-check-circle"></i> Approve
                         </button>
                         <button class="delete-btn" data-id="${item.id}">
-                        <img src="\Assets\Icons\delete\round.svg" alt="Delete" width="20"></img>
-                        
+                            <i class="fas fa-trash"></i> Delete
                         </button>
                     </div>
                 </div>
             `;
             listBody.innerHTML += card;
         });
+        
 
         // Handle approval functionality
         document.querySelectorAll(".approve-btn").forEach((button) => {
