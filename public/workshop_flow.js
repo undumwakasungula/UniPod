@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const audio_projectsdd = document.getElementById("audio-projectsd");
   const tronics_projectsdd = document.getElementById("tronics-projectsd");
   const mecha_projectsdd = document.getElementById("mech-projectsd");
-  const wood_projectsdd = document.getElementById("wood-projectsd");
+  const wood_projectsdd = document.getElementById("wood-projectsd"); 
   const cnc_projectsdd= document.getElementById("cnc-projectsd");
     //add equipment form trigger btn
     const equip_trigger = document.getElementById("add_equip_btn");
@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (audio_equip ) {
         
         audio_equip.addEventListener("click", function audioEquip() {
+        
             if (audio_equip_window.style.display === "none") {
                 audio_equip_window.style.display = "block";
             }
@@ -80,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (audio_equipdd) {
         
         audio_equipdd.addEventListener("click", function audioEquip() {
+            
             if (audio_equip_window.style.display === "none") {
                 audio_equip_window.style.display = "block";
             }
@@ -187,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (audio_projects ) {
         
         audio_projects.addEventListener("click", function audioProjects() {
+            alert("dhhdff");
             if (audio_projects_window.style.display === "none") {
                 audio_projects_window.style.display = "block";
             }

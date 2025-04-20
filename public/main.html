@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff main_dashboard</title>
     <link rel="stylesheet"  href="staff_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 
 
 </head>
@@ -102,7 +104,8 @@
 
         </div>
         <div class="right-main" >
-          <p id="welcome_remark" style="display: block;">Welcome to UMIS</p>
+       <p id="welcome_remark" style="display: block;">Welcome to UMIS</p>
+          
           <div id="compu-room" class="content-windows" style="display: none;">
             <div id="compu-equip-window" class="compu-equip-window" style="display: none;">
               <label class="equip-label">Equipment detail:</label><br>
@@ -938,11 +941,115 @@
                 <div class="space-down"></div>
 
             </div>
-            cnc</div>
+            </div>
           
           <div id="DCIO" class="windows" style="display: none;">welcome to Check In</div>
-          <div id="Payment" class="windows" style="display:none;">welcome to Payment</div>
-          <div id="Booking" class="windows" style="display: none;">welcome to Booking</div>
+          <div id="Payment" class="windows" style="display:none;">
+            <header>
+              <h2><strong>Payments Record</strong></h2>
+              <input type="search" id="search-transaction" placeholder="search payments" style="background-color: white;"></input>
+              <select id="transaction-status" name="status" style="background-color: white;">
+                <option value="all">All</option>
+                <option value="approved">Approved</option>
+                <option value="pending">Pending</option>
+              </select>
+              <br>
+              
+            </header>
+            <div class="grid-transaction">
+              <div class="transaction-box  first">
+                <section>
+                  <h1>Recent Transactions</h1>
+                  <div id="RecentTrans_list">
+                
+
+                  </div>
+
+                </section>
+
+             
+
+              </div>
+              <div class="transaction-box second">
+                <h2>Approved Payments</h2>
+
+              </div>
+              <div class="transaction-box third">
+                <h2>Membership Wallet</h2>
+
+              </div>
+              <div class="transaction-box fourth">
+                <h2>UniPod Wallet</h2>
+                <section>
+                  <div id="images-wallet" class="images-wallet">
+                    <img src="Images/pitch_room.jpg" alt="payments"></img>
+                   
+                  </div>
+
+
+                </section>
+                <h2>dfggfu sdfgshfi dfhiohfoiefp</h2>
+
+              </div>
+
+            </div>
+
+
+
+
+      
+          
+          <br><br><br>
+          <footer>
+           <h3>Contact</h3>
+           <div>
+            <ul>
+              <li>+26598756465</li>
+              <li>fuhg ghrrr</li>
+            </ul>
+           </div>
+           <h3>Help</h3>
+           <h4>for more help visit our website <a href="/unipod.ac.mw">UniPod</a></h4>
+          <br>
+          </footer>
+          </div>
+          <div id="Booking" class="windows" style="display: none;">
+            <header>
+              <h2>Bookings</h2>
+              <input type="search" id="seach_bookings" placeholder="search" style="background-color: white;"></input>
+              <select id="book_type" name="type_book" style="background-color: white;">
+                <option value="all"> All</option>
+                <option value="Conference">Conderence</option>
+                <br>
+              </select>
+            </header>
+            <div class="grid-transaction">
+              <div class="transaction-box first">
+                <h3>Booking Applications</h3>
+                
+
+              </div>
+              <div class="transaction-box second">
+                <h3>History</h3>
+              </div>
+              <div class="transaction-box fourth">
+                <h3>rrtrrrrrrrrrrrrgork</h3>
+              </div>
+
+            </div>
+            <footer>
+              <h3>Contact</h3>
+              <div>
+               <ul>
+                 <li>+26598756465</li>
+                 <li>fuhg ghrrr</li>
+               </ul>
+              </div>
+              <h3>Help</h3>
+              <h4>for more help visit our website <a href="/unipod.ac.mw">UniPod</a></h4>
+             <br>
+             </footer>
+          </div>
           <div id="Membership" class="windows" style="display: none;">welcome to Membership</div>
         </div>
     </div>
@@ -952,10 +1059,11 @@
     <script src="/main.js"></script>
     <script type="module" src="/workshop_flow.js"></script>
     <script src="/dashboard.js"></script>
-    <script type="module" src="computerlab.js"></script>
-    <script type="module" src="audioFlow.js"></script>
-    <script type="module" src="mechanicalFlow.js"></script>
-    <script type="module" src="woodFlow.js"></script>
-    <script type="module" src="cncFlow.js"></script>
+    <script type="module" src="/computerlab.js"></script>
+    <script type="module" src="/audioFlow.js"></script>
+    <script type="module" src="/mechanicalFlow.js"></script>
+    <script type="module" src="/woodFlow.js"></script>
+    <script type="module" src="/cncFlow.js"></script>
+    <script type="module" src="/staff_payment.js"></script>
 </body>
 </html>
