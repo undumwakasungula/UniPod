@@ -38,8 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p>Method: <span>${item.Method}</span></p>
                     </div>
                     <div class="card-footer">
-                        <button class="approve-btn" data-id="${item.id}">Approve</button>
-                        <button class="delete-btn" data-id="${item.id}">Delete</button>
+                        <button class="approve-btn" data-id="${item.id}">
+                        //<img src="/icons/approve-icon.png" alt="Approve" width="20">
+                        </button>
+                        <button class="delete-btn" data-id="${item.id}">
+                        <img src="/Assets/Icons/delete/round.svg" alt="Delete" width="20"></img>
+                        
+                        </button>
                     </div>
                 </div>
             `;
