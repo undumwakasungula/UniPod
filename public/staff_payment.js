@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <div class="card-footer">
                         <button class="approve-btn" data-id="${item.id}">
-                            <i class="fa-solid fa-check-circle"></i>
+                            <i class="fa-solid fa-check-circle"></i> Approve
                         </button>
                         <button class="delete-btn" data-id="${item.id}">
-                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-trash"></i> Delete
                         </button>
                     </div>
                 </div>
