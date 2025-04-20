@@ -376,14 +376,18 @@ body{
     }
   }
 
+
+
   .equip_table {
+    overflow-x: auto;
     width: 95%;
     height: auto;
-    border-collapse: collapse;
     margin: 10px 10px;
     font-family: Arial, sans-serif;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    white-space: nowrap;
+    border-collapse: collapse;
     
   }
   
