@@ -39,15 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <div class="card-footer">
                         <button class="approve-btn" data-id="${item.id}">
-                            <i class="fas fa-check-circle"></i> Approve
+                            <i class="fa-solid fa-check-circle"></i> Approve
                         </button>
                         <button class="delete-btn" data-id="${item.id}">
-                            <i class="fas fa-trash"></i> Delete
+                            <i class="fa-solid fa-trash"></i> Delete
                         </button>
                     </div>
                 </div>
             `;
-            listBody.appendChild(card);
+            listBody.innerHTML += card;
         });
         
 
