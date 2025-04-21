@@ -743,7 +743,7 @@ width: 70%;
 }
 
 .first{
-  background-color: linear-gradient(to bottom, #e7ee8a, #a4c5c5);
+  background-color: blue;
 }
 .second{
   background-color: linear-gradient(to bottom, #9cc3e2, #e2d4d4);

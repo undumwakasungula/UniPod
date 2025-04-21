@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
           <td>${item.Availability}</td>
           <td>
           <div class="action-buttons">
-            <button class="edit-btn" data-id="${item.id}"><i class="fa-solid fa-edit" style="margin-right:8px;"></i>Edit</button>
-            <button class="delete-btn" data-id="${item.id}"><i class="fa-solid fa-trash" style="margin-right:8px;"></i>Delete</button>
+            <button class="edit-btn" data-id="${item.id}"><i class="fa-solid fa-edit" style="margin-right:8px; width:fit-content;"></i>Edit</button>
+            <button class="delete-btn" data-id="${item.id}"><i class="fa-solid fa-trash" style="margin-right:8px; width:fit-content;"></i>Delete</button>
           </div>
           </td>
         </tr>
@@ -336,8 +336,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td>${item.Create_Date}</td>
                 <td>
                     <div class="action-buttons">
-                        <button class="edit-btn" data-id="${item.id}"><i class="fa-solid fa-edit" style="margin-right:8px;"></i> Edit</button>
-                        <button class="delete-btn" data-id="${item.id}"><i class="fa-solid fa-trash" style="margin-right:8px;"></i> Delete</button>
+            <button class="edit-btn" data-id="${item.id}"><i class="fa-solid fa-edit" style="margin-right:8px; width:fit-content;"></i>Edit</button>
+            <button class="delete-btn" data-id="${item.id}"><i class="fa-solid fa-trash" style="margin-right:8px; width:fit-content;"></i>Delete</button>
                     </div>
                 </td>
             <tr>
