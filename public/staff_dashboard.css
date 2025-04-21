@@ -742,14 +742,16 @@ width: 70%;
 
 }
 
+
 .first{
-  background-color: blue;
+  background: linear-gradient(to bottom, #afcde0, orange);
+  
 }
 .second{
-  background-color: linear-gradient(to bottom, #9cc3e2, #e2d4d4);
+  background: linear-gradient(to bottom, #98d0e6, #e2d4d4);
 }
 .third{
-  background-color: linear-gradient(to bottom, #ebe991, #ddd);
+  background: linear-gradient(to bottom, #ebe991, #ddd);
 }
 .fourth{
   background: linear-gradient(to bottom, #8cc3f0, #ebe991);
