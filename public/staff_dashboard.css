@@ -710,25 +710,6 @@ img {
   }
 }
 
-.details {
-  flex-grow: 1;
-  text-align: left;
-}
-
-.amount {
-  font-weight: bold;
-  color: #0073e6;
-}
-
-.status {
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.pending { background: orange; color: white; }
-.approved { background: green; color: white; }
 
 .approve-btn {
   background: #0073e6;
