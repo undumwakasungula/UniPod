@@ -743,10 +743,10 @@ width: 70%;
 }
 
 .first{
-  background-color: orange;
+  background-color: linear-gradient(to bottom, #e7ee8a, #a4c5c5);
 }
 .second{
-  background-color: #218838;
+  background-color: linear-gradient(to bottom, #9cc3e2, #e2d4d4);
 }
 .third{
   background-color: linear-gradient(to bottom, #ebe991, #ddd);
