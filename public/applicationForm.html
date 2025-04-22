@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,18 +21,18 @@
 </head>
 <body>
     <div id="topText"><h1><!--Fill In The Details and Submit to--> Apply For Membership</h1><br><br>
-    <form id="staff-form">
+    <form id="studentMemberForm">
         <div class="container" >
             <!--<label class="label-color">UNIPOD</label><br><br>-->
                 
                 <label class="text">First Name: </label><br>
-                <input type="text" id="fName" placeholder="First Name" required><br><br>
+                <input type="text" id="memberfName" placeholder="First Name" required><br><br>
                 <label class="text">Surname Name: </label><br>
-                <input type="text" id="sName" placeholder="Surname" required><br><br>
+                <input type="text" id="membersName" placeholder="Surname" required><br><br>
                 <label class="phonenumber">phonenumber: </label><br>
-                <input type="tel" id="phone" placeholder="98-234-1583" required><br><br>
+                <input type="tel" id="memberphone" placeholder="98-234-1583" required><br><br>
                 <label class="text">Email: </label><br>
-                <input type="email" id="staffmail" placeholder="Email" required><br><br>          
+                <input type="email" id="membermail" placeholder="Email" required><br><br>          
             </div>
             <br>
             <button type="submit" id="signbtn" class="signbtn"> Submit </button><br>
@@ -42,5 +42,6 @@
         </div>    
 
     </form>
+    <script type="module" src="/student_membershipFlow.js"></script>
 </body>
 </html>
