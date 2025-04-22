@@ -81,6 +81,6 @@ document.addEventListener("DOMContentLoaded",function(){
             `;
             listBody.innerHTML += card;
         });
-    }
+    };
 
 });
