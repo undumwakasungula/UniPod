@@ -44,4 +44,43 @@ document.addEventListener("DOMContentLoaded",function(){
         });
     }
 
-} );
+    // Fetch project data from Firestore
+    const fetchTronicsRealTimeDataProjects = () => {
+        const projectRef = collection(db, "ElectronicsLabProjects");
+        // Listen for real-time updates
+        onSnapshot(projectRef, (snapshot) => {
+            console.log("Snapshot triggered!");
+            const projectsData = [];
+            snapshot.forEach((doc) => {
+                projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
+            });
+            // Render the updated data in the table
+            showProjectTable(projectsData);
+            updateProjectsAnalytics();
+        });
+    };
+    fetchTronicsRealTimeDataProjects();
+    
+    // Function to display payments in cards (instead of a table)
+    const showCards = (paymentData) => {
+        const listBody = document.querySelector("#ClientProjects");
+        listBody.innerHTML = ""; // Clear existing entries
+
+        paymentData.forEach((item) => {
+            const card = `
+                <div class="payment-card">
+                    <div class="card-header">
+                        <strong>${item.Client}</strong>
+                        <small>${item.Project}</small>
+                    </div>
+                    <div class="card-body">
+                        <p>Project ID: <span>${item.Project_ID}</span></p>
+                        <p>Date: <span>${item.Create_Date}</span></p>
+                    </div>
+
+            `;
+            listBody.innerHTML += card;
+        });
+    }
+
+});
