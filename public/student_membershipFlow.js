@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded",function(){
         const listBody = document.querySelector("#ClientProject");
         listBody.innerHTML = ""; // Clear existing entries
 
-        paymentData.forEach((item) => {
+        projectsData.forEach((item) => {
             const card = `
                 <div class="payment-card">
                     <div class="card-header">
