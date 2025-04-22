@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded",function(){
     }
 
     // Fetch project data from Firestore
-    const fetchTronicsRealTimeDataProjects = () => {
+    const fetchDataProjects = () => {
         const projectRef = collection(db, "ElectronicsLabProjects");
         // Listen for real-time updates
         onSnapshot(projectRef, (snapshot) => {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
         });
     };
-    fetchTronicsRealTimeDataProjects();
+    fetchDataProjects();
     
     // Function to display payments in cards (instead of a table)
     const showCards = (projectsData) => {
