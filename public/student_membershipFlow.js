@@ -54,15 +54,13 @@ document.addEventListener("DOMContentLoaded",function(){
             snapshot.forEach((doc) => {
                 projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
             });
-            // Render the updated data in the table
-            showProjectTable(projectsData);
-            updateProjectsAnalytics();
+
         });
     };
     fetchTronicsRealTimeDataProjects();
     
     // Function to display payments in cards (instead of a table)
-    const showCards = (paymentData) => {
+    const showCards = (projectsData) => {
         const listBody = document.querySelector("#ClientProject");
         listBody.innerHTML = ""; // Clear existing entries
 
