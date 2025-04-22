@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded",function(){
                 projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
             });
 
-        showcards(projectsData);
+        showCards(projectsData);
 
         });
     };
