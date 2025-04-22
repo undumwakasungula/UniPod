@@ -710,25 +710,6 @@ img {
   }
 }
 
-.details {
-  flex-grow: 1;
-  text-align: left;
-}
-
-.amount {
-  font-weight: bold;
-  color: #0073e6;
-}
-
-.status {
-  font-size: 12px;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.pending { background: orange; color: white; }
-.approved { background: green; color: white; }
 
 .approve-btn {
   background: #0073e6;
@@ -761,14 +742,16 @@ width: 70%;
 
 }
 
+
 .first{
-  background-color: orange;
+  background: linear-gradient(to bottom, #afcde0, orange);
+  
 }
 .second{
-  background-color: #218838;
+  background: linear-gradient(to bottom, #98d0e6, #e2d4d4);
 }
 .third{
-  background-color: linear-gradient(to bottom, #ebe991, #ddd);
+  background: linear-gradient(to bottom, #ebe991, #ddd);
 }
 .fourth{
   background: linear-gradient(to bottom, #8cc3f0, #ebe991);

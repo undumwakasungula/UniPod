@@ -98,8 +98,8 @@ const fetchRealTimeData = () => {
           <td>${item.Availability}</td>
           <td>
           <div class="action-buttons">
-            <button class="edit-btn" data-id="${item.id}"><i class="fa-solid fa-edit"></i> Edit</button>
-            <button class="delete-btn" data-id="${item.id}"><i class="fa-solid fa-trash"></i> Delete</button>
+            <button class="edit-btn" data-id="${item.id}"><i class="fa-solid fa-edit" style="margin-right:8px; width:fit-content;"></i>Edit</button>
+            <button class="delete-btn" data-id="${item.id}"><i class="fa-solid fa-trash" style="margin-right:8px; width:fit-content;"></i>Delete</button>
           </div>
           </td>
         </tr>
