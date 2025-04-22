@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded",function(){
     
     // Function to display payments in cards (instead of a table)
     const showCards = (paymentData) => {
-        const listBody = document.querySelector("#ClientProjects");
+        const listBody = document.querySelector("#ClientProject");
         listBody.innerHTML = ""; // Clear existing entries
 
         paymentData.forEach((item) => {
