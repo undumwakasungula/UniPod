@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded",function(){
             const card = `
                 <div class="payment-card">
                     <div class="card-header">
+                        <h3>Data be here</h3>
                         <strong>${item.Client}</strong>
                         <small>${item.Project}</small>
                     </div>
