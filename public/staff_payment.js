@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <small>${item.Email}</small>
                     </div>
                     <div class="card-body">
-                        <p>Amount: <span>${item.status}</span></p>
+                        <small>${item.status}</small>
                         <p>Project ID: <span>${item.ProjectID}</span></p>
                         <p>Method: <span>${item.Method}</span></p>
                     </div>
