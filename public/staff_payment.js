@@ -90,6 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // Listen for real-time updates
         onSnapshot(approvedQuery, (snapshot) => {
             console.log("Approved payments snapshot triggered!");
+            if (snapshot.empty) {
+                console.log("No approved payments found.");
+                return;
+            }
             const approvedPaymentsData = [];
             snapshot.forEach((doc) => {
                 approvedPaymentsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
@@ -103,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Function to display payments in cards (instead of a table)
         const showapprovedCards = (approvedPaymentsData) => {
-            const listBody = document.querySelector("#ApprovedTrans_list");
+            const Body = document.querySelector("#ApprovedTrans_list");
             listBody.innerHTML = ""; // Clear existing entries
     
             approvedPaymentsData.forEach((item) => {
@@ -128,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                 `;
-                listBody.innerHTML += card;
+                Body.innerHTML += card;
             });
             
     
