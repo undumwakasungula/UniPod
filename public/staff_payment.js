@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="card-footer">
                             <button class="approve-btn" data-id="${item.id}">
-                                <i class="fa-solid fa-check-circle"></i> Revoke
+                                <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
                             <button class="delete-btn" data-id="${item.id}">
                                 <i class="fa-solid fa-trash"></i> Delete
