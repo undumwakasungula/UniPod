@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p>Method: <span>${item.Method}</span></p>
                     </div>
                     <div class="card-footer">
-                        <button class="approve-btn" data-id="${item.id}">
+                        <button class="approve-btn" dt-id="${item.id}">
                             <i class="fa-solid fa-check-circle"></i> Approve
                         </button>
                         <button class="delete-btn" data-id="${item.id}">
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Handle approval functionality
         document.querySelectorAll(".approve-btn").forEach((button) => {
             button.addEventListener("click", function () {
-                const paymentId = this.getAttribute("data-id");
+                const paymentId = this.getAttribute("dt-id");
                 const confirmApprove = window.confirm("Are you sure you want to approve this payment?");
 
                 if (confirmApprove){
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.querySelectorAll(".delete-btn").forEach((button) => {
             button.addEventListener("click", function () {
-                const paymentId = this.getAttribute("data-id");
+                const paymentId = this.getAttribute("dt-id");
         
                 // Show confirmation dialog
                 const confirmDelete = window.confirm("Are you sure you want to delete this payment?");
@@ -98,10 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Listen for real-time updates
         onSnapshot(approvedQuery, (snapshot) => {
             console.log("Approved payments snapshot triggered!");
-            if (snapshot.empty) {
-                console.log("No approved payments found.");
-                return;
-            }
+
             const approvedPaymentsData = [];
             snapshot.forEach((doc) => {
                 approvedPaymentsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
