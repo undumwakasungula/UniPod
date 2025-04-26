@@ -136,10 +136,20 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".approve-btn").forEach((button) => {
                 button.addEventListener("click", function () {
                     const paymentId = this.getAttribute("data-id");
-                    updateDoc(doc(db, "ProjectPayments", paymentId), { status: "approved" }).then(() => {
-                        document.querySelector(`.approve-btn[data-id="${paymentId}"]`).disabled = true; // Disable the button after approval
-                        console.log(`Payment ${paymentId} approved!`);
-                    });
+
+                    const confirmApprove = window.confirm("Are you sure you want to approve this payment?");
+
+                    if (confirmApprove){
+                        updateDoc(doc(db, "ProjectPayments", paymentId), { status: "approved" }).then(() => {
+                            document.querySelector(`.approve-btn[data-id="${paymentId}"]`).disabled = true; // Disable the button after approval
+                            console.log(`Payment ${paymentId} approved!`);
+                        });
+                        
+                    }
+                    else{
+                        console.log(`Payment ${paymentId} not approved!`);
+                    }
+
                 });
             });
     
