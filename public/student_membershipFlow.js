@@ -49,20 +49,20 @@ document.addEventListener("DOMContentLoaded",function(){
         const projectRef = collection(db, "ElectronicsLabProjects");
         // Listen for real-time updates
         onSnapshot(projectRef, (snapshot) => {
-            console.log("Snapshot triggered!");
+            console.log("Snapshot student triggered!");
             const projectsData = [];
             snapshot.forEach((doc) => {
                 projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
             });
 
-        showCards(projectsData);
+        showpayCards(projectsData);
 
         });
     };
     fetchDataProjects();
     
     // Function to display payments in cards (instead of a table)
-    const showCards = (projectsData) => {
+    const showpayCards = (projectsData) => {
         const list_body = document.querySelector("#ClientProject");
         list_body.innerHTML = ""; // Clear existing entries
 
