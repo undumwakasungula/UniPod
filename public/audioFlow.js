@@ -87,7 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+    const audispinner = document.querySelector("#audio_spinner");
+    audispinner.style.display = "flex";   
     // Fetch equipment data from Firestore
 const fetchRealTimeData = () => {
     const equipmentRef = collection(db, "AudioVisualLab"); // Using collection to reference the entire collection
@@ -103,6 +104,7 @@ const fetchRealTimeData = () => {
       // Render the updated data in the table
       showTable(equipmentData);
       updateAnalytics();
+      audispinner.style.display = "none"; // Hide the spinner after data is fetched
     });
   };
   
@@ -300,7 +302,8 @@ if (project_form) {
         return projectID;
     }
 }
-
+ const projectSpinner = document.querySelector("#audio_project_spinner");
+    projectSpinner.style.display = "flex"; // Show the spinner while loading data
 // Fetch project data from Firestore
 const fetchTronicsRealTimeDataProjects = () => {
     const projectRef = collection(db, "AudioVisualLabProjects");
@@ -314,6 +317,7 @@ const fetchTronicsRealTimeDataProjects = () => {
         // Render the updated data in the table
         showProjectTable(projectsData);
         updateProjectsAnalytics();
+        projectSpinner.style.display = "none"; // Hide the spinner after data is fetched
     });
 };
 fetchTronicsRealTimeDataProjects();

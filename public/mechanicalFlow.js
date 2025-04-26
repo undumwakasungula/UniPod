@@ -87,6 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+    const mechspinner = document.querySelector("#mech_equip_spinner");
+    mechspinner.style.display = "flex"; // Show spinner when the page loads
 
     // Fetch equipment data from Firestore
 const fetchRealTimeData = () => {
@@ -103,6 +105,7 @@ const fetchRealTimeData = () => {
       // Render the updated data in the table
       showTable(equipmentData);
       updateAnalytics();
+        mechspinner.style.display = "none"; // Hide spinner after data is loaded
     });
   };
   
@@ -302,6 +305,8 @@ if (project_form) {
     }
 }
 
+  const mechprospinner = document.querySelector("#mech_project_spinner");
+  mechprospinner.style.display = "flex"; // Show spinner when the page loads
 // Fetching project data from Firestore
 const fetchTronicsRealTimeDataProjects = () => {
     const projectRef = collection(db, "MechanicalLabProjects");
@@ -315,6 +320,7 @@ const fetchTronicsRealTimeDataProjects = () => {
         // Render the updated data in the table
         showProjectTable(projectsData);
         updateProjectsAnalytics();
+        mechprospinner.style.display = "none";
     });
 };
 fetchTronicsRealTimeDataProjects();

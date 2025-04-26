@@ -378,7 +378,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
+    const trospinner = document.querySelector("#tronics_equip_spinner");
+    trospinner.style.display = "flex"; 
 // Fetch equipment data from Firestore
 const fetchRealTimeData = () => {
     const equipmentRef = collection(db, "ElectronicsLab"); // Use collection to reference the entire collection
@@ -394,6 +395,7 @@ const fetchRealTimeData = () => {
       // Render the updated data in the table
       showTable(equipmentData);
       updateAnalytics();
+        spinner.style.display = "none"; // Hide the spinner after data is loaded
     });
   };
   
@@ -591,6 +593,8 @@ if (project_form) {
     }
 }
 
+const trosprospinner = document.querySelector("#tronics_project_spinner");
+trosprospinner.style.display = "flex";
 // Fetch project data from Firestore
 const fetchTronicsRealTimeDataProjects = () => {
     const projectRef = collection(db, "ElectronicsLabProjects");
@@ -604,6 +608,7 @@ const fetchTronicsRealTimeDataProjects = () => {
         // Render the updated data in the table
         showProjectTable(projectsData);
         updateProjectsAnalytics();
+        trosprospinner.style.display = "none"; // Hide the spinner after data is loaded
     });
 };
 fetchTronicsRealTimeDataProjects();

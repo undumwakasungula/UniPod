@@ -64,7 +64,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+    const spinner = document.querySelector("#compu_spinner");
+    spinner.style.display = "flex";   
     // Fetch equipment data from Firestore
 const fetchRealTimeData = () => {
     const equipmentRef = collection(db, "ComputerLabEquip"); // Using collection to reference the entire collection
@@ -80,6 +81,7 @@ const fetchRealTimeData = () => {
       // Render the updated data in the table
       showTable(equipmentData);
       updateAnalytics();
+      spinner.style.display = "none"; // Hide spinner after data is fetched
     });
   };
   

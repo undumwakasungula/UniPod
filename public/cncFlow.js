@@ -83,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
+    const equipspinner = document.querySelector("#cnc_equip_spinner");
+    equipspinner.style.display = "flex";   
     // Fetch equipment data from Firestore
     const fetchRealTimeData = () => {
         const equipmentRef = collection(db, "CNCLab"); // Using collection to reference the entire collection
@@ -99,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Render the updated data in the table
             showTable(equipmentData);
             updateAnalytics();
+            equipspinner.style.display = "none"; 
         });
     };
 
@@ -296,7 +298,8 @@ document.addEventListener("DOMContentLoaded", function () {
             return projectID;
         }
     }
-
+    const projspinner = document.querySelector("#cnc_project_spinner");
+    projspinner.style.display = "flex";
     // Fetch project data from Firestore
     const fetchTronicsRealTimeDataProjects = () => {
         const projectRef = collection(db, "CNCLabProjects");
@@ -310,6 +313,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // Render the updated data in the table
             showProjectTable(projectsData);
             updateProjectsAnalytics();
+            
+            projspinner.style.display = "none";   
         });
     };
     fetchTronicsRealTimeDataProjects();
