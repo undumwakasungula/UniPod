@@ -1,0 +1,10 @@
+.menuOption
+{ float: left; font-size: 35px;text-decoration: none; clear: left;text-align: center; padding: 20px; width: 100%;}
+a:link
+{text-decoration: none; color: black;}
+a:visited
+    {text-decoration: none; color: black;}
+a:hover
+    {text-decoration: none;}
+a:active
+    {text-decoration: none;}
