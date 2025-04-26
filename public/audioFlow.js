@@ -270,6 +270,7 @@ if (project_form) {
         let projectID = generateProjectID();
         let currentTime = new Date();
         let timestamp = currentTime.toISOString();
+        let authorization = "Pending"; 
         try {
             // Storing projects details in Firestore
             const projectsDocRef = doc(collection(db, "AudioVisualLabProjects"));
@@ -278,7 +279,8 @@ if (project_form) {
                 Client: client,
                 Project_ID: projectID,
                 Duration: duration,
-                Create_Date: timestamp
+                Create_Date: timestamp,
+                Authorization: authorization
             });
             showProjectSuccessMessage();
             project_form.style.display = "none";
@@ -334,7 +336,7 @@ const showProjectTable = (projectsData) => {
                 <td>${item.Project}</td>
                 <td>${item.Client}</td>
                 <td>${item.Project_ID}</td>
-                <td>${item.Status}</td>
+                <td>${Status}</td>
                 <td>${item.Authorization}</td>
                 <td>${item.Duration}</td>
                 <td>${item.Create_Date}</td>

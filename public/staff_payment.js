@@ -118,7 +118,7 @@ async function updateSingleDocument(project_ID) {
         const docRef = doc(db, collectionName, document.id);
 
         // Update the status field
-        await updateDoc(docRef, { status: "approved" });
+        await updateDoc(docRef, { Authorization: "Approved" });
         console.log(`Updated document in ${collectionName} with Project ID ${projectId}`);
         return; // Exit after updating the document to ensure only one update
       }

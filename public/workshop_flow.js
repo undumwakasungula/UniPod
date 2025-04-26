@@ -560,6 +560,7 @@ if (project_form) {
         let projectID = generateProjectID();
         let currentTime = new Date();
         let timestamp = currentTime.toISOString();
+        let authorization = "Pending"; // Default value for authorization
         try {
             // Storing projects details in Firestore
             const projectsDocRef = doc(collection(db, "ElectronicsLabProjects"));
@@ -568,7 +569,8 @@ if (project_form) {
                 Client: client,
                 Project_ID: projectID,
                 Duration: duration,
-                Create_Date: timestamp
+                Create_Date: timestamp,
+                Authorization: authorization
             });
             showProjectSuccessMessage();
             project_form.style.display = "none";
