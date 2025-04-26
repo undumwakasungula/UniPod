@@ -395,7 +395,7 @@ const fetchRealTimeData = () => {
       // Render the updated data in the table
       showTable(equipmentData);
       updateAnalytics();
-        spinner.style.display = "none"; // Hide the spinner after data is loaded
+        trospinner.style.display = "none"; // Hide the spinner after data is loaded
     });
   };
   
