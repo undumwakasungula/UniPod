@@ -334,7 +334,7 @@ const showProjectTable = (projectsData) => {
                 <td>${item.Project}</td>
                 <td>${item.Client}</td>
                 <td>${item.Project_ID}</td>
-                <td>${Status}</td>
+                <td>${item.Status}</td>
                 <td>${item.Authorization}</td>
                 <td>${item.Duration}</td>
                 <td>${item.Create_Date}</td>

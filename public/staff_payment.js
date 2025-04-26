@@ -1,5 +1,5 @@
 import { db } from "./firebaseConfig.js";
-import { doc, collection, deleteDoc,query,where, onSnapshot, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import { doc, collection, deleteDoc,query,where, onSnapshot, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch payment data from Firestore
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p>Method: <span>${item.Method}</span></p>
                     </div>
                     <div class="card-footer">
-                        <button class="approve-btn" dt-id="${item.id}">
+                        <button class="approve-btn" dt-id="${item.ProjectID}">
                             <i class="fa-solid fa-check-circle"></i> Approve
                         </button>
                         <button class="delete-btn" data-id="${item.id}">
@@ -60,9 +60,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (confirmApprove){
                     updateDoc(doc(db, "ProjectPayments", paymentId), { status: "approved" }).then(() => {
+
                         
                         console.log(`Payment ${paymentId} aprroved`);
                     });
+                    updateSingleDocument(paymentId).then(() => {
+                        console.log(`Payment ${paymentId} updated in other collections`);
+                    }).catch((error) => {
+                        console.error("Error updating document:", error);
+                    });
+                    
+
                     
                 }
                 else{
@@ -89,6 +97,40 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         
     };
+
+                        // List of collection names
+const collections = ["AudioVisualLabProjects", "CNCLabProjects", "EletronicsLabProjects","MechanicalLabProjects", "WoodLabProjects"]; // Replace with your actual collection names
+
+async function updateSingleDocument(project_ID) {
+    const projectId = project_ID;
+  try {
+    for (const collectionName of collections) {
+      // Reference the current collection
+      const currentCollection = collection(db, collectionName);
+
+      // Query the document with the matching projectId
+      const q = query(currentCollection, where("Project_ID", "==", projectId));
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        // Get the first matching document
+        const document = querySnapshot.docs[0];
+        const docRef = doc(db, collectionName, document.id);
+
+        // Update the status field
+        await updateDoc(docRef, { status: "approved" });
+        console.log(`Updated document in ${collectionName} with Project ID ${projectId}`);
+        return; // Exit after updating the document to ensure only one update
+      }
+    }
+
+    console.log(`No document found with Project ID ${projectId} in any collection.`);
+  } catch (error) {
+    console.error("Error updating document:", error);
+  }
+}
+
+
 
     //fetch approved payments
     const fetchApprovedPayments = () => {
@@ -128,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p>Method: <span>${item.Method}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="approve-btn" data-id="${item.id}">
+                            <button class="approve-btn" data-id="${item.ProjectID}">
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
                             <button class="delete-btn" data-id="${item.id}">
