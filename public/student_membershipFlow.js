@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded",function(){
     
     // Function to display payments in cards (instead of a table)
     const showCards = (projectsData) => {
-        const listBody = document.querySelector("#ClientProject");
-        listBody.innerHTML = ""; // Clear existing entries
+        const list_body = document.querySelector("#ClientProject");
+        list_body.innerHTML = ""; // Clear existing entries
 
         projectsData.forEach((item) => {
             const card = `
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded",function(){
                     </div>
 
             `;
-            listBody.innerHTML += card;
+            list_body.innerHTML += card;
         });
     };
 
