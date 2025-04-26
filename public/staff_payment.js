@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="card-footer">
                             <button class="approve-btn" data-id="${item.id}">
-                                <i class="fa-solid fa-check-circle"></i> Approve
+                                <i class="fa-solid fa-check-circle"></i> Revoke
                             </button>
                             <button class="delete-btn" data-id="${item.id}">
                                 <i class="fa-solid fa-trash"></i> Delete
@@ -141,17 +141,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.addEventListener("click", function () {
                     const paymentId = this.getAttribute("data-id");
 
-                    const confirmApprove = window.confirm("Are you sure you want to approve this payment?");
+                    const confirmApprove = window.confirm("Are you sure you want to revoke this payment?");
 
                     if (confirmApprove){
-                        updateDoc(doc(db, "ProjectPayments", paymentId), { status: "approved" }).then(() => {
-                            document.querySelector(`.approve-btn[data-id="${paymentId}"]`).disabled = true; // Disable the button after approval
-                            console.log(`Payment ${paymentId} approved!`);
+                        updateDoc(doc(db, "ProjectPayments", paymentId), { status: "pending" }).then(() => {
+                            
+                            console.log(`Payment ${paymentId} revoked!`);
                         });
                         
                     }
                     else{
-                        console.log(`Payment ${paymentId} not approved!`);
+                        console.log(`Payment ${paymentId} not revoked!`);
                     }
 
                 });
