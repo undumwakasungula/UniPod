@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             button.addEventListener("click", function () {
                 const paymentId = this.getAttribute("data-id");
                 updateDoc(doc(db, "ProjectPayments", paymentId), { status: "approved" }).then(() => {
+                    document.querySelector(`.approve-btn[data-id="${paymentId}"]`).disabled = true; // Disable the button after approval
                     console.log(`Payment ${paymentId} approved!`);
                 });
             });
