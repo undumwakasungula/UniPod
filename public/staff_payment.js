@@ -107,8 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Function to display payments in cards (instead of a table)
         const showapprovedCards = (approvedPaymentsData) => {
-            const Body = document.querySelector("#ApprovedTrans_list");
-            listBody.innerHTML = ""; // Clear existing entries
+            const Bodylist = document.querySelector("#ApprovedTrans_list");
+            Bodylist.innerHTML = ""; // Clear existing entries
     
             approvedPaymentsData.forEach((item) => {
                 const card = `
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                 `;
-                Body.innerHTML += card;
+                Bodylist.innerHTML += card;
             });
             
     
