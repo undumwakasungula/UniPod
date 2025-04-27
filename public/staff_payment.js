@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         
                         console.log(`Payment ${paymentId} aprroved`);
                     });
-                    updateSingleDocument(projId);
+                    updateProjectAuthorization(projId, "Approved"); 
 
                     
 
@@ -95,40 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         
     };
-
-                        // List of collection names
-const collections = ["AudioVisualLabProjects", "CNCLabProjects", "EletronicsLabProjects","MechanicalLabProjects", "WoodLabProjects"]; // Replace with your actual collection names
-
-async function updateSingleDocument(project_ID) {
-    const projectId = project_ID;
-  try {
-    for (const collectionName of collections) {
-      // Reference the current collection
-      const currentCollection = collection(db, collectionName);
-
-      // Query the document with the matching projectId
-      const q = query(currentCollection, where("Project_ID", "==", projectId));
-      const querySnapshot = await getDocs(q);
-
-      if (!querySnapshot.empty) {
-        
-        const document = querySnapshot.docs[0];
-        const docRef = doc(db, collectionName, document.id);
-
-        
-        await updateDoc(docRef, { Authorization: "Approved" });
-        console.log(`Updated document in ${collectionName} with Project ID ${projectId}`);
-        return; 
-      }
-    }
-
-    console.log(`No document found with Project ID ${projectId} in any collection.`);
-  } catch (error) {
-    console.error("Error updating document:", error);
-  }
-}
-
-
 
 
     //fetch approved payments
@@ -195,7 +161,7 @@ async function updateSingleDocument(project_ID) {
                             
                             console.log(`Payment ${paymentId} revoked!`);
                         });
-                        updaterevokeSingleDocument(proId);
+                        updateProjectAuthorization(proId, "Pending"); 
                         
                     }
                     else{
@@ -208,35 +174,29 @@ async function updateSingleDocument(project_ID) {
                                     // List of collection names
                                     const collectionlist = ["AudioVisualLabProjects", "CNCLabProjects", "EletronicsLabProjects","MechanicalLabProjects", "WoodLabProjects"]; // Replace with your actual collection names
 
-                                    async function updaterevokeSingleDocument(project_ID) {
-                                        const projectId = project_ID;
-                                      try {
-                                        for (const collectionName of collectionlist) {
-                                          // Reference the current collection
-                                          const currentCollection = collection(db, collectionName);
+                                    async function updateProjectAuthorization(project_ID, statusValue) {
+                                        try {
+                                            for (const collectionName of collections) {
+                                                const currentCollection = collection(db, collectionName);
+                                                const q = query(currentCollection, where("Project_ID", "==", project_ID));
+                                                const querySnapshot = await getDocs(q);
                                     
-                                          // Query the document with the matching projectId
-                                          const q = query(currentCollection, where("Project_ID", "==", projectId));
-                                          const querySnapshot = await getDocs(q);
+                                                if (!querySnapshot.empty) {
+                                                    const document = querySnapshot.docs[0];
+                                                    const docRef = doc(db, collectionName, document.id);
                                     
-                                          if (!querySnapshot.empty) {
-                                            // Get the first matching document
-                                            const document = querySnapshot.docs[0];
-                                            const docRef = doc(db, collectionName, document.id);
+                                                    await updateDoc(docRef, { Authorization: statusValue });
+                                                    console.log(`Updated document in ${collectionName} with Project ID ${project_ID} to ${statusValue}`);
+                                                    return;
+                                                }
+                                            }
                                     
-                                            // Update the status field
-                                            await updateDoc(docRef, { Authorization: "Revoked" });
-                                            console.log(`Updated document in ${collectionName} with Project ID ${projectId}`);
-                                            return; // Exit after updating the document to ensure only one update
-                                          }
+                                            console.log(`No document found with Project ID ${project_ID} in any collection.`);
+                                        } catch (error) {
+                                            console.error("Error updating document:", error);
                                         }
-                                    
-                                        console.log(`No document found with Project ID ${projectId} in any collection.`);
-                                      } catch (error) {
-                                        console.error("Error updating document:", error);
-                                      }
                                     }
-    
+                                    
             document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", function () {
                     const paymentId = this.getAttribute("data-id");
