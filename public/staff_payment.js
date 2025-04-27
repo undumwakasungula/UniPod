@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Handle approval functionality
         document.querySelectorAll(".approve-btn").forEach((button) => {
             button.addEventListener("click", function () {
-                const paymentId = this.getAttribute("dt-id");
+                const paymentId = this.getAttribute("data-id");
                 const projId = this.getAttribute("proj-id");
                 const confirmApprove = window.confirm("Are you sure you want to approve this payment?");
 
@@ -169,7 +169,7 @@ async function updateSingleDocument(project_ID) {
                             <p>Method: <span>${item.Method}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="approve-btn" data-id="${item.d}" proj-id="${item.ProjectID}">
+                            <button class="approve-btn" data-id="${item.id}" proj-id="${item.ProjectID}">
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
                             <button class="delete-btn" data-id="${item.id}">
@@ -195,7 +195,7 @@ async function updateSingleDocument(project_ID) {
                             
                             console.log(`Payment ${paymentId} revoked!`);
                         });
-                        updateSingleDocument(proId);
+                        updaterevokeSingleDocument(proId);
                         
                     }
                     else{
@@ -208,7 +208,7 @@ async function updateSingleDocument(project_ID) {
                                     // List of collection names
                                     const collectionlist = ["AudioVisualLabProjects", "CNCLabProjects", "EletronicsLabProjects","MechanicalLabProjects", "WoodLabProjects"]; // Replace with your actual collection names
 
-                                    async function updateSingleDocument(project_ID) {
+                                    async function updaterevokeSingleDocument(project_ID) {
                                         const projectId = project_ID;
                                       try {
                                         for (const collectionName of collectionlist) {
