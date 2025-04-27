@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p>Method: <span>${item.Method}</span></p>
                     </div>
                     <div class="card-footer">
-                        <button class="approve-btn" dt-id="${item.id}" proj-id="${item.ProjectID}">
+                        <button class="approve-btn" data-id="${item.id}" proj-id="${item.ProjectID}">
                             <i class="fa-solid fa-check-circle"></i> Approve
                         </button>
                         <button class="delete-btn" data-id="${item.id}">
@@ -65,11 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         
                         console.log(`Payment ${paymentId} aprroved`);
                     });
-                    updateSingleDocument(projId).then(() => {
-                        console.log(`Payment ${projId} updated in other collections`);
-                    }).catch((error) => {
-                        console.error("Error updating document:", error);
-                    });
+                    updateSingleDocument(projId);
+
                     
 
                     
