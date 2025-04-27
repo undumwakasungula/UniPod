@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
 
         // Handle approval functionality
-        document.querySelectorAll(".revoke-btn").forEach((button) => {
+        document.querySelectorAll(".approve-btn").forEach((button) => {
             button.addEventListener("click", function () {
                 const paymentId = this.getAttribute("data-id");
                 const projId = this.getAttribute("proj-id");
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
     
             // Handle revoke functionality
-            document.querySelectorAll(".approve-btn").forEach((button) => {
+            document.querySelectorAll(".revoke-btn").forEach((button) => {
                 button.addEventListener("click", function () {
                     const paymentId = this.getAttribute("data-id");
                     const proId = this.getAttribute("proj-id");
