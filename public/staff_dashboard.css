@@ -726,6 +726,21 @@ img {
   cursor: not-allowed;
 }
 
+.revoke-btn {
+  background: #0073e6;
+  
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.revoke-btn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
 img{
 height: 100px;
 width: 70%;
