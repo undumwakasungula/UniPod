@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
                                     // List of collection names
-                                    const collections = ["AudioVisualLabProjects", "CNCLabProjects", "EletronicsLabProjects","MechanicalLabProjects", "WoodLabProjects"]; // Replace with your actual collection names
+                                    const collections = ["AudioVisualLabProjects", "CNCLabProjects", "EletronicsLabProjects","MechanicalLabProjects", "WoodLabProjects"];
 
                                     async function updateProjectAuthorization(project_ID, statusValue) {
                                         try {
