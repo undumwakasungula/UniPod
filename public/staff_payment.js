@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p>Method: <span>${item.Method}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="approve-btn" data-id="${item.id}" proj-id="${item.ProjectID}">
+                            <button class="revoke-btn" data-id="${item.id}" proj-id="${item.ProjectID}">
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
                             <button class="delete-btn" data-id="${item.id}">
