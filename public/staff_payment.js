@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p>Method: <span>${item.Method}</span></p>
                     </div>
                     <div class="card-footer">
-                        <button class="approve-btn" dt-id="${item.ProjectID}">
+                        <button class="approve-btn" dt-id="${item.id}" proj-id="${item.ProjectID}">
                             <i class="fa-solid fa-check-circle"></i> Approve
                         </button>
                         <button class="delete-btn" data-id="${item.id}">
@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".approve-btn").forEach((button) => {
             button.addEventListener("click", function () {
                 const paymentId = this.getAttribute("dt-id");
+                const projId = this.getAttribute("proj-id");
                 const confirmApprove = window.confirm("Are you sure you want to approve this payment?");
 
                 if (confirmApprove){
@@ -64,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         
                         console.log(`Payment ${paymentId} aprroved`);
                     });
-                    updateSingleDocument(paymentId).then(() => {
-                        console.log(`Payment ${paymentId} updated in other collections`);
+                    updateSingleDocument(projId).then(() => {
+                        console.log(`Payment ${projId} updated in other collections`);
                     }).catch((error) => {
                         console.error("Error updating document:", error);
                     });
@@ -113,14 +114,14 @@ async function updateSingleDocument(project_ID) {
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
-        // Get the first matching document
+        
         const document = querySnapshot.docs[0];
         const docRef = doc(db, collectionName, document.id);
 
-        // Update the status field
+        
         await updateDoc(docRef, { Authorization: "Approved" });
         console.log(`Updated document in ${collectionName} with Project ID ${projectId}`);
-        return; // Exit after updating the document to ensure only one update
+        return; 
       }
     }
 
@@ -171,7 +172,7 @@ async function updateSingleDocument(project_ID) {
                             <p>Method: <span>${item.Method}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="approve-btn" data-id="${item.ProjectID}">
+                            <button class="approve-btn" data-id="${item.d}" proj-id="${item.ProjectID}">
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
                             <button class="delete-btn" data-id="${item.id}">
@@ -188,6 +189,7 @@ async function updateSingleDocument(project_ID) {
             document.querySelectorAll(".approve-btn").forEach((button) => {
                 button.addEventListener("click", function () {
                     const paymentId = this.getAttribute("data-id");
+                    const proId = this.getAttribute("proj-id");
 
                     const confirmrevoke = window.confirm("Are you sure you want to revoke this payment?");
 
@@ -196,6 +198,7 @@ async function updateSingleDocument(project_ID) {
                             
                             console.log(`Payment ${paymentId} revoked!`);
                         });
+                        updateSingleDocument(proId);
                         
                     }
                     else{
