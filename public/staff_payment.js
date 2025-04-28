@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p>Method: <span>${item.Method}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="revoke-btn" data-id="${item.id}" proj-id="${item.ProjectID}">
+                            <button class="revoke-btn" data-id="${item.id}" project-id="${item.ProjectID}">
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
                             <button class="delete-btn" data-id="${item.id}">
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".revoke-btn").forEach((button) => {
                 button.addEventListener("click", function () {
                     const paymentId = this.getAttribute("data-id");
-                    const proId = this.getAttribute("proj-id");
+                    const proId = this.getAttribute("project-id");
 
                     const confirmrevoke = window.confirm("Are you sure you want to revoke this payment?");
 
