@@ -4,28 +4,39 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>membership</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="membership.css">
 </head>
 <body>
-		<div id="heading" style="width: 60%;">
-			<h2>Membership status</h2>
-		</div>
-		<div id="statusArea">
-		<!-- 1 --><div id="firstSection">
-					<!-- a --><div style="height: 100px; width: 30%;" class="floated"><img src="Images/userIcon.png"></i></div>
-					<!-- b -->
-						<div style="height: 100px; width: 70%;" class="floated" id="firstSectionDiv2">
+		
+<!-- boostrap framework -->
+		<div class="container-fluid">
+			<!--1st row-->
+			<div class="row">
+				<div id="heading" class="col-sm-12" style="width: 60%;">
+					<h2>Membership status</h2>
+				</div>
+			</div>		
+			
+			<!--<div id="statusArea">-->
+				<!-- 2nd Row-->
+				<div id="firstSection" class="row">
+					 <div class="col-sm-2"><img src="Images/userIcon.png"></div>
+						<div style="height: 100px;" class="col-sm-10" id="firstSectionDiv2">
 							<h3>USER'S FULL NAME</h3>
 							<h4>STUDENT</h4>
 						</div>
-				  </div>
-		<!-- 2 -->
-				<div id="statusStrip">
-					<div style="width: 65%; height: 60px; text-align:left;" class="floated"><h4><strong>Status :</strong></h4></div>
-					<div class="floated" id="statusIndicator"><h4>Inactive</h4></div>
 				</div>
-		<!-- 3 -->
-				<div id="applyButton"><a href="applicationForm.html" id="applyBtnLink">Apply For Membership</a></div>
-		</div>
+				<!-- 3rd row -->
+						<div id="statusStrip" class="row">
+							<div style="height: 60px; text-align:left;" class="col-sm-8"><h4><strong>Status :</strong></h4></div>
+							<div class="col-sm-4" id="statusIndicator"><h4>Inactive</h4></div>
+						</div>
+				<!-- 4th row -->
+						<div id="applyButton" class="row">
+							<div class="col-sm-12"></div><a href="applicationForm.html" id="applyBtnLink">Apply For Membership</a></div>
+						</div>
+				</div>
+		  <!--</div>-->
 </body>

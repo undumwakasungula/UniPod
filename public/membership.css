@@ -57,8 +57,7 @@
     }
 #statusIndicator
     {
-        width: 35%; 
-        height: 60px; 
+        height: fit-content; 
         text-align:center;
         background-color:rgba(255, 0, 0, 0.8);
         border-radius: 10px;
