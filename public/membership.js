@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function(){
     
         
         const showlist = (membersData) => {
-            const Body_list = document.querySelector("#Application_memberList");
-            Body_list.innerHTML = ""; 
+            const Bodylist = document.querySelector("#Application_memberList");
+            Bodylist.innerHTML = ""; 
     
             membersData.forEach((item) => {
                 const card = `
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         </div>
                     </div>
                 `;
-                Body_list.innerHTML += card;
+                Bodylist.innerHTML += card;
             });
         }
 
