@@ -49,27 +49,28 @@ document.addEventListener("DOMContentLoaded",function(){
         const projectRef = collection(db, "ElectronicsLabProjects");
         // Listen for real-time updates
         onSnapshot(projectRef, (snapshot) => {
-            console.log("Snapshot triggered!");
+            console.log("Snapshot student triggered!");
             const projectsData = [];
             snapshot.forEach((doc) => {
                 projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
             });
 
-        showCards(projectsData);
+        showpayCards(projectsData);
 
         });
     };
     fetchDataProjects();
     
     // Function to display payments in cards (instead of a table)
-    const showCards = (projectsData) => {
-        const listBody = document.querySelector("#ClientProject");
-        listBody.innerHTML = ""; // Clear existing entries
+    const showpayCards = (projectsData) => {
+        const list_body = document.querySelector("#ClientProject");
+        list_body.innerHTML = ""; // Clear existing entries
 
         projectsData.forEach((item) => {
             const card = `
                 <div class="payment-card">
                     <div class="card-header">
+                        <h3>Data be here</h3>
                         <strong>${item.Client}</strong>
                         <small>${item.Project}</small>
                     </div>
@@ -79,8 +80,8 @@ document.addEventListener("DOMContentLoaded",function(){
                     </div>
 
             `;
-            listBody.innerHTML += card;
+            list_body.innerHTML += card;
         });
-    }
+    };
 
 });

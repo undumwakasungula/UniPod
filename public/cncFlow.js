@@ -83,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
+    const equipspinner = document.querySelector("#cnc_equip_spinner");
+    equipspinner.style.display = "flex";   
     // Fetch equipment data from Firestore
     const fetchRealTimeData = () => {
         const equipmentRef = collection(db, "CNCLab"); // Using collection to reference the entire collection
@@ -99,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Render the updated data in the table
             showTable(equipmentData);
             updateAnalytics();
+            equipspinner.style.display = "none"; 
         });
     };
 
@@ -266,6 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let projectID = generateProjectID();
             let currentTime = new Date();
             let timestamp = currentTime.toISOString();
+            let authorization = "Pending"; // Default value for authorization
             try {
                 // Storing projects details in Firestore
                 const projectsDocRef = doc(collection(db, "CNCLabProjects"));
@@ -274,7 +277,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     Client: client,
                     Project_ID: projectID,
                     Duration: duration,
-                    Create_Date: timestamp
+                    Create_Date: timestamp,
+                    Authorization: authorization
                 });
                 showProjectSuccessMessage();
                 project_form.style.display = "none";
@@ -294,7 +298,8 @@ document.addEventListener("DOMContentLoaded", function () {
             return projectID;
         }
     }
-
+    const projspinner = document.querySelector("#cnc_project_spinner");
+    projspinner.style.display = "flex";
     // Fetch project data from Firestore
     const fetchTronicsRealTimeDataProjects = () => {
         const projectRef = collection(db, "CNCLabProjects");
@@ -308,6 +313,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // Render the updated data in the table
             showProjectTable(projectsData);
             updateProjectsAnalytics();
+            
+            projspinner.style.display = "none";   
         });
     };
     fetchTronicsRealTimeDataProjects();

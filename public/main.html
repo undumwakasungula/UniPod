@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff main_dashboard</title>
     <link rel="stylesheet"  href="staff_dashboard.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 
@@ -167,9 +168,17 @@
                 </thead>
                 <tbody>
 
+          
+
                 </tbody>
 
-              </table><br><br>
+
+              </table>
+              <div class="spinner-container" style="display: none;" id="compu_spinner">
+                
+                <div class="spinner"></div>
+            </div>
+              <br><br>
             </div>
 
               <label class="equip-label">analytics:</label><br>
@@ -248,7 +257,12 @@
 
                 </tbody>
 
-              </table><br><br>
+              </table>
+              <div class="spinner-container" style="display: none;" id="audio_spinner">
+                
+                <div class="spinner"></div>
+            </div>
+              <br><br>
             </div>
 
               <label class="equip-label">analytics:</label><br>
@@ -318,7 +332,12 @@
   
                   </tbody>
   
-                </table><br><br>
+                </table>
+                <div class="spinner-container" style="display: none;" id="audio_project_spinner">
+                
+                  <div class="spinner"></div>
+              </div>
+                <br><br>
               </div>  
                 <label class="equip-label">analytics:</label><br>
   
@@ -400,7 +419,12 @@
 
                 </tbody>
 
-              </table><br><br>
+              </table>
+              <div class="spinner-container" style="display: none;" id="tronics_equip_spinner">
+                
+                <div class="spinner"></div>
+            </div>
+              <br><br>
             </div>
 
               <label class="equip-label">analytics:</label><br>
@@ -473,7 +497,12 @@
   
                   </tbody>
   
-                </table><br><br>
+                </table>
+                <div class="spinner-container" style="display: none;" id="tronics_project_spinner">
+                
+                  <div class="spinner"></div>
+              </div>
+                <br><br>
               </div>  
                 <label class="equip-label">analytics:</label><br>
   
@@ -557,7 +586,12 @@
 
                 </tbody>
 
-              </table><br><br>
+              </table>
+              <div class="spinner-container" style="display: none;" id="mech_equip_spinner">
+                
+                <div class="spinner"></div>
+            </div>
+              <br><br>
             </div>
 
               <label class="equip-label">analytics:</label><br>
@@ -627,7 +661,12 @@
   
                   </tbody>
   
-                </table><br><br>
+                </table>
+                <div class="spinner-container" style="display: none;" id="mech_project_spinner">
+                
+                  <div class="spinner"></div>
+              </div>
+                <br><br>
               </div>  
                 <label class="equip-label">analytics:</label><br>
   
@@ -707,7 +746,12 @@
 
                 </tbody>
 
-              </table><br><br>
+              </table>
+              <div class="spinner-container" style="display: none;" id="wood_equip_spinner">
+                
+                <div class="spinner"></div>
+            </div>
+              <br><br>
             </div>
 
               <label class="equip-label">analytics:</label><br>
@@ -777,7 +821,12 @@
   
                   </tbody>
   
-                </table><br><br>
+                </table>
+                <div class="spinner-container" style="display: none;" id="wood_project_spinner">
+                
+                  <div class="spinner"></div>
+              </div>
+                <br><br>
               </div>  
                 <label class="equip-label">analytics:</label><br>
   
@@ -856,7 +905,12 @@
 
                 </tbody>
 
-              </table><br><br>
+              </table>
+              <div class="spinner-container" style="display: none;" id="cnc_equip_spinner">
+                
+                <div class="spinner"></div>
+            </div>
+              <br><br>
             </div>
 
               <label class="equip-label">analytics:</label><br>
@@ -926,7 +980,12 @@
   
                   </tbody>
   
-                </table><br><br>
+                </table>
+                <div class="spinner-container" style="display: none;" id="cnc_project_spinner">
+                
+                  <div class="spinner"></div>
+              </div>
+                <br><br>
               </div>  
                 <label class="equip-label">analytics:</label><br>
   
@@ -972,6 +1031,12 @@
               </div>
               <div class="transaction-box second">
                 <h2>Approved Payments</h2>
+                
+                  <div id="ApprovedTrans_list">
+                  
+
+                  </div>
+            
 
               </div>
               <div class="transaction-box third">

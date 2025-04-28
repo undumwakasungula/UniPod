@@ -726,6 +726,21 @@ img {
   cursor: not-allowed;
 }
 
+.revoke-btn {
+  background: #0073e6;
+  
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.revoke-btn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
 img{
 height: 100px;
 width: 70%;
@@ -764,3 +779,24 @@ footer{
   color: rgb(172, 170, 170);
 }
 
+.spinner-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  
+}
+
+.spinner{
+  width: 30px;
+  height: 30px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}

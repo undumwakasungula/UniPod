@@ -87,22 +87,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+    const woodspinner = document.querySelector("#wood_equip_spinner");
+    woodspinner.style.display = "flex"; 
     // Fetch equipment data from Firestore
 const fetchRealTimeData = () => {
-    const equipmentRef = collection(db, "WoodLab"); // Using collection to reference the entire collection
+    const equipmentRef = collection(db, "WoodLab"); 
     
     // Listening for real-time updates
     onSnapshot(equipmentRef, (snapshot) => {
         console.log("Snapshot triggered!");
       const equipmentData = [];
       snapshot.forEach((doc) => {
-        equipmentData.push({ id: doc.id, ...doc.data() }); // Collecting data from each document
+        equipmentData.push({ id: doc.id, ...doc.data() }); 
       });
   
       // Render the updated data in the table
       showTable(equipmentData);
       updateAnalytics();
+      woodspinner.style.display = "none"; 
     });
   };
   
@@ -270,6 +272,7 @@ if (project_form) {
         let projectID = generateProjectID();
         let currentTime = new Date();
         let timestamp = currentTime.toISOString();
+        let authorization = "Pending"; // Default value for authorization
         try {
             // Storing projects details in Firestore
             const projectsDocRef = doc(collection(db, "WoodLabProjects"));
@@ -278,7 +281,8 @@ if (project_form) {
                 Client: client,
                 Project_ID: projectID,
                 Duration: duration,
-                Create_Date: timestamp
+                Create_Date: timestamp,
+                Authorization: authorization
             });
             showProjectSuccessMessage();
             project_form.style.display = "none";
@@ -299,6 +303,9 @@ if (project_form) {
     }
 }
 
+const woodprospinner = document.querySelector("#wood_project_spinner");
+woodprospinner.style.display = "flex"; 
+
 // Fetch project data from Firestore
 const fetchTronicsRealTimeDataProjects = () => {
     const projectRef = collection(db, "WoodLabProjects");
@@ -312,6 +319,8 @@ const fetchTronicsRealTimeDataProjects = () => {
         // Render the updated data in the table
         showProjectTable(projectsData);
         updateProjectsAnalytics();
+
+        woodprospinner.style.display = "none"; // Hide the spinner after data is loaded
     });
 };
 fetchTronicsRealTimeDataProjects();
