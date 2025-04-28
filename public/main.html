@@ -1002,7 +1002,11 @@
             </div>
             </div>
           
-          <div id="DCIO" class="windows" style="display: none;">welcome to Check In</div>
+          <div id="DCIO" class="windows" style="display: none;">
+            <div class="DCIO-container">
+              <p>This service is currently unavailable</p>
+            </div>
+          </div>
           <div id="Payment" class="windows" style="display:none;">
             <header>
               <h2><strong>Payments Record</strong></h2>
@@ -1041,19 +1045,18 @@
               </div>
               <div class="transaction-box third">
                 <h2>Membership Wallet</h2>
+                <section id="membership_wallet">
+
+                </section>
 
               </div>
               <div class="transaction-box fourth">
-                <h2>UniPod Wallet</h2>
-                <section>
-                  <div id="images-wallet" class="images-wallet">
-                    <img src="Images/pitch_room.jpg" alt="payments"></img>
-                   
-                  </div>
+                <h2>Projects Wallet</h2>
+                <section id="projects_wallet">
 
 
                 </section>
-                <h2>dfggfu sdfgshfi dfhiohfoiefp</h2>
+                <h2>service</h2>
 
               </div>
 
@@ -1085,7 +1088,7 @@
               <input type="search" id="seach_bookings" placeholder="search" style="background-color: white;"></input>
               <select id="book_type" name="type_book" style="background-color: white;">
                 <option value="all"> All</option>
-                <option value="Conference">Conderence</option>
+                <option value="Conference">Conference</option>
                 <br>
               </select>
             </header>
@@ -1099,7 +1102,7 @@
                 <h3>History</h3>
               </div>
               <div class="transaction-box fourth">
-                <h3>rrtrrrrrrrrrrrrgork</h3>
+                <h3>Services</h3>
               </div>
 
             </div>
@@ -1107,8 +1110,8 @@
               <h3>Contact</h3>
               <div>
                <ul>
-                 <li>+26598756465</li>
-                 <li>fuhg ghrrr</li>
+                 <li>+265987564655</li>
+                 <li>+265883457635</li>
                </ul>
               </div>
               <h3>Help</h3>
@@ -1118,7 +1121,43 @@
              </footer>
              
           </div>
-          <div id="Membership" class="windows" style="display: none;">welcome to Membership</div>
+          <div id="Membership" class="windows" style="display: none;">
+            <header>
+              <h2>Membership Dashboard</h2>
+              <input type="search" id="seach_member" placeholder="search" style="background-color: white;"></input>
+
+            </header>
+            <div class="grid-transaction">
+              <div class="transaction-box first">
+                <h3>Membership Applications</h3>
+                <div id="Applications_memberList">
+
+                </div>
+                
+
+              </div>
+              <div class="transaction-box second">
+                <h3>Registered Members</h3>
+              </div>
+              <div class="transaction-box fourth">
+                <h3>Services</h3>
+              </div>
+
+            </div>
+            <footer>
+              <h3>Contact</h3>
+              <div>
+               <ul>
+                 <li>+26598756465</li>
+                 <li>+26599956463</li>
+               </ul>
+              </div>
+              <h3>Help</h3>
+              <h4>for more help visit our website <a href="https://unipod.ac.mw">UniPod</a></h4>
+             <br>
+             <div class="space-down"></div>
+             </footer>
+          </div>
         </div>
     </div>
     <script src="/dashboard.js"></script>
@@ -1133,5 +1172,6 @@
     <script type="module" src="/woodFlow.js"></script>
     <script type="module" src="/cncFlow.js"></script>
     <script type="module" src="/staff_payment.js"></script>
+    <script type="module" src="/membership.js"></script>
 </body>
 </html>

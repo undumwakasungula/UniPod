@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.querySelectorAll(".delete-btn").forEach((button) => {
             button.addEventListener("click", function () {
-                const paymentId = this.getAttribute("dt-id");
+                const paymentId = this.getAttribute("data-id");
         
                 // Show confirmation dialog
                 const confirmDelete = window.confirm("Are you sure you want to delete this payment?");
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p>Method: <span>${item.Method}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="revoke-btn" data-id="${item.id}" proj-id="${item.ProjectID}">
+                            <button class="revoke-btn" data-id="${item.id}" project-id="${item.ProjectID}">
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
                             <button class="delete-btn" data-id="${item.id}">
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".revoke-btn").forEach((button) => {
                 button.addEventListener("click", function () {
                     const paymentId = this.getAttribute("data-id");
-                    const proId = this.getAttribute("proj-id");
+                    const proId = this.getAttribute("project-id");
 
                     const confirmrevoke = window.confirm("Are you sure you want to revoke this payment?");
 
@@ -215,4 +215,29 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             
         };
+
+        document.getElementById("search-transaction").addEventListener('input', debounce(function () {
+            const searchValue = this.value.toLowerCase();
+            const list = document.querySelectorAll('#wood_equip_table_div tbody tr');
+        
+            rows.forEach(row => {
+                const rowText = row.textContent.toLowerCase();
+                if (searchValue === "" || rowText.includes(searchValue)) {
+                    row.style.display = ""; // Show matching rows
+                    
+                } else {
+                    row.style.display = "none"; // Hide non-matching rows
+                }
+            });
+        }, 200)); 
+        
+        // Debounce function
+        function debounce(func, delay) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+        
 });
