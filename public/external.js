@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
             const firstname = document.getElementById("firName").value;
             const surname = document.getElementById("sirName").value;
-            const Phone = document.getElementById("external_phone").value;
+            const Phonenum = document.getElementById("external_phone").value;
             const email = document.getElementById("externalmail").value;
             const password = document.getElementById("Password1").value;
             const confirm_password = document.getElementById("Password2").value;
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 email: email,
                 role: role,
                 name: fullName,
-                phonenumber:Phone
+                phonenumber:Phonenum
                });
             alert("Account created successfully!");
             window.location.href = "/index.html";
