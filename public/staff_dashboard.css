@@ -720,6 +720,15 @@ img {
   cursor: pointer;
   border-radius: 5px;
 }
+.approved-btn {
+  background: #0073e6;
+  
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
 .approve-btn:disabled {
   background: gray;
@@ -727,6 +736,15 @@ img {
 }
 
 .revoke-btn {
+  background: #0073e6;
+  
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.btn-revoke {
   background: #0073e6;
   
   color: white;
