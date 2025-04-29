@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 // Handle approval functionality
                 document.querySelectorAll(".approved-btn").forEach((button) => {
                     button.addEventListener("click", function () {
+                        console.log("approve btn clicked");
                         const amembersId = this.getAttribute("btn-id");
                         
                         const confirmApprove = window.confirm("Are you sure you want to approve this member?");
