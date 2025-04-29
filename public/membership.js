@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
             const memberRef = collection(db, "Membership"); // Reference the membership collection
             const pendingmemberQuery = query(memberRef, where("Status", "==", "Pending")); 
             
-    s
+    
             
             
             onSnapshot(pendingmemberQuery, (snapshot) => {
@@ -103,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function(){
         const approvedmemberRef = collection(db, "Membership"); // Reference the membership collection
         const approvedmemberQuery = query(approvedmemberRef, where("Status", "==", "Approved")); 
         
-s
         onSnapshot(approvedmemberQuery, (snapshot) => {
             console.log("Approved approved members snapshot triggered!");
 
