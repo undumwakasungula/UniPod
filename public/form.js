@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
                     // Redirect based on the user's role
                     if (Role === "staff") {
-                        window.location.href = `/staff_dashboard.html?name=${encodeURIComponent(username)}`;
+                        window.location.href = `/main.html?name=${encodeURIComponent(username)}`;
                     } else if (Role === "student") {
                         window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
                     } else if (Role === "external") {
