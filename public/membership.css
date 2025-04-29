@@ -18,9 +18,8 @@
         padding: 30px;
         text-align: center;
         background-color: rgba(71 , 164, 71, 0.7);
-        clear: left;
-        width: 80%;
-        height: 65px;
+        height: 100px;
+        width : 80%;
         border-radius: 15px;
     }
 #applyButton
@@ -40,7 +39,7 @@
 #applyBtnLink
     {
         text-decoration: none;
-        color: black;
+        color: white;
         font: 25px fantasy;
     }
 #heading
@@ -57,14 +56,19 @@
     }
 #statusIndicator
     {
+        margin: auto;
         height: fit-content; 
         text-align:center;
         background-color:rgba(255, 0, 0, 0.8);
-        border-radius: 10px;
+        color: white;
+        border-radius: 15px;
     }
-.floated
-    {
-        float: left;
+#statusId
+    {   
+        margin: auto;
+        height: 40px;
+        text-align: left;
+        color: white;
     }
 h3{font: 25px verdana;}
 h4{font: 15px verdana;}
