@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(){
             const memberRef = collection(db, "Membership"); // Reference the membership collection
             const pendingmemberQuery = query(memberRef, where("Status", "==", "Pending")); 
             
-    s
+    
             
             
             onSnapshot(pendingmemberQuery, (snapshot) => {
