@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
                             <button class="approved-btn"  data-id="${item.id}" >
                                 <i class="fa-solid fa-check-circle"></i> Approve
                             </button>
-                            <button class="delete-btn" id="deleted_btn" data-id="${item.id}">
+                            <button class="delete-btn" data-id="${item.id}">
                                 <i class="fa-solid fa-trash"></i> Delete
                             </button>
                         </div>
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
 
                 // Handle approval functionality
-                document.querySelectorAll(".approved_btn").forEach((button) => {
+                document.querySelectorAll(".approved-btn").forEach((button) => {
                     button.addEventListener("click", function () {
                         const memberId = this.getAttribute("data-id");
                         
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     });
                 });
         
-                document.querySelectorAll("#deleted_btn").forEach((button) => {
+                document.querySelectorAll(".delete-btn").forEach((button) => {
                     button.addEventListener("click", function () {
                         const memberId = this.getAttribute("data-id");
                 
