@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(){
                             <p><span>${item.PhoneNumber}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="approve-btn" id="approved_btn data-id="${item.id}" >
+                            <button class="approved-btn"  data-id="${item.id}" >
                                 <i class="fa-solid fa-check-circle"></i> Approve
                             </button>
                             <button class="delete-btn" id="deleted_btn" data-id="${item.id}">
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
 
                 // Handle approval functionality
-                document.querySelectorAll("#approved_btn").forEach((button) => {
+                document.querySelectorAll(".approved_btn").forEach((button) => {
                     button.addEventListener("click", function () {
                         const memberId = this.getAttribute("data-id");
                         
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(){
                             <p><span>${item.PhoneNumber}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="revoke-btn" id="btn-revoke" data-id="${item.id}" >
+                            <button class="btn-revoke"  data-id="${item.id}" >
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
                             <button class="delete-btn" id="btn-delete" data-id="${item.id}">
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function(){
             
     
             // Handle revoke functionality
-            document.querySelectorAll("#btn-revoke").forEach((button) => {
+            document.querySelectorAll(".btn-revoke").forEach((button) => {
                 button.addEventListener("click", function () {
                     const memberId = this.getAttribute("data-id");
                     
