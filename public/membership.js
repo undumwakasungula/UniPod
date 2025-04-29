@@ -1,5 +1,5 @@
 import { db } from "./firebaseConfig.js"
-import { doc, collection,deleteDoc,onSnapshot,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import { doc, collection,query,where,deleteDoc,onSnapshot,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded", function(){
         
