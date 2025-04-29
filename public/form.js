@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const userData = userDoc.data(); // Extract data from the document
                     const Role = userData.role; // Retrieve the role
                     const username = userData.name; // Retrieve the name
-                    console.log(`Welcome ${name}, you are a ${role}.`);
+                    console.log(`Welcome ${username}, you are a ${Role}.`);
     
                     // Redirect based on the user's role
                     if (Role === "staff") {
