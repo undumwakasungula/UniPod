@@ -58,15 +58,15 @@ document.addEventListener("DOMContentLoaded", function(){
                 // Handle approval functionality
                 document.querySelectorAll(".approved-btn").forEach((button) => {
                     button.addEventListener("click", function () {
-                        const memberId = this.getAttribute("data-id");
+                        const amembersId = this.getAttribute("data-id");
                         
                         const confirmApprove = window.confirm("Are you sure you want to approve this member?");
         
                         if (confirmApprove){
-                            updateDoc(doc(db, "Membership", memberId), { Status: "Approved" }).then(() => {
+                            updateDoc(doc(db, "Membership", amembersId), { Status: "Approved" }).then(() => {
         
                                 
-                                console.log(`Payment ${memberId} aprroved`);
+                                console.log(`Payment ${amembersId} aprroved`);
                             });
                            
         
@@ -75,21 +75,21 @@ document.addEventListener("DOMContentLoaded", function(){
                             
                         }
                         else{
-                            console.log(`Payment ${memberId} not approved!`);
+                            console.log(`Payment ${amembersId} not approved!`);
                         }
                     });
                 });
         
                 document.querySelectorAll(".delete-btn").forEach((button) => {
                     button.addEventListener("click", function () {
-                        const memberId = this.getAttribute("data-id");
+                        const amemberId = this.getAttribute("datam-id");
                 
                         // Show confirmation dialog
                         const confirmDelete = window.confirm("Are you sure you want to delete this member?");
                         
                         if (confirmDelete) {
-                            deleteDoc(doc(db, "Membership", memberId)).then(() => {
-                                console.log(`Payment ${memberId} deleted!`);
+                            deleteDoc(doc(db, "Membership", amemberId)).then(() => {
+                                console.log(`Payment ${amemberId} deleted!`);
                             }).catch((error) => {
                                 console.error("Error deleting payment:", error);
                             });
@@ -135,10 +135,10 @@ document.addEventListener("DOMContentLoaded", function(){
                             <p><span>${item.PhoneNumber}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="btn-revoke"  data-id="${item.id}" >
+                            <button class="btn-revoke"  dat-id="${item.id}" >
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
-                            <button class="delete-btn"  data-id="${item.id}">
+                            <button class="delete-btn"  dat-id="${item.id}">
                                 <i class="fa-solid fa-trash"></i> Delete
                             </button>
                         </div>
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function(){
             // Handle revoke functionality
             document.querySelectorAll(".btn-revoke").forEach((button) => {
                 button.addEventListener("click", function () {
-                    const memberId = this.getAttribute("data-id");
+                    const memberId = this.getAttribute("dat-id");
                     
 
                     const confirmrevoke = window.confirm("Are you sure you want to revoke this member?");
@@ -175,14 +175,14 @@ document.addEventListener("DOMContentLoaded", function(){
                                     
             document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", function () {
-                    const memberId = this.getAttribute("data-id");
+                    const membersId = this.getAttribute("dat-id");
             
                     // Show confirmation dialog
                     const confirmDelete = window.confirm("Are you sure you want to delete this payment?");
                     
                     if (confirmDelete) {
-                        deleteDoc(doc(db, "Membership", memberId)).then(() => {
-                            console.log(`Member ${memberId} deleted!`);
+                        deleteDoc(doc(db, "Membership", membersId)).then(() => {
+                            console.log(`Member ${membersId} deleted!`);
                         }).catch((error) => {
                             console.error("Error deleting payment:", error);
                         });
