@@ -85,17 +85,17 @@ document.addEventListener("DOMContentLoaded", function() {
     
                 if (userDoc.exists()) {
                     const userData = userDoc.data(); // Extract data from the document
-                    const role = userData.role; // Retrieve the role
-                    const name = userData.name; // Retrieve the name
+                    const Role = userData.role; // Retrieve the role
+                    const username = userData.name; // Retrieve the name
                     console.log(`Welcome ${name}, you are a ${role}.`);
     
                     // Redirect based on the user's role
-                    if (role === "staff") {
-                        window.location.href = `/staff_dashboard.html?name=${encodeURIComponent(name)}`;
-                    } else if (role === "student") {
-                        window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(name)}`;
-                    } else if (role === "external") {
-                        window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(name)}`;
+                    if (Role === "staff") {
+                        window.location.href = `/staff_dashboard.html?name=${encodeURIComponent(username)}`;
+                    } else if (Role === "student") {
+                        window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
+                    } else if (Role === "external") {
+                        window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
                     } else {
                         console.error("Role not recognized!");
                     }
