@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function(){
                             <button class="btn-revoke"  data-id="${item.id}" >
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
-                            <button class="delete-btn" id="btn-delete" data-id="${item.id}">
+                            <button class="delete-btn"  data-id="${item.id}">
                                 <i class="fa-solid fa-trash"></i> Delete
                             </button>
                         </div>
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
                                     
-            document.querySelectorAll("#btn-delete").forEach((button) => {
+            document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", function () {
                     const memberId = this.getAttribute("data-id");
             
