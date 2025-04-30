@@ -95,8 +95,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     } else if (Role === "student") {
 
                         window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
-                        document.getElementById("account-name").textContent = userData.name || "Unknown Name";
-                        document.getElementById("account-type").textContent = userData.role || "Unknown Role";
+                        document.getElementById("account-name").textContent = username || "Unknown Name";
+                        document.getElementById("account-type").textContent = Role || "Unknown Role";
+                        console.log(`Welcome ${username}, you are a ${Role}.`);
                     } else if (Role === "external") {
                         window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
                         document.getElementById("account-name").textContent = username || "Unknown Name";
