@@ -13,6 +13,7 @@ body
         padding: 20px;
         margin-bottom: 25px;
         border-radius: 25px;
+        border-style: outset;
 
     }
 #statusStrip
@@ -48,7 +49,7 @@ body
     {
         text-decoration: none;
         color: white;
-        font: 25px fantasy;
+        font: 25px verdana;
     }
 #heading
     {
