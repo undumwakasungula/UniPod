@@ -1,13 +1,13 @@
 import { app, db } from "./firebaseConfig.js"
 import { doc,getAuth, collection,onSnapshot, addDoc,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-
+const auth = getAuth(app);
 document.addEventListener("DOMContentLoaded",function(){
     const application_btton = document.getElementById("applyButton");
 if(application_btton){
     application_btton.addEventListener("click", async () => {
 
         alert("it has been clicked");
-        const auth = getAuth(app);
+        
         const user = auth.currentUser; 
     
         if (!user) {
