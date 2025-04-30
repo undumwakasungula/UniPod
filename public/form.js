@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
            const updateUserDetails = () => {
                 auth.onAuthStateChanged(async (user) => {
                     if (user) {
-                        alert("u are signed in");
+                      
                         const userRef = doc(db, "users", user.uid);
                         try {
                             const userSnap = await getDoc(userRef);
