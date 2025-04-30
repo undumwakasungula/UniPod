@@ -1,4 +1,4 @@
-import { db } from "./firebaseConfig.js"
+import { app, db } from "./firebaseConfig.js"
 import { doc,getAuth, collection,onSnapshot, addDoc,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded",function(){
@@ -7,7 +7,7 @@ if(application_btton){
     application_btton.addEventListener("click", async () => {
 
         alert("it has been clicked");
-        const auth = getAuth();
+        const auth = getAuth(app);
         const user = auth.currentUser; 
     
         if (!user) {
