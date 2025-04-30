@@ -9,7 +9,7 @@ if(application_btton){
     
         const auth = getAuth();
         const user = auth.currentUser;
-       const applicationConfirm = prompt("Do you really want apply?");
+       const applicationConfirm = window.confirm("Do you really want apply?");
        if(applicationConfirm){
         if (!user) {
             alert("You must be signed in to apply for membership.");
