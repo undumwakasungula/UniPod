@@ -1,6 +1,6 @@
 import { db } from "./firebaseConfig.js";
-import { doc,  collection,  query,  where,  deleteDoc,  onSnapshot,  updateDoc,} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-
+import { doc,  collection,  query,  where,  deleteDoc,  onSnapshot,  updateDoc,getDoc} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 document.addEventListener("DOMContentLoaded", function () {
   const fetchMembershipApplications = () => {
     const memberRef = collection(db, "Membership");
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const confirmApprove = window.confirm("Are you sure you want to approve this member?");
       if (confirmApprove) {
         updateDoc(doc(db, "Membership", memberId), { Status: "Approved" }).then(() => {
-          console.log(`Member ${memberId} approved`);
+          console.log(`Member ${memberId} approved`);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
         });
       }
     }
@@ -153,6 +153,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+
+
+  const auth = getAuth();
+
+const updateUserDetails = () => {
+    auth.onAuthStateChanged(async (user) => {
+        if (user) {
+            const userRef = doc(db, "users", user.uid);
+            try {
+                const userSnap = await getDoc(userRef);
+                if (userSnap.exists()) {
+                    const userData = userSnap.data();
+                    document.getElementById("account-name").textContent = userData.name || "Unknown Name";
+                    document.getElementById("account-type").textContent = userData.role || "Unknown Role";
+                } else {
+                    console.error("No user data found!");
+                }
+            } catch (error) {
+                console.error("Error fetching user details:", error);
+            }
+        } else {
+            console.log("No user logged in");
+        }
+    });
+};
+
+updateUserDetails();
+
+
+
   fetchMembershipApplications();
   fetchApprovedmembers();
+
+  
 });
