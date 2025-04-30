@@ -20,6 +20,10 @@ if(application_btton){
             console.log("User Detected:", user.uid, user.email); // Debugging
     
             let Status = "Pending";
+            const userRef = doc(db,"users", user.uid);
+            const UserDoc = await getDoc(userRef); 
+
+
     
             try {
                 console.log("Submitting membership application...");
@@ -27,7 +31,7 @@ if(application_btton){
                 const membersDocRef = await addDoc(collection(db, "Membership"), {
                     userId: user.uid,
                     Email: user.email,
-                    Name: user.displayName || "Unknown Name",
+                    Name: UserDoc.name|| "Unknown Name",
                     Status: Status,
                     appliedAt: new Date()
                 });
