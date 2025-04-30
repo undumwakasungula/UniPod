@@ -155,31 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  const auth = getAuth();
 
-const updateUserDetails = () => {
-    auth.onAuthStateChanged(async (user) => {
-        if (user) {
-            const userRef = doc(db, "users", user.uid);
-            try {
-                const userSnap = await getDoc(userRef);
-                if (userSnap.exists()) {
-                    const userData = userSnap.data();
-                    document.getElementById("account-name").textContent = userData.name || "Unknown Name";
-                    document.getElementById("account-type").textContent = userData.role || "Unknown Role";
-                } else {
-                    console.error("No user data found!");
-                }
-            } catch (error) {
-                console.error("Error fetching user details:", error);
-            }
-        } else {
-            console.log("No user logged in");
-        }
-    });
-};
-
-updateUserDetails();
 
 
 
