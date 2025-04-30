@@ -18,7 +18,8 @@ if(application_btton){
         let Status = "Pending";
     
         try {
-            // Create membership document & link it to the user
+            console.log("u are signed in");
+            
             const membersDocRef = await addDoc(collection(db, "Membership"), {
                 userId: user.uid,  
                 Email: user.email,  
@@ -27,7 +28,7 @@ if(application_btton){
                 appliedAt: new Date()
             });
     
-            const membershipId = membersDocRef.id; // Get document ID
+            const membershipId = membersDocRef.id;
     
             // Update user's document with membership ID
             const userRef = doc(db, "users", user.uid);
