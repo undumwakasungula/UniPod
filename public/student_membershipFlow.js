@@ -4,6 +4,8 @@ import { doc,getAuth, collection,onSnapshot, addDoc,updateDoc } from "https://ww
 document.addEventListener("DOMContentLoaded",function(){
 
     document.getElementById("applyBtnLink").addEventListener("click", async () => {
+
+        alert("it has been clicked");
         const auth = getAuth();
         const user = auth.currentUser; 
     
