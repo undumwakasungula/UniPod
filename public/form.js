@@ -93,15 +93,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (Role === "staff") {
                         window.location.href = `/main.html?name=${encodeURIComponent(username)}`;
                     } else if (Role === "student") {
-
+                        localStorage.setItem("username", username);
+                        localStorage.setItem("role", Role);
                         window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
-                        document.getElementById("account-name").textContent = username || "Unknown Name";
-                        document.getElementById("account-type").textContent = Role || "Unknown Role";
+                
 
                     } else if (Role === "external") {
+                        localStorage.setItem("username", username);
+                        localStorage.setItem("role", Role);
                         window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
-                        document.getElementById("account-name").textContent = username|| "Unknown Name";
-                        document.getElementById("account-type").textContent = Role || "Unknown Role";
+
                        
                     } else {
                         console.error("Role not recognized!");
