@@ -1,9 +1,12 @@
 #statusArea
     {
         margin: auto;
+        
         width: 80%;
+        justify-content: center;
+        align-items: center;
         height: fit-content;
-        background-color: rgba(243, 211, 27, 0.6);
+      
         /*background-color: #f3d31b;*/
         padding: 20px;
         margin-bottom: 25px;
@@ -13,14 +16,17 @@
 #statusStrip
     {
         margin: auto;
+        
         margin-top: 15px;
         margin-bottom: 15px;
         padding: 30px;
         text-align: center;
+        justify-content: center;
         background-color: rgba(71 , 164, 71, 0.7);
-        height: 100px;
+        height: fit-content;
         width : 80%;
         border-radius: 15px;
+        box-sizing: border-box;
     }
 #applyButton
     {
@@ -53,22 +59,38 @@
     {
         margin: auto;
         width: 80%;
+        display: flex;
+        height: fit-content;
     }
 #statusIndicator
     {
-        margin: auto;
-        height: fit-content; 
-        text-align:center;
-        background-color:rgba(255, 0, 0, 0.8);
-        color: white;
-        border-radius: 15px;
+     background-color: white;
+     color: red;
+     padding: 5px;
+     border-radius: 10px;
+        
     }
 #statusId
     {   
         margin: auto;
-        height: 40px;
-        text-align: left;
+        
+        height: auto;
+        text-align: center;
         color: white;
     }
+.labelname{
+    
+    text-align: center;
+    height: auto;
+
+}
 h3{font: 25px verdana;}
 h4{font: 15px verdana;}
+
+#firstSectionDiv2
+    {
+        margin-left: 10px;
+        height: fit-content;
+    }
+
+
