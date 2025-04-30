@@ -116,13 +116,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
            const updateUserDetails = () => {
                 auth.onAuthStateChanged(async (user) => {
+
                     if (user) {
+
                       
                         const userRef = doc(db, "users", user.uid);
                         try {
                             const userSnap = await getDoc(userRef);
                             if (userSnap.exists()) {
                                 const userData = userSnap.data();
+                                console.log(`Welcome ${userData.name}, you are a ${userData.role}.`);
                                 document.getElementById("account-name").textContent = userData.name || "Unknown Name";
                                 document.getElementById("account-type").textContent = userData.role || "Unknown Role";
                             } else {
