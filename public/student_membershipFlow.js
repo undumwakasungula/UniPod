@@ -23,6 +23,13 @@ if(application_btton){
             const userRef = doc(db,"users", user.uid);
             const UserDoc = await getDoc(userRef); 
 
+            if(!UserDoc.exists()){
+                console.log("no such a user")
+                return;
+            }
+            const userData = UserDoc.data(); // Extract the data
+            const userName = userData.name || "Unknown Name";
+
 
     
             try {
@@ -31,7 +38,7 @@ if(application_btton){
                 const membersDocRef = await addDoc(collection(db, "Membership"), {
                     userId: user.uid,
                     Email: user.email,
-                    Name: UserDoc.name|| "Unknown Name",
+                    Name: userName,
                     Status: Status,
                     appliedAt: new Date()
                 });
