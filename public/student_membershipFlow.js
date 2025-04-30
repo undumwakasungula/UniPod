@@ -5,56 +5,51 @@ document.addEventListener("DOMContentLoaded",function(){
     const application_btton = document.getElementById("applyButton");
 if(application_btton){
     application_btton.addEventListener("click", async () => {
-        
-    
+        console.log("Apply button clicked!"); // Debugging
+
         const auth = getAuth();
         const user = auth.currentUser;
-       const applicationConfirm = window.confirm("Do you really want apply?");
-       if(applicationConfirm){
-        if (!user) {
-            alert("You must be signed in to apply for membership.");
-            return;
-        }
-    
-        let Status = "Pending";
-        
-        try {
-            console.log("User is signed in");
-    
-            
-            const userDocRef = doc(db, "users", user.uid);
-            const userDocSnap = await getDoc(userDocRef);
-    
-            let profName = "Unknown Name";
-            if (userDocSnap.exists()) {
-                profName = userDocSnap.data().name || "Unknown Name";  
+        const confirmApplication = window.confirm("Do you really want to apply?")
+        if(confirmApplication){
+            if (!user) {
+                alert("You must be signed in to apply for membership.");
+                console.error("No user detected in Firebase Auth!");
+                return;
             }
     
-            const membersDocRef = await addDoc(collection(db, "Membership"), {
-                userId: user.uid,
-                Email: user.email,
-                Name: profName,  
-                displayName: profName, 
-                Status: Status,
-                appliedAt: new Date()
-            });
+            console.log("User Detected:", user.uid, user.email); // Debugging
     
-            const membershipId = membersDocRef.id;
+            let Status = "Pending";
     
-            // Update user's document with membership ID
-            await updateDoc(userDocRef, { membershipId: membershipId });
+            try {
+                console.log("Submitting membership application...");
     
-            alert("Membership application successful!");
+                const membersDocRef = await addDoc(collection(db, "Membership"), {
+                    userId: user.uid,
+                    Email: user.email,
+                    Name: user.displayName || "Unknown Name",
+                    Status: Status,
+                    appliedAt: new Date()
+                });
     
-        } catch (error) {
-            console.error("Error applying for membership:", error.message);
-            alert("Membership application was not successful, try again later.");
+                const membershipId = membersDocRef.id;
+                console.log("Membership Document Created with ID:", membershipId);
+    
+                // Update user's document with membership ID
+                const userRef = doc(db, "users", user.uid);
+                await updateDoc(userRef, { membershipId: membershipId });
+    
+                alert("Membership application successful!");
+            } catch (error) {
+                console.error("Error applying for membership:", error.message);
+                alert("Membership application was not successful, try again later.");
+            }
+
+        }
+        else{
+            console.log("user cancelled the application")
         }
 
-       }else{
-        console.log("the user has cancelled the application")
-       }
-       
     });
 }
     
