@@ -29,23 +29,23 @@ document.addEventListener("DOMContentLoaded", function(){
             const Bodylist = document.querySelector("#Applications_memberList");
             Bodylist.innerHTML = ""; 
     
-            membersData.forEach((item) => {
+            membersData.forEach((part) => {
                 const card = `
                     <div class="payment-card">
                         <div class="card-header">
-                            <strong>${item.Surname} </strong>
-                            <strong>${item.FirstName}</strong>
+                            <strong>${part.Surname} </strong>
+                            <strong>${part.FirstName}</strong>
                         </div>
                         <div class="card-body">
-                            <small>${item.Status}</small>
-                            <p><span>${item.Email}</span></p>
-                            <p><span>${item.PhoneNumber}</span></p>
+                            <small>${part.Status}</small>
+                            <p><span>${part.Email}</span></p>
+                            <p><span>${part.PhoneNumber}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="approved-btn"  data-id="${item.id}" >
+                            <button class="approved-btn"  btn-id="${part.id}" >
                                 <i class="fa-solid fa-check-circle"></i> Approve
                             </button>
-                            <button class="delete-btn" data-id="${item.id}">
+                            <button class="delete-btn" btn-id="${part.id}">
                                 <i class="fa-solid fa-trash"></i> Delete
                             </button>
                         </div>
@@ -58,15 +58,16 @@ document.addEventListener("DOMContentLoaded", function(){
                 // Handle approval functionality
                 document.querySelectorAll(".approved-btn").forEach((button) => {
                     button.addEventListener("click", function () {
-                        const memberId = this.getAttribute("data-id");
+                        console.log("approve btn clicked");
+                        const amembersId = this.getAttribute("btn-id");
                         
                         const confirmApprove = window.confirm("Are you sure you want to approve this member?");
         
                         if (confirmApprove){
-                            updateDoc(doc(db, "Membership", memberId), { Status: "Approved" }).then(() => {
+                            updateDoc(doc(db, "Membership", amembersId), { Status: "Approved" }).then(() => {
         
                                 
-                                console.log(`Payment ${memberId} aprroved`);
+                                console.log(`Payment ${amembersId} aprroved`);
                             });
                            
         
@@ -75,21 +76,21 @@ document.addEventListener("DOMContentLoaded", function(){
                             
                         }
                         else{
-                            console.log(`Payment ${memberId} not approved!`);
+                            console.log(`Payment ${amembersId} not approved!`);
                         }
                     });
                 });
         
                 document.querySelectorAll(".delete-btn").forEach((button) => {
                     button.addEventListener("click", function () {
-                        const memberId = this.getAttribute("data-id");
+                        const amemberId = this.getAttribute("btn-id");
                 
                         // Show confirmation dialog
                         const confirmDelete = window.confirm("Are you sure you want to delete this member?");
                         
                         if (confirmDelete) {
-                            deleteDoc(doc(db, "Membership", memberId)).then(() => {
-                                console.log(`Payment ${memberId} deleted!`);
+                            deleteDoc(doc(db, "Membership", amemberId)).then(() => {
+                                console.log(`Payment ${amemberId} deleted!`);
                             }).catch((error) => {
                                 console.error("Error deleting payment:", error);
                             });
@@ -122,23 +123,23 @@ document.addEventListener("DOMContentLoaded", function(){
             const Bodylist = document.querySelector("#Registered_memberList");
             Bodylist.innerHTML = ""; // Clear existing entries
     
-            approvedmembersData.forEach((item) => {
+            approvedmembersData.forEach((side) => {
                 const card = `
                     <div class="payment-card">
                         <div class="card-header">
-                            <strong>${item.Surname}</strong>
-                            <small>${item.FirstName}</small>
+                            <strong>${side.Surname}</strong>
+                            <small>${side.FirstName}</small>
                         </div>
                         <div class="card-body">
-                            <small>${item.Status}</small>
-                            <p><span>${item.Email}</span></p>
-                            <p><span>${item.PhoneNumber}</span></p>
+                            <small>${side.Status}</small>
+                            <p><span>${side.Email}</span></p>
+                            <p><span>${side.PhoneNumber}</span></p>
                         </div>
                         <div class="card-footer">
-                            <button class="btn-revoke"  data-id="${item.id}" >
+                            <button class="btn-revoke"  dat-id="${side.id}" >
                                 <i class="fa-solid fa-circle-xmark"></i> Revoke
                             </button>
-                            <button class="delete-btn"  data-id="${item.id}">
+                            <button class="delete-btn"  dat-id="${side.id}">
                                 <i class="fa-solid fa-trash"></i> Delete
                             </button>
                         </div>
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function(){
             // Handle revoke functionality
             document.querySelectorAll(".btn-revoke").forEach((button) => {
                 button.addEventListener("click", function () {
-                    const memberId = this.getAttribute("data-id");
+                    const memberId = this.getAttribute("dat-id");
                     
 
                     const confirmrevoke = window.confirm("Are you sure you want to revoke this member?");
@@ -175,14 +176,14 @@ document.addEventListener("DOMContentLoaded", function(){
                                     
             document.querySelectorAll(".delete-btn").forEach((button) => {
                 button.addEventListener("click", function () {
-                    const memberId = this.getAttribute("data-id");
+                    const membersId = this.getAttribute("dat-id");
             
                     // Show confirmation dialog
-                    const confirmDelete = window.confirm("Are you sure you want to delete this payment?");
+                    const confirmDelete = window.confirm("Are you sure you want to delete this member?");
                     
                     if (confirmDelete) {
-                        deleteDoc(doc(db, "Membership", memberId)).then(() => {
-                            console.log(`Member ${memberId} deleted!`);
+                        deleteDoc(doc(db, "Membership", membersId)).then(() => {
+                            console.log(`Member ${membersId} deleted!`);
                         }).catch((error) => {
                             console.error("Error deleting payment:", error);
                         });

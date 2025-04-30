@@ -11,10 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
     if(down){
         down.addEventListener("submit", async(event)=>{
             event.preventDefault();
+            const firstname = document.getElementById("fName").value;
+            const surname = document.getElementById("sName").value;
+            const Phonenam = document.getElementById("staff_phone").value;
             const email = document.getElementById("staffmail").value;
             const password = document.getElementById("Password3").value;
             const confirm_password = document.getElementById("Password4").value;
             const role = "staff";
+            const fullName = `${firstname} ${surname}`;
             if (password !== confirm_password) {
 
                 alert("Passwords are not a match");
@@ -26,7 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 const userDocRef = doc(db, "users", userCredential.user.uid);
                 await setDoc(userDocRef, {
                 email: email,
-                role: role
+                role: role,
+                name:fullName,
+                Phonenumber:Phonenam
                });
             alert("Account created successfully!");
             window.location.href = "/index.html";

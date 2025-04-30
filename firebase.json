@@ -47,6 +47,10 @@
       {
         "source": "/Maintainance.html",
         "destination": "/Maintainance.html"
+      },
+      {
+        "source": "/external_student_dashboard.html",
+        "destination": "/external_student_dashboard.html"
       }
     ],
     "headers": [

@@ -11,9 +11,13 @@ document.addEventListener("DOMContentLoaded", function() {
     if(down){
         down.addEventListener("submit", async(event)=>{
             event.preventDefault();
+            const firstname = document.getElementById("firName").value;
+            const surname = document.getElementById("sirName").value;
+            const Phonenum = document.getElementById("external_phone").value;
             const email = document.getElementById("externalmail").value;
             const password = document.getElementById("Password1").value;
             const confirm_password = document.getElementById("Password2").value;
+            const fullName = `${firstname} ${surname}`;
             const role="external";
 
             if (password !== confirm_password) {
@@ -27,7 +31,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 const userDocRef = doc(db, "users", userCredential.user.uid);
                 await setDoc(userDocRef, {
                 email: email,
-                role: role
+                role: role,
+                name: fullName,
+                phonenumber:Phonenum
                });
             alert("Account created successfully!");
             window.location.href = "/index.html";

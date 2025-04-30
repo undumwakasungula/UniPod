@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         upform.addEventListener("submit", async (event) =>{
             
             event.preventDefault();
-
+            let name = document.getElementById("student_name").value;
             let email = document.getElementById("signUpEmail").value;
             let password = document.getElementById("signUpPassword").value.trim();
             let confirm_password = document.getElementById("confPassword").value.trim();
@@ -54,7 +54,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const userDocRef = doc(db, "users", userCredential.user.uid);
                 await setDoc(userDocRef, {
                 email: email,
-                role: role
+                role: role,
+                name: name
             });
                             alert("Account created successfully!");
                 window.location.href = "index.html";
@@ -69,43 +70,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if (subform) {
-        subform.addEventListener("submit", async (event)=>{
+        subform.addEventListener("submit", async (event) => {
             event.preventDefault();
-
+    
             const email = document.getElementById("signinemail").value;
             const password = document.getElementById("signinpassword").value;
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 console.log("Signed in successfully:", userCredential.user);
-
-
-                // Fetch the user's role from Firestore
-                const userDocRef = doc(db, "users",userCredential.user.uid ); // Reference the 'userdetail' document in Firestore
+    
+                // Fetch the user's data from Firestore
+                const userDocRef = doc(db, "users", userCredential.user.uid); // Reference the user's document
                 const userDoc = await getDoc(userDocRef); // Fetch the document
-
+    
                 if (userDoc.exists()) {
-                const userData = userDoc.data(); // Extract data from the document
-                const role = userData.role; // Retrieve the role field
-
-                // Redirect based on the user's role
-                if (role === "staff") {
-                    window.location.href = "/main.html";
-                } else if (role === "student") {
-                    window.location.href = "/external_student_dashboard.html";
-                } else if (role === "external") {
-                    window.location.href = "/external_student_dashboard.html";
+                    const userData = userDoc.data(); // Extract data from the document
+                    const Role = userData.role; // Retrieve the role
+                    const username = userData.name; // Retrieve the name
+                    console.log(`Welcome ${username}, you are a ${Role}.`);
+    
+                    // Redirect based on the user's role
+                    if (Role === "staff") {
+                        window.location.href = `/main.html?name=${encodeURIComponent(username)}`;
+                    } else if (Role === "student") {
+                        window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
+                    } else if (Role === "external") {
+                        window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
+                    } else {
+                        console.error("Role not recognized!");
+                    }
                 } else {
-                      console.error("Role not recognized!");
+                    console.error("No user data found in Firestore!");
+                    alert("User data not found. Please contact support.");
                 }
-            } else {
-                console.error("No user data found in Firestore!");
-              }
-            }catch (error) {
+            } catch (error) {
                 console.error("Error signing in:", error.message);
                 alert("Error: " + error.message);
             }
         });
     }
+    
 
 
 
