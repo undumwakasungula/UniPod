@@ -5,11 +5,12 @@ document.addEventListener("DOMContentLoaded",function(){
     const application_btton = document.getElementById("applyButton");
 if(application_btton){
     application_btton.addEventListener("click", async () => {
-        console.log("Button has been clicked");
+        
     
         const auth = getAuth();
         const user = auth.currentUser;
-    
+       const applicationConfirm = prompt("Do you really want apply?");
+       if(applicationConfirm){
         if (!user) {
             alert("You must be signed in to apply for membership.");
             return;
@@ -49,6 +50,11 @@ if(application_btton){
             console.error("Error applying for membership:", error.message);
             alert("Membership application was not successful, try again later.");
         }
+
+       }else{
+        console.log("the user has cancelled the application")
+       }
+       
     });
 }
     
