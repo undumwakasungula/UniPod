@@ -1,6 +1,6 @@
 import { db } from "./firebaseConfig.js";
 import { doc,  collection,  query,  where,  deleteDoc,  onSnapshot,  updateDoc,getDoc} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+//import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 document.addEventListener("DOMContentLoaded", function () {
   const fetchMembershipApplications = () => {
     const memberRef = collection(db, "Membership");
