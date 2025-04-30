@@ -101,8 +101,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const card = `
         <div class="payment-card">
           <div class="card-header">
-            <strong>${side.Surname}</strong>
-            <small>${side.FirstName}</small>
+            <strong>${side.Name}</strong>
+            
           </div>
           <div class="card-body">
             <small>${side.Status}</small>
