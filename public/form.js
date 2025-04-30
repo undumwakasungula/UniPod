@@ -95,13 +95,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     } else if (Role === "student") {
 
                         window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
-                        document.getElementById("account-name").textContent = username || "Unknown Name";
-                        document.getElementById("account-type").textContent = Role || "Unknown Role";
-                        console.log(`Welcome ${username}, you are a ${Role}.`);
+
                     } else if (Role === "external") {
                         window.location.href = `/external_student_dashboard.html?name=${encodeURIComponent(username)}`;
-                        document.getElementById("account-name").textContent = username || "Unknown Name";
-                        document.getElementById("account-type").textContent = Role || "Unknown Role";
+                       
                     } else {
                         console.error("Role not recognized!");
                     }
@@ -117,9 +114,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
            
 
-           /* const updateUserDetails = () => {
+           const updateUserDetails = () => {
                 auth.onAuthStateChanged(async (user) => {
                     if (user) {
+                        alert("u are signed in");
                         const userRef = doc(db, "users", user.uid);
                         try {
                             const userSnap = await getDoc(userRef);
@@ -140,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
             };
             
             updateUserDetails();
-            */
+            
         });
     }
     
