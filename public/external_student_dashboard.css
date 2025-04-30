@@ -37,8 +37,10 @@ body
       }
 #contentSection
       {
-        background-color:lavenderblush;
+        background-color: white;
         text-align: center;
+        border-radius: 20px;
+        border-style: inset;
       }
 .formattedBodies
       {
