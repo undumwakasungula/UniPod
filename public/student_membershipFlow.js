@@ -29,7 +29,6 @@ if(application_btton){
                 profName = userDocSnap.data().name || "Unknown Name";  
             }
     
-            const displayName = profName
             const membersDocRef = await addDoc(collection(db, "Membership"), {
                 userId: user.uid,
                 Email: user.email,
