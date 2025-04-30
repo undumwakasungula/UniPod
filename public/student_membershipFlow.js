@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded",function(){
     const application_btton = document.getElementById("applyButton");
 if(application_btton){
     application_btton.addEventListener("click", async () => {
-
-        console.log("button has been clicked");
+        console.log("Button has been clicked");
+    
         const auth = getAuth();
-        const user = auth.currentUser; 
+        const user = auth.currentUser;
     
         if (!user) {
             alert("You must be signed in to apply for membership.");
@@ -16,14 +16,25 @@ if(application_btton){
         }
     
         let Status = "Pending";
-    
+        
         try {
-            console.log("u are signed in");
+            console.log("User is signed in");
+    
             
+            const userDocRef = doc(db, "users", user.uid);
+            const userDocSnap = await getDoc(userDocRef);
+    
+            let profName = "Unknown Name";
+            if (userDocSnap.exists()) {
+                profName = userDocSnap.data().name || "Unknown Name";  
+            }
+    
+            const displayName = profName
             const membersDocRef = await addDoc(collection(db, "Membership"), {
-                userId: user.uid,  
-                Email: user.email,  
-                Name: user.name || "Unknown Name",
+                userId: user.uid,
+                Email: user.email,
+                Name: profName,  
+                displayName: profName, 
                 Status: Status,
                 appliedAt: new Date()
             });
@@ -31,8 +42,7 @@ if(application_btton){
             const membershipId = membersDocRef.id;
     
             // Update user's document with membership ID
-            const userRef = doc(db, "users", user.uid);
-            await updateDoc(userRef, { membershipId: membershipId });
+            await updateDoc(userDocRef, { membershipId: membershipId });
     
             alert("Membership application successful!");
     
@@ -41,8 +51,8 @@ if(application_btton){
             alert("Membership application was not successful, try again later.");
         }
     });
-    
 }
+    
     // Fetch project data from Firestore
     const fetchDataProjects = () => {
         const projectRef = collection(db, "ElectronicsLabProjects");
