@@ -2,8 +2,9 @@ import { db } from "./firebaseConfig.js"
 import { doc,getAuth, collection,onSnapshot, addDoc,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded",function(){
-
-    document.getElementById("applyBtnLink").addEventListener("click", async () => {
+    const application_btton = document.getElementById("applyButton");
+if(application_btton){
+    application_btton.addEventListener("click", async () => {
 
         alert("it has been clicked");
         const auth = getAuth();
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded",function(){
         }
     });
     
-
+}
     // Fetch project data from Firestore
     const fetchDataProjects = () => {
         const projectRef = collection(db, "ElectronicsLabProjects");
