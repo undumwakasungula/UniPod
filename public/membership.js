@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const card = `
         <div class="payment-card">
           <div class="card-header">
-            <strong>${part.Surname}</strong>
-            <strong>${part.FirstName}</strong>
+            <strong>${part.Name}</strong>
+   
           </div>
           <div class="card-body">
             <small>${part.Status}</small>
             <p><span>${part.Email}</span></p>
-            <p><span>${part.PhoneNumber}</span></p>
+
           </div>
           <div class="card-footer">
             <button class="approved-btn" btn-id="${part.id}">
@@ -107,7 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="card-body">
             <small>${side.Status}</small>
             <p><span>${side.Email}</span></p>
-            <p><span>${side.PhoneNumber}</span></p>
           </div>
           <div class="card-footer">
             <button class="btn-revoke" dat-id="${side.id}">
