@@ -16,3 +16,31 @@ a:active
         display: block;
       }
       }
+#topMost
+      {
+        
+       background: linear-gradient(to right, #006699, #7bafd6);
+        text-align: center;
+      }
+#upperNav
+      {
+       
+       background: linear-gradient(to right, #006699, #7bafd6);
+      }
+body
+      {
+        background-color: lavender;
+      }
+#menuSection
+      {
+        background-color: lavender;
+      }
+#contentSection
+      {
+        background-color:lavenderblush;
+        text-align: center;
+      }
+.formattedBodies
+      {
+        border-radius: 20px;
+      }

@@ -1,13 +1,15 @@
+body
+    {
+        background-color: lavenderblush;
+    }
 #statusArea
     {
         margin: auto;
-        
         width: 80%;
         justify-content: center;
         align-items: center;
         height: fit-content;
-      
-        /*background-color: #f3d31b;*/
+        /*background: linear-gradient(to right, #c9d875, #90ebee);*/
         padding: 20px;
         margin-bottom: 25px;
         border-radius: 25px;
