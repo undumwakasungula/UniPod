@@ -23,7 +23,7 @@ if(application_btton){
             const membersDocRef = await addDoc(collection(db, "Membership"), {
                 userId: user.uid,  
                 Email: user.email,  
-                Name: user.name || "Unknown Name",
+                Name: user.displayName || "Unknown Name",
                 Status: Status,
                 appliedAt: new Date()
             });
