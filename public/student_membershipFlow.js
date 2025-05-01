@@ -44,8 +44,12 @@ document.addEventListener("DOMContentLoaded",function(){
                         console.log("Membership Status:", memberStatus);
     
                        
-                        if (memberStatus === "Pending" || memberStatus === "Approved") {
+                        if (memberStatus === "Pending") {
                             alert("You have already applied for membership. Please wait for approval.");
+                            return;
+                        }
+                        if (memberStatus === "Approved") {
+                            alert("You are already a member.");
                             return;
                         }
                     }
