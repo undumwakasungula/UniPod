@@ -54,33 +54,7 @@ if(application_btton){
                 alert("Membership application was not successful, try again later.");
             }
 
-            const membership_id = UserDoc.data().membershipId;
 
-            if(!membership_id){
-                console.log("no such id in users");
-                return;
-            }
-
-            const membershipRef = doc(db, "Membership", membership_id);
-            const membershipDoc = await getDoc(membershipRef);
-
-            if(!membershipDoc.exists()){
-                console.log("no membership document here");
-                return;
-            }
-
-            const memberstatus = membershipDoc.data().Status;
-            console.log("Membership Status:",memberstatus);
-
-            const statusIndicator = document.getElementById("statusIndicator");
-
-            if (memberstatus === "Approved") {
-                statusIndicator.textContent = "Active";
-            } else if (memberstatus === "Pending") {
-                statusIndicator.textContent = "In Active"; 
-            } else {
-                statusIndicator.textContent = "In Active";
-            }
 
         }
         else{
@@ -89,7 +63,7 @@ if(application_btton){
 
     });
 }
-    
+
     // Fetch project data from Firestore
     const fetchDataProjects = () => {
         const projectRef = collection(db, "ElectronicsLabProjects");
