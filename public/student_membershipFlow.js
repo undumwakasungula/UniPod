@@ -29,6 +29,30 @@ if(application_btton){
             }
             const userData = UserDoc.data(); // Extract the data
             const userName = userData.name || "Unknown Name";
+    
+            try {
+                console.log("Submitting membership application...");
+    
+                const membersDocRef = await addDoc(collection(db, "Membership"), {
+                    userId: user.uid,
+                    Email: user.email,
+                    Name: userName,
+                    Status: Status,
+                    appliedAt: new Date()
+                });
+    
+                const membershipId = membersDocRef.id;
+                console.log("Membership Document Created with ID:", membershipId);
+    
+                // Update user's document with membership ID
+                const userRef = doc(db, "users", user.uid);
+                await updateDoc(userRef, { membershipId: membershipId });
+    
+                alert("Membership application successful!");
+            } catch (error) {
+                console.error("Error applying for membership:", error.message);
+                alert("Membership application was not successful, try again later.");
+            }
 
             const membership_id = UserDoc.data().membershipId;
 
@@ -56,33 +80,6 @@ if(application_btton){
                 statusIndicator.textContent = "In Active"; 
             } else {
                 statusIndicator.textContent = "In Active";
-            }
-
-
-
-    
-            try {
-                console.log("Submitting membership application...");
-    
-                const membersDocRef = await addDoc(collection(db, "Membership"), {
-                    userId: user.uid,
-                    Email: user.email,
-                    Name: userName,
-                    Status: Status,
-                    appliedAt: new Date()
-                });
-    
-                const membershipId = membersDocRef.id;
-                console.log("Membership Document Created with ID:", membershipId);
-    
-                // Update user's document with membership ID
-                const userRef = doc(db, "users", user.uid);
-                await updateDoc(userRef, { membershipId: membershipId });
-    
-                alert("Membership application successful!");
-            } catch (error) {
-                console.error("Error applying for membership:", error.message);
-                alert("Membership application was not successful, try again later.");
             }
 
         }
