@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const statusIndicator = document.getElementById("statusIndicator");
 
         if (profilename) profilename.textContent = username;
-        if (accounttype) accountTypeElement.textContent = role;
+        if (accounttype) accounttype.textContent = role;
         if (!statusIndicator) {
             console.error("statusIndicator element not found!");
             return;
