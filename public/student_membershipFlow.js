@@ -83,45 +83,54 @@ document.addEventListener("DOMContentLoaded",function(){
         });
     }
     
-    // Fetch project data from Firestore
-    const fetchDataProjects = () => {
-        const projectRef = collection(db, "ElectronicsLabProjects");
-       
-        onSnapshot(projectRef, (snapshot) => {
-            console.log("Snapshot student triggered!");
-            const projectsData = [];
-            snapshot.forEach((doc) => {
-                projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
-            });
+   // Fetch data from Firestore and listen for updates
+const fetchDataProjects = () => {
+    const projectRef = collection(db, "ElectronicsLabProjects");
+
+    onSnapshot(projectRef, (snapshot) => {
+        console.log("Snapshot student triggered!");
+        const projectsData = [];
+
+        snapshot.forEach((doc) => {
+            console.log("Doc data:", doc.data());
+            projectsData.push({ id: doc.id, ...doc.data() });
+        });
+
+        if (projectsData.length === 0) {
+            console.log("No projects found.");
+        }
 
         showpayCards(projectsData);
+    }, (error) => {
+        console.error("Error in onSnapshot:", error);
+    });
+};
 
-        });
-    };
-    
-    // Function to display payments in cards (instead of a table)
-    const showpayCards = (projectsData) => {
-        const listbodyd = document.querySelector("#ClientProject");
-        listbodyd.innerHTML = ""; // Clear existing entries
+// Render project data as cards in the DOM
+const showpayCards = (projectsData) => {
+    const listbodyd = document.querySelector("#ClientProject");
+    if (!listbodyd) {
+        console.error("Element #ClientProject not found in DOM!");
+        return;
+    }
 
-        projectsData.forEach((parcel) => {
-            const para = `
-                <div class="payment-card">
-                    <div class="card-header">
-                        <h3>Data be here</h3>
-                        <strong>${parcel.Client}</strong>
-                        <small>${parcel.Project}</small>
-                    </div>
-                    <div class="card-body">
-                        <p>Project ID: <span>${parcel.Project_ID}</span></p>
-                        <p>Date: <span>${parcel.Create_Date}</span></p>
-                    </div>
+    listbodyd.innerHTML = ""; // Clear any existing content
 
-                </div>`;
-            listbodyd.innerHTML += para;
-        });
-
-    };
+    projectsData.forEach((parcel) => {
+        const para = `
+            <div class="payment-card">
+                <div class="card-header">
+                    <h3>${parcel.Project || "Unnamed Project"}</h3>
+                    <strong>${parcel.Client || "No Client"}</strong>
+                </div>
+                <div class="card-body">
+                    <p>Project ID: <span>${parcel.Project_ID || "N/A"}</span></p>
+                    <p>Date: <span>${parcel.Create_Date || "Unknown"}</span></p>
+                </div>
+            </div>`;
+        listbodyd.innerHTML += para;
+    });
+};
    
     fetchDataProjects();
 
