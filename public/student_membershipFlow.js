@@ -83,55 +83,6 @@ document.addEventListener("DOMContentLoaded",function(){
         });
     }
     
-   // Fetch data from Firestore and listen for updates
-const fetchDataProjects = () => {
-    const projectRef = collection(db, "ElectronicsLabProjects");
 
-    onSnapshot(projectRef, (snapshot) => {
-        console.log("Snapshot student triggered!");
-        const projectsData = [];
-
-        snapshot.forEach((doc) => {
-            console.log("Doc data:", doc.data());
-            projectsData.push({ id: doc.id, ...doc.data() });
-        });
-
-        if (projectsData.length === 0) {
-            console.log("No projects found.");
-        }
-
-        showpayCards(projectsData);
-    }, (error) => {
-        console.error("Error in onSnapshot:", error);
-    });
-};
-
-// Render project data as cards in the DOM
-const showpayCards = (projectsData) => {
-    const listbodyd = document.querySelector("#ClientProject");
-    if (!listbodyd) {
-        console.error("Element #ClientProject not found in DOM!");
-        return;
-    }
-
-    listbodyd.innerHTML = ""; // Clear any existing content
-
-    projectsData.forEach((parcel) => {
-        const para = `
-            <div class="payment-card">
-                <div class="card-header">
-                    <h3>${parcel.Project || "Unnamed Project"}</h3>
-                    <strong>${parcel.Client || "No Client"}</strong>
-                </div>
-                <div class="card-body">
-                    <p>Project ID: <span>${parcel.Project_ID || "N/A"}</span></p>
-                    <p>Date: <span>${parcel.Create_Date || "Unknown"}</span></p>
-                </div>
-            </div>`;
-        listbodyd.innerHTML += para;
-    });
-};
-   
-    fetchDataProjects();
 
 });
