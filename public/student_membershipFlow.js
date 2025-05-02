@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
         });
     };
-    
+    fetchDataProjects();
     // Function to display payments in cards (instead of a table)
     const showpayCards = (projectsData) => {
         const listbodyd = document.querySelector("#ClientProject");
@@ -117,12 +117,12 @@ document.addEventListener("DOMContentLoaded",function(){
                         <p>Date: <span>${parcel.Create_Date}</span></p>
                     </div>
 
-            `;
+             </div>`;
             listbodyd.innerHTML += card;
         });
 
     };
-    fetchDataProjects();
+   
 
 
 });
