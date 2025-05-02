@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded",function(){
     // Fetch project data from Firestore
     const fetchDataProjects = () => {
         const projectRef = collection(db, "ElectronicsLabProjects");
-       s
+       
         onSnapshot(projectRef, (snapshot) => {
             console.log("Snapshot student triggered!");
             const projectsData = [];
@@ -98,29 +98,31 @@ document.addEventListener("DOMContentLoaded",function(){
 
         });
     };
-    fetchDataProjects();
     
     // Function to display payments in cards (instead of a table)
     const showpayCards = (projectsData) => {
         const listbodyd = document.querySelector("#ClientProject");
         listbodyd.innerHTML = ""; // Clear existing entries
 
-        projectsData.forEach((item) => {
+        projectsData.forEach((parcel) => {
             const card = `
                 <div class="payment-card">
                     <div class="card-header">
                         <h3>Data be here</h3>
-                        <strong>${item.Client}</strong>
-                        <small>${item.Project}</small>
+                        <strong>${parcel.Client}</strong>
+                        <small>${parcel.Project}</small>
                     </div>
                     <div class="card-body">
-                        <p>Project ID: <span>${item.Project_ID}</span></p>
-                        <p>Date: <span>${item.Create_Date}</span></p>
+                        <p>Project ID: <span>${parcel.Project_ID}</span></p>
+                        <p>Date: <span>${parcel.Create_Date}</span></p>
                     </div>
 
             `;
             listbodyd.innerHTML += card;
         });
+
     };
+    fetchDataProjects();
+
 
 });
