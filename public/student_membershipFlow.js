@@ -98,14 +98,14 @@ document.addEventListener("DOMContentLoaded",function(){
 
         });
     };
-    fetchDataProjects();
+    
     // Function to display payments in cards (instead of a table)
     const showpayCards = (projectsData) => {
         const listbodyd = document.querySelector("#ClientProject");
         listbodyd.innerHTML = ""; // Clear existing entries
 
         projectsData.forEach((parcel) => {
-            const card = `
+            const para = `
                 <div class="payment-card">
                     <div class="card-header">
                         <h3>Data be here</h3>
@@ -117,12 +117,12 @@ document.addEventListener("DOMContentLoaded",function(){
                         <p>Date: <span>${parcel.Create_Date}</span></p>
                     </div>
 
-             </div>`;
-            listbodyd.innerHTML += card;
+                </div>`;
+            listbodyd.innerHTML += para;
         });
 
     };
    
-
+    fetchDataProjects();
 
 });

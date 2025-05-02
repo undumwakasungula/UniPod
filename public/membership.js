@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // Event delegation for approved members
+ 
   document.querySelector("#Registered_memberList").addEventListener("click", function (e) {
     const target = e.target.closest("button");
     if (!target) return;
