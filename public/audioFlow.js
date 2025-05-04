@@ -280,7 +280,7 @@ if (project_form) {
         event.preventDefault();
         let project = document.getElementById("audio_project").value;
         let client = document.getElementById("audio_client").value;
-        let registered_client = document.getElementById("clientDropdown".value)
+        let registered_client = document.getElementById("clientDropdown").value
         let duration = document.getElementById("audio_duration").value;
         let projectID = generateProjectID();
         let TechId = technicianID ;
