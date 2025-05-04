@@ -34,7 +34,7 @@ body
       }
 #contentSection
       {
-        display: flex;
+        
         background-color: white;
         text-align: center;
         border-radius: 10px;
@@ -58,11 +58,9 @@ body
           height: 30px;
         }
       }
-      
+       
 .formattedBodies
       {
         border-radius: 20px;
       }
-p{
-  height: fit-content;
-}
+
