@@ -93,6 +93,8 @@ h4{font: 15px verdana;}
     {
         margin-left: 10px;
         height: fit-content;
+        justify-content: center;
+        align-items: center;
     }
 
 
