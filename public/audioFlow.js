@@ -673,7 +673,7 @@ function populateClientDropdown() {
             let userData = doc.data();
             let option = document.createElement("option");
             option.value = doc.id;  // Store user ID (UID)
-            option.textContent = userData.fullName;  // Show user's name
+            option.textContent = userData.name;  // Show user's name
             clientDropdown.appendChild(option);
         });
     }).catch(error => {
