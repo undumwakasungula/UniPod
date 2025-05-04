@@ -1,9 +1,18 @@
 import { db } from "./firebaseConfig.js"
 import { doc, collection,deleteDoc,onSnapshot, setDoc,updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
+const auth = getAuth();
 document.addEventListener("DOMContentLoaded", function() {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            const technicianID = user.uid; // Get logged-in technician's unique ID
+            console.log("Logged-in Technician ID:", technicianID);
 
-    //computer equipment form trigger buttons
+
+
+
+            //computer equipment form trigger buttons
     const equip_form = document.getElementById("audio-equipmentForm");
     const  equip_close = document.getElementById("audio-cancel");
     const equip_trig = document.getElementById("audio-add_equip_btn");
@@ -268,9 +277,10 @@ if (project_form) {
         event.preventDefault();
         let project = document.getElementById("audio_project").value;
         let client = document.getElementById("audio_client").value;
-        let registered_client = document.getElementById("clientDropdown".value)
+        let registered_client = document.getElementById("clientDropdown").value
         let duration = document.getElementById("audio_duration").value;
         let projectID = generateProjectID();
+        let TechId = technicianID;
         let currentTime = new Date();
         let timestamp = currentTime.toISOString();
         let authorization = "Pending"; 
@@ -280,6 +290,7 @@ if (project_form) {
             await setDoc(projectsDocRef, {
                 Project: project,
                 Client: client || registered_client,
+                TechnicianID: TechId,
                 Project_ID: projectID,
                 Duration: duration,
                 Create_Date: timestamp,
@@ -304,37 +315,36 @@ if (project_form) {
     }
 }
  const projectSpinner = document.querySelector("#audio_project_spinner");
-    projectSpinner.style.display = "flex"; // Show the spinner while loading data
-// Fetch project data from Firestore
+    projectSpinner.style.display = "flex"; 
+
 const fetchTronicsRealTimeDataProjects = () => {
     const projectRef = collection(db, "AudioVisualLabProjects");
-    // Listen for real-time updates
+   
     onSnapshot(projectRef, (snapshot) => {
         console.log("Snapshot triggered!");
         const projectsData = [];
         snapshot.forEach((doc) => {
-            projectsData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
+            projectsData.push({ id: doc.id, ...doc.data() }); 
         });
-        // Render the updated data in the table
+       
         showProjectTable(projectsData);
         updateProjectsAnalytics();
-        projectSpinner.style.display = "none"; // Hide the spinner after data is fetched
+        projectSpinner.style.display = "none"; 
     });
 };
 fetchTronicsRealTimeDataProjects();
 
 const showProjectTable = (projectsData) => {
     const tableBody = document.querySelector("#audio_project_table tbody");
-    tableBody.innerHTML = ""; // Clear existing rows
+    tableBody.innerHTML = ""; 
 
     projectsData.forEach((item) => {
         const createdAt = new Date(item.Create_Date);
-        const durationWeeks = item.Duration; // Assuming duration is in weeks
-        // Calculate the project's end date
+        const durationWeeks = item.Duration; 
+       
         const endDate = new Date(createdAt);
-        endDate.setDate(createdAt.getDate() + (durationWeeks * 7)); // Add duration (in weeks converted to days)
-        // Determine the project status
-        const currentDate = new Date(); // Get the current date
+        endDate.setDate(createdAt.getDate() + (durationWeeks * 7)); 
+        const currentDate = new Date();
         const Status = currentDate > endDate ? "Completed" : "In Progress";
         const row = `
             <tr>
@@ -665,6 +675,28 @@ function showProjectdeleteMessage(){
 
 
 } 
+
+
+populateClientDropdown();
+
+
+
+        } else {
+            console.log("No technician is logged in");
+        }
+    });
+
+
+
+
+
+
+
+
+
+    
+
+});
 function populateClientDropdown() {
     const clientDropdown = document.getElementById("clientDropdown");
     const usersRef = collection( db,"users"); 
@@ -681,11 +713,6 @@ function populateClientDropdown() {
         console.error("Error fetching clients:", error);
     });
 }
-
-populateClientDropdown();
-
-
-});
 
 
 document.getElementById("audio_search_project").addEventListener('input', debounce(function () {
