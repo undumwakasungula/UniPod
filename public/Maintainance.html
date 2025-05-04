@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet"  href="main.css">
-    <link rel="stylesheet"  href="staff_dashboard.css">
+  
+    <link rel="stylesheet"  href="membership.css">
 </head>
 <body>
-    <div class="spinner-container">
-        <div class="spinner"></div>
+<div class="paymentContainer">
+    <div class="paycard">
+        <labe><h2>Project</h2></labe>
+        <div class="propayment">
+            <label for="projectsDrop"></label>Project:</label>
+            <select id="projectDrop">
+            <option value="">-- Select a Project --</option>
+            </select>
+            <h4>Upload deposit slip</h4>
+            <input type="file"></input>
+            <h1></h1>
+            <button id="propaybtn"  class="btnpay" style="color: orange;font-weight: 400;font-family: 'Times New Roman', Times, serif;">Send</button>
+            
+        </div>
+        <br>
+        <label><h2>Membership</h2></label>
+        <div class="membershippay">
+            <h4>Upload deposit slip</h4>
+            <input type="file" ></input>
+             <h1></h1>
+            <button id="propaybtn" class="btnpay" style="color: orange;font-weight: 400;font-family: 'Times New Roman', Times, serif;">Send</button>
+        </div>
     </div>
-    <div class="content" style="display: none;"></div>
+
+
+</dic>
 </body>
     <script type="module" src="/form.js"></script>
     <script src="/main.js"></script>

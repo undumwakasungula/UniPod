@@ -101,3 +101,55 @@ h4{font: 15px verdana;}
     }
 
 
+.paymentContainer{
+
+    background-color: whitesmoke;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.paycard{
+    
+    width:80%;
+    border-radius:10px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    box-sizing: border-box;
+    
+    background-color:  rgb(203, 210, 211);
+    
+
+}
+
+.propayment{
+    background:linear-gradient(to bottom, rgb(113, 113, 177),rgb(212, 221, 134));
+    height: auto;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    width: 80%;
+    
+
+}
+.membershippay{
+    background:linear-gradient(to bottom, rgb(113, 113, 177),rgb(211, 219, 140));
+    height: auto;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    width: 80%;
+   
+
+}
+
+.btnpay{
+    width: 80%;
+    border-radius: 5px;
+    padding: auto;
+    background-color: rgb(207, 207, 207);
+}
