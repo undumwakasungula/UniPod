@@ -35,25 +35,26 @@
         <h4><strong>CONTACT A TECHNICIAN</strong></h4>
       </div>
       <!--3rd column-->
-      <div class="col-sm-2" text-align: center; color: #f3d31b; border-radius: 10px;">
+      <div class="col-sm-2" style="text-align: center; color: #f3d31b; border-radius: 10px;">
         <h4><strong>USER ACCOUNT STATUS</strong></h4>
 
       </div>
-      <button onclick="togglemenu()" style="display: none;" id="menu-btn">menu</button>
+      
     </div>
     <!-- 3rd row -->
     <div class="row" >
+      <button onclick="togglemenu()"  id="menu-btn"  class="togglemenu">menu</button>
       <!--menu Section-->
-      <div class="col-sm-2 formattedBodies" text-align: center; height: 500px;" id="menuSection" >
+      <div class="col-sm-2 formattedBodies  menusec" style="text-align: center; height:fit-content;" id="menuSection" >
         <p class="menuOption">
           <a href="membership.html" target="contectArea">Membership</a>
         </p>
         <p class="menuOption" class="cleared">
           <a href="spaces.html" target="contectArea">Spaces</a>
         </p>
+
         <p class="menuOption" class="cleared">
-          <a href="payments.html" target="contectArea"><i class="fa-solid fa-folder-open"
-              style="margin-right: 8px;"></i>Projects</a>
+          <a href="payments.html" target="contectArea">Projects</a>
           </p>
       </div>
       <!--content Section-->
@@ -66,8 +67,13 @@
   <script>
     
     function togglemenu(){
-      const menu = document.getElementById("menu_section");
-      
+      const menu = document.getElementById("menuSection");
+      if(menu.style.display==="none"){
+        menu.style.display="block";
+      }
+      else{
+        menu.style.display="none";
+      }
 
 
 
