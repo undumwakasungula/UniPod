@@ -1,3 +1,4 @@
+
 .menuOption
 {font-size: 20px;text-decoration: none; clear: left;text-align: center; padding: 10px; width: 100%; height:40px;}
 a:link
@@ -36,14 +37,16 @@ body
         
       }
 #contentSection
-      {
-        
+      { height: 100vh;
+        display: flex;
         background-color: white;
         text-align: center;
         border-radius: 10px;
         height: fit-content;
         justify-content: center;
         padding: 10px;
+
+        
       }
       .togglemenu{
         display: none;
@@ -70,4 +73,17 @@ body
 .paragraph{
   height: auto;
   width:30px;
+}
+iframe {
+  width: 100%;
+  height: 100vh; 
+  border: none;
+  overflow-y: auto;
+
+}
+
+@media (max-width: 768px) {
+  iframe {
+    height: calc(100vh - 50px); 
+  }
 }

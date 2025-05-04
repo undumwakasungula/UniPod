@@ -11,6 +11,8 @@
         margin-bottom: 25px;
         border-radius: 25px;
         border-style: outset;
+        max-height: 1000px;
+        
 
     }
 #statusStrip
