@@ -22,6 +22,9 @@ a:active
       {
        
        background: linear-gradient(to right, #006699, #7bafd6);
+       display: flex;
+       justify-content: right;
+       height: auto;
       }
 body
       {
@@ -64,3 +67,7 @@ body
         border-radius: 20px;
       }
 
+.paragraph{
+  height: auto;
+  width:30px;
+}
