@@ -663,7 +663,27 @@ function showProjectdeleteMessage(){
 
 
 
-}  
+} 
+function populateClientDropdown() {
+    const clientDropdown = document.getElementById("clientDropdown");
+    const usersRef = firebase.firestore().collection("users"); // Adjust collection name if needed
+
+    usersRef.get().then(snapshot => {
+        snapshot.forEach(doc => {
+            let userData = doc.data();
+            let option = document.createElement("option");
+            option.value = doc.id;  // Store user ID (UID)
+            option.textContent = userData.fullName;  // Show user's name
+            clientDropdown.appendChild(option);
+        });
+    }).catch(error => {
+        console.error("Error fetching clients:", error);
+    });
+}
+
+// Call this function when the page loads
+populateClientDropdown();
+
 
 });
 
