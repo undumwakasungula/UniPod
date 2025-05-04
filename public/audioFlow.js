@@ -268,6 +268,7 @@ if (project_form) {
         event.preventDefault();
         let project = document.getElementById("audio_project").value;
         let client = document.getElementById("audio_client").value;
+        let registered_client = document.getElementById("clientDropdown".value)
         let duration = document.getElementById("audio_duration").value;
         let projectID = generateProjectID();
         let currentTime = new Date();
@@ -278,7 +279,7 @@ if (project_form) {
             const projectsDocRef = doc(collection(db, "AudioVisualLabProjects"));
             await setDoc(projectsDocRef, {
                 Project: project,
-                Client: client,
+                Client: client || registered_client,
                 Project_ID: projectID,
                 Duration: duration,
                 Create_Date: timestamp,
@@ -666,14 +667,14 @@ function showProjectdeleteMessage(){
 } 
 function populateClientDropdown() {
     const clientDropdown = document.getElementById("clientDropdown");
-    const usersRef = collection( db,"users"); // Adjust collection name if needed
+    const usersRef = collection( db,"users"); 
 
     onSnapshot(usersRef,(snapshot) => {
         snapshot.forEach(doc => {
             let userData = doc.data();
             let option = document.createElement("option");
-            option.value = doc.id;  // Store user ID (UID)
-            option.textContent = userData.name;  // Show user's name
+            option.value = doc.id;
+            option.textContent = userData.name;  
             clientDropdown.appendChild(option);
         });
     }).catch(error => {
@@ -681,7 +682,6 @@ function populateClientDropdown() {
     });
 }
 
-// Call this function when the page loads
 populateClientDropdown();
 
 
