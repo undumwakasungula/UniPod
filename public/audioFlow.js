@@ -666,9 +666,9 @@ function showProjectdeleteMessage(){
 } 
 function populateClientDropdown() {
     const clientDropdown = document.getElementById("clientDropdown");
-    const usersRef = firebase.firestore().collection("users"); // Adjust collection name if needed
+    const usersRef = collection( db,"users"); // Adjust collection name if needed
 
-    usersRef.get().then(snapshot => {
+    onSnapshot(usersRef,(snapshot) => {
         snapshot.forEach(doc => {
             let userData = doc.data();
             let option = document.createElement("option");
