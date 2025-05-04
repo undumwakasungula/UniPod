@@ -10,9 +10,12 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Logged-in Technician ID:", technicianID);
 
 
+        } else {
+            console.log("No technician is logged in");
+        }
+    });
 
-
-            //computer equipment form trigger buttons
+    //computer equipment form trigger buttons
     const equip_form = document.getElementById("audio-equipmentForm");
     const  equip_close = document.getElementById("audio-cancel");
     const equip_trig = document.getElementById("audio-add_equip_btn");
@@ -277,10 +280,10 @@ if (project_form) {
         event.preventDefault();
         let project = document.getElementById("audio_project").value;
         let client = document.getElementById("audio_client").value;
-        let registered_client = document.getElementById("clientDropdown").value
+        let registered_client = document.getElementById("clientDropdown".value)
         let duration = document.getElementById("audio_duration").value;
         let projectID = generateProjectID();
-        let TechId = technicianID;
+        let TechId = technicianID ;
         let currentTime = new Date();
         let timestamp = currentTime.toISOString();
         let authorization = "Pending"; 
@@ -290,8 +293,8 @@ if (project_form) {
             await setDoc(projectsDocRef, {
                 Project: project,
                 Client: client || registered_client,
-                TechnicianID: TechId,
                 Project_ID: projectID,
+                TechnicianID: TechId,
                 Duration: duration,
                 Create_Date: timestamp,
                 Authorization: authorization
@@ -679,22 +682,6 @@ function showProjectdeleteMessage(){
 
 populateClientDropdown();
 
-
-
-        } else {
-            console.log("No technician is logged in");
-        }
-    });
-
-
-
-
-
-
-
-
-
-    
 
 });
 function populateClientDropdown() {
