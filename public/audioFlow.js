@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (user) {
             const technicianID = user.uid; // Get logged-in technician's unique ID
             console.log("Logged-in Technician ID:", technicianID);
-
+            alert("Logged-in Technician ID:", technicianID);
 
         } else {
             console.log("No technician is logged in");
