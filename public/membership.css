@@ -127,22 +127,38 @@ h4{font: 15px verdana;}
 }
 
 .propayment{
-    background:linear-gradient(to bottom, rgb(113, 113, 177),rgb(212, 221, 134));
+    background-color:whitesmoke;
     height: auto;
     margin: auto;
     text-align: center;
     padding: 20px;
     width: 80%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-style: outset;
+    border-color: rgb(11, 11, 88);
+    border-width: 2px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    font: 20px verdana;
+    color: rgb(11, 11, 88);
     
 
 }
 .membershippay{
-    background:linear-gradient(to bottom, rgb(113, 113, 177),rgb(211, 219, 140));
+    background-color:whitesmoke;
     height: auto;
     margin: auto;
     text-align: center;
     padding: 20px;
     width: 80%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-style: outset;
+    border-color: rgb(11, 11, 88);
+    border-width: 2px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    font: 20px verdana;
+    color: rgb(11, 11, 88);
    
 
 }
