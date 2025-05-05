@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Display Filtered Client Projects
     function displayClientProjects(projects) {
-        const projectList = document.getElementById("ClientProject");
+        const projectList = document.getElementById("ClientProjectdiv");
         projectList.innerHTML = projects.length === 0 ? "<p>No projects found.</p>" : "";
 
         projects.forEach(proj => {
