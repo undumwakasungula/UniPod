@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-  
+    console.log("Auth instance:", auth);
     onAuthStateChanged(auth, async (user) => {
       if (user) {
           const clientID = user.uid;
