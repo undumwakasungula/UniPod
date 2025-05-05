@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
           const clientID = user.uid;
-          console.log("onAuthStateChanged fired, user:", user);
+          console.log("onAuthStateChanged fired, user:", clientID);
 
   
           const projectPromises = projectCollections.map(async (col) => {
