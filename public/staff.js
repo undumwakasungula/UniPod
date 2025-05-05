@@ -142,6 +142,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     <h3>${proj.Project || "Unnamed Project"}</h3>
                     <strong>${proj.collectionName}</strong>
                 </div>
+                <br>
+                
                 <div >
                     <p>Project ID: <span>${proj.Project_ID || "N/A"}</span></p>
                     <p>Duration(wks): <span>${proj.Duration || "N/A"}</span></p>
