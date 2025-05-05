@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let allClientProjects = [];
 
             for (let col of projectCollections) {
-                const q = query(collection(db, col), where("clientID", "==", clientID));
+                const q = query(collection(db, col), where("Client", "==", clientID));
                 const snapshot = await getDocs(q);
 
                 snapshot.forEach(doc => {
