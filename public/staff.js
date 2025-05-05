@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
     projects.forEach(proj => {
         
         const normalDate = proj.Create_Date;
-        const formattedDate = normalDate ? new Date(rawDate).toLocaleDateString('en-GB', {
+        const formattedDate = normalDate ? new Date(normalDate).toLocaleDateString('en-GB', {
             day: 'numeric', month: 'long', year: 'numeric'
         }) : "Unknown";
 
