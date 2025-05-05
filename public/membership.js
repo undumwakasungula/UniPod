@@ -1,8 +1,9 @@
-import { db } from "./firebaseConfig.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { db,auth } from "./firebaseConfig.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { doc, collection, query, where, deleteDoc, onSnapshot, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
-const auth = getAuth();
+
+
 const projectCollections = [
     "AudioVisualLabProjects",
     "ElectronicsLabProjects",
