@@ -622,7 +622,27 @@ function showProjectdeleteMessage(){
 
 }  
 
+populateClientDropdown();
+
+
+
 });
+function populateClientDropdown() {
+    const clientDropdown = document.getElementById("clientmechdown");
+    const usersRef = collection( db,"users"); 
+
+    onSnapshot(usersRef,(snapshot) => {
+        snapshot.forEach(doc => {
+            let userData = doc.data();
+            let option = document.createElement("option");
+            option.value = doc.id;
+            option.textContent = userData.name;  
+            clientDropdown.appendChild(option);
+        });
+    }).catch(error => {
+        console.error("Error fetching clients:", error);
+    });
+}
 
 
 document.getElementById("mech_search_project").addEventListener('input', debounce(function () {
