@@ -1,5 +1,5 @@
 import { db,auth } from "./firebaseConfig.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
 import { doc, collection, query, where, deleteDoc, onSnapshot, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 
@@ -162,53 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    console.log("Auth instance:", auth);
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-          const clientID = user.uid;
-          console.log("onAuthStateChanged fired, user:", user);
 
-  
-          const projectPromises = projectCollections.map(async (col) => {
-              const q = query(collection(db, col), where("Client", "==", clientID));
-              const snapshot = await getDocs(q);
-              return snapshot.docs.map(doc => ({
-                  ...doc.data(),
-                  collectionName: col
-              }));
-          });
-  
-          const allResults = await Promise.all(projectPromises);
-          const allClientProjects = allResults.flat(); 
-  
-          console.log("Fetched projects:", allClientProjects); 
-          displayClientProjects(allClientProjects);
-      } else {
-          console.log("No client is logged in");
-      }
-  });
-  
-
-    // Display Filtered Client Projects
-    function displayClientProjects(projects) {
-        const projectList = document.getElementById("ClientProjectdiv");
-        console.log("projectList DOM element:", projectList);
-        projectList.innerHTML = projects.length === 0 ? "<p>No projects found.</p>" : "";
-
-        projects.forEach(proj => {
-            projectList.innerHTML += `
-                <div class="payment-card">
-                    <div class="card-header">
-                        <h3>${proj.Project || "Unnamed Project"}</h3>
-                        <strong>${proj.collectionName}</strong>
-                    </div>
-                    <div class="card-body">
-                        <p>Project ID: <span>${proj.Project_ID || "N/A"}</span></p>
-                        <p>Date: <span>${proj.Create_Date || "Unknown"}</span></p>
-                    </div>
-                </div>`;
-        });
-    }
 
     fetchMembershipApplications();
     fetchApprovedmembers();

@@ -1,6 +1,8 @@
 import { app, db } from "/firebaseConfig.js"
 import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { collection, query, where, onSnapshot, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 const auth = getAuth(app);
 
 
@@ -44,6 +46,96 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+        // Fetch Approved Members
+    const fetchApprovedmembers = () => {
+        const approvedmemberRef = collection(db, "Membership");
+        const approvedmemberQuery = query(approvedmemberRef, where("Status", "==", "Approved"));
 
- 
+        onSnapshot(approvedmemberQuery, (snapshot) => {
+            console.log("Approved members snapshot triggered!");
+
+            const approvedmembersData = [];
+            snapshot.forEach((doc) => {
+                approvedmembersData.push({ id: doc.id, ...doc.data() });
+            });
+
+            showapprovedCards(approvedmembersData);
+        });
+    };
+
+    // Display Approved Members
+    const showapprovedCards = (approvedmembersData) => {
+        const Bodylist = document.querySelector("#Registered_memberList");
+        Bodylist.innerHTML = "";
+
+        approvedmembersData.forEach((side) => {
+            const card = `
+                <div class="payment-card">
+                    <div class="card-header">
+                        <strong>${side.Name}</strong>
+                    </div>
+                    <div class="card-body">
+                        <small>${side.Status}</small>
+                        <p><span>${side.Email}</span></p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-revoke" dat-id="${side.id}">
+                            <i class="fa-solid fa-circle-xmark"></i> Revoke
+                        </button>
+                        <button class="delete-btn" dat-id="${side.id}">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            `;
+            Bodylist.innerHTML += card;
+        });
+    };
+    
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+          const clientID = user.uid;
+          console.log("onAuthStateChanged fired, user:", user);
+
+  
+          const projectPromises = projectCollections.map(async (col) => {
+              const q = query(collection(db, col), where("Client", "==", clientID));
+              const snapshot = await getDocs(q);
+              return snapshot.docs.map(doc => ({
+                  ...doc.data(),
+                  collectionName: col
+              }));
+          });
+  
+          const allResults = await Promise.all(projectPromises);
+          const allClientProjects = allResults.flat(); 
+  
+          console.log("Fetched projects:", allClientProjects); 
+          displayClientProjects(allClientProjects);
+      } else {
+          console.log("No client is logged in");
+      }
+  });
+  
+
+    // Display Filtered Client Projects
+    function displayClientProjects(projects) {
+        const projectList = document.getElementById("ClientProjectdiv");
+        console.log("projectList DOM element:", projectList);
+        projectList.innerHTML = projects.length === 0 ? "<p>No projects found.</p>" : "";
+
+        projects.forEach(proj => {
+            projectList.innerHTML += `
+                <div class="payment-card">
+                    <div class="card-header">
+                        <h3>${proj.Project || "Unnamed Project"}</h3>
+                        <strong>${proj.collectionName}</strong>
+                    </div>
+                    <div class="card-body">
+                        <p>Project ID: <span>${proj.Project_ID || "N/A"}</span></p>
+                        <p>Date: <span>${proj.Create_Date || "Unknown"}</span></p>
+                    </div>
+                </div>`;
+        });
+    }
 });

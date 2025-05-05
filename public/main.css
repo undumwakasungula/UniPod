@@ -2,7 +2,7 @@ body{
     display: flex;
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-image:url(Images/backimage.png);
+    background-image:url(Images/general_image.jpeg);
     background-size:cover;
     background-repeat: no-repeat;
     height: 100vh;
