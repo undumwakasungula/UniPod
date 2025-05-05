@@ -269,6 +269,7 @@ if (project_form) {
         event.preventDefault();
         let project = document.getElementById("mech_project").value;
         let client = document.getElementById("mech_client").value;
+        let registered_client = document.getElementById("clientmechpdown").value;
         let duration = document.getElementById("mech_duration").value;
         let projectID = generateProjectID();
         let currentTime = new Date();
@@ -279,7 +280,7 @@ if (project_form) {
             const projectsDocRef = doc(collection(db, "MechanicalLabProjects"));
             await setDoc(projectsDocRef, {
                 Project: project,
-                Client: client,
+                Client: registered_client||client,
                 Project_ID: projectID,
                 Duration: duration,
                 Create_Date: timestamp,

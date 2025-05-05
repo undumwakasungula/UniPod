@@ -264,6 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             let project = document.getElementById("cnc_project").value;
             let client = document.getElementById("cnc_client").value;
+            let registered_client = document.getElementById("clientcncdown").value;
             let duration = document.getElementById("cnc_duration").value;
             let projectID = generateProjectID();
             let currentTime = new Date();
@@ -274,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const projectsDocRef = doc(collection(db, "CNCLabProjects"));
                 await setDoc(projectsDocRef, {
                     Project: project,
-                    Client: client,
+                    Client: registered_client|| client,
                     Project_ID: projectID,
                     Duration: duration,
                     Create_Date: timestamp,

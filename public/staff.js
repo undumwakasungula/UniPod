@@ -124,24 +124,31 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
 
-    // Display Filtered Client Projects
-    function displayClientProjects(projects) {
-        const projectList = document.getElementById("ClientProjectdiv");
-        console.log("projectList DOM element:", projectList);
-        projectList.innerHTML = projects.length === 0 ? "<p>No projects found.</p>" : "";
+  function displayClientProjects(projects) {
+    const projectList = document.getElementById("ClientProjectdiv");
+    console.log("projectList DOM element:", projectList);
+    projectList.innerHTML = projects.length === 0 ? "<p>No projects found.</p>" : "";
 
-        projects.forEach(proj => {
-            projectList.innerHTML += `
-                <div class="payment-card">
-                    <div class="card-header">
-                        <h3>${proj.Project || "Unnamed Project"}</h3>
-                        <strong>${proj.collectionName}</strong>
-                    </div>
-                    <div class="card-body">
-                        <p>Project ID: <span>${proj.Project_ID || "N/A"}</span></p>
-                        <p>Date: <span>${proj.Create_Date || "Unknown"}</span></p>
-                    </div>
-                </div>`;
-        });
-    }
+    projects.forEach(proj => {
+        
+        const normalDate = proj.Create_Date;
+        const formattedDate = normalDate ? new Date(rawDate).toLocaleDateString('en-GB', {
+            day: 'numeric', month: 'long', year: 'numeric'
+        }) : "Unknown";
+
+        projectList.innerHTML += `
+            <div class="payment-card">
+                <div class="card-header">
+                    <h3>${proj.Project || "Unnamed Project"}</h3>
+                    <strong>${proj.collectionName}</strong>
+                </div>
+                <div class="card-body">
+                    <p>Project ID: <span>${proj.Project_ID || "N/A"}</span></p>
+                    <p>Client ID: <span>${proj.Status || "N/A"}</span></p>
+                    <p>Date: <span>${formattedDate}</span></p>
+                </div>
+            </div>`;
+    });
+}
+
 });

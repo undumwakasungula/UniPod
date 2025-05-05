@@ -268,6 +268,7 @@ if (project_form) {
         event.preventDefault();
         let project = document.getElementById("wood_project").value;
         let client = document.getElementById("wood_client").value;
+        let registered_client = document.getElementById("clientwooddown").value;
         let duration = document.getElementById("wood_duration").value;
         let projectID = generateProjectID();
         let currentTime = new Date();
@@ -278,7 +279,7 @@ if (project_form) {
             const projectsDocRef = doc(collection(db, "WoodLabProjects"));
             await setDoc(projectsDocRef, {
                 Project: project,
-                Client: client,
+                Client: registered_client||client,
                 Project_ID: projectID,
                 Duration: duration,
                 Create_Date: timestamp,

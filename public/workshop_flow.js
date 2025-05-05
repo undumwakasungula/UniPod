@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (audio_projects ) {
         
         audio_projects.addEventListener("click", function audioProjects() {
-            alert("dhhdff");
+            
             if (audio_projects_window.style.display === "none") {
                 audio_projects_window.style.display = "block";
             }
@@ -382,14 +382,14 @@ document.addEventListener("DOMContentLoaded", function () {
     trospinner.style.display = "flex"; 
 // Fetch equipment data from Firestore
 const fetchRealTimeData = () => {
-    const equipmentRef = collection(db, "ElectronicsLab"); // Use collection to reference the entire collection
+    const equipmentRef = collection(db, "ElectronicsLab"); 
     
     // Listen for real-time updates
     onSnapshot(equipmentRef, (snapshot) => {
         console.log("Snapshot triggered!");
       const equipmentData = [];
       snapshot.forEach((doc) => {
-        equipmentData.push({ id: doc.id, ...doc.data() }); // Collect data from each document
+        equipmentData.push({ id: doc.id, ...doc.data() });
       });
   
       // Render the updated data in the table
@@ -403,7 +403,7 @@ const fetchRealTimeData = () => {
   
   const showTable = (equipmentData) => {
     const tableBody = document.querySelector("#equip_table tbody");
-    tableBody.innerHTML = ""; // Clear existing rows
+    tableBody.innerHTML = ""; 
     
     equipmentData.forEach((item) => {
       const row = `
@@ -558,6 +558,7 @@ if (project_form) {
         event.preventDefault();
         let project = document.getElementById("tronics_project").value;
         let client = document.getElementById("tronics_client").value;
+        let registered_client = document.getElementById("clientdown").value;
         let duration = document.getElementById("tronics_duration").value;
         let projectID = generateProjectID();
         let currentTime = new Date();
@@ -568,7 +569,7 @@ if (project_form) {
             const projectsDocRef = doc(collection(db, "ElectronicsLabProjects"));
             await setDoc(projectsDocRef, {
                 Project: project,
-                Client: client,
+                Client: registered_client||client,
                 Project_ID: projectID,
                 Duration: duration,
                 Create_Date: timestamp,

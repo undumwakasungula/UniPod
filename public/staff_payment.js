@@ -1,6 +1,7 @@
 import { db } from "./firebaseConfig.js";
 import { doc, collection, deleteDoc,query,where, onSnapshot, updateDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
+const collections = ["AudioVisualLabProjects", "CNCLabProjects", "EletronicsLabProjects","MechanicalLabProjects", "WoodLabProjects"];
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch payment data from Firestore
     const fetchRealTimeData = () => {
@@ -172,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
                                     // List of collection names
-                                    const collections = ["AudioVisualLabProjects", "CNCLabProjects", "EletronicsLabProjects","MechanicalLabProjects", "WoodLabProjects"];
+
 
                                     async function updateProjectAuthorization(project_ID, statusValue) {
                                         try {
