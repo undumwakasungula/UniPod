@@ -143,11 +143,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     <strong>${proj.collectionName}</strong>
                 </div>
                 <br>
-                
+
                 <div >
                     <p>Project ID: <span>${proj.Project_ID || "N/A"}</span></p>
                     <p>Duration(wks): <span>${proj.Duration || "N/A"}</span></p>
-                    <p>Start Date: <span>${formattedDate}</span></p>
+                    
+                </div>
+                <dv>
+                <p>Duration(wks): <span>${proj.Authorization || "N/A"}</span></p>
+                <p>Start Date: <span>${formattedDate}</span></p>
                 </div>
             </div>`;
     });
