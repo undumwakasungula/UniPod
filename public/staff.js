@@ -138,14 +138,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         projectList.innerHTML += `
             <div class="payment-card">
-                <div class="card-header">
+                <div >
                     <h3>${proj.Project || "Unnamed Project"}</h3>
                     <strong>${proj.collectionName}</strong>
                 </div>
-                <div class="card-body">
+                <div >
                     <p>Project ID: <span>${proj.Project_ID || "N/A"}</span></p>
-                    <p>Client ID: <span>${proj.Status || "N/A"}</span></p>
-                    <p>Date: <span>${formattedDate}</span></p>
+                    <p>Duration(wks): <span>${proj.Duration || "N/A"}</span></p>
+                    <p>Start Date: <span>${formattedDate}</span></p>
                 </div>
             </div>`;
     });
