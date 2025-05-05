@@ -161,26 +161,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Fetch Projects Across Multiple Collections Based on Logged-in Client
+  
     onAuthStateChanged(auth, async (user) => {
-        if (user) {
-            const clientID = user.uid;
-            let allClientProjects = [];
-
-            for (let col of projectCollections) {
-                const q = query(collection(db, col), where("Client", "==", clientID));
-                const snapshot = await getDocs(q);
-
-                snapshot.forEach(doc => {
-                    allClientProjects.push({ ...doc.data(), collectionName: col });
-                });
-            }
-
-            displayClientProjects(allClientProjects);
-        } else {
-            console.log("No client is logged in");
-        }
-    });
+      if (user) {
+          const clientID = user.uid;
+  
+          const projectPromises = projectCollections.map(async (col) => {
+              const q = query(collection(db, col), where("Client", "==", clientID));
+              const snapshot = await getDocs(q);
+              return snapshot.docs.map(doc => ({
+                  ...doc.data(),
+                  collectionName: col
+              }));
+          });
+  
+          const allResults = await Promise.all(projectPromises);
+          const allClientProjects = allResults.flat(); 
+  
+          console.log("Fetched projects:", allClientProjects); 
+          displayClientProjects(allClientProjects);
+      } else {
+          console.log("No client is logged in");
+      }
+  });
+  
 
     // Display Filtered Client Projects
     function displayClientProjects(projects) {
