@@ -149,6 +149,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     <p>Duration(wks): <span>${proj.Duration || "N/A"}</span></p>
                     
                 </div>
+                <br>
+                
                 <dv>
                 <p>Duration(wks): <span>${proj.Authorization || "N/A"}</span></p>
                 <p>Start Date: <span>${formattedDate}</span></p>
