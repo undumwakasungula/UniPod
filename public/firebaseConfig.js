@@ -9,7 +9,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAuVPMEyPKqEuic6uSV48AUycDald94Gqo",
   authDomain: "unipod-management.firebaseapp.com",
   projectId: "unipod-management",
-  storageBucket: "unipod-management.firebasestorage.app",
+  storageBucket: "unipod-management.appspot.com",
   messagingSenderId: "347626598563",
   appId: "1:347626598563:web:7f2ce85d849bad96830f16",
   measurementId: "G-0LCMERXLWZ"
