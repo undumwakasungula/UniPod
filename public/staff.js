@@ -4,7 +4,13 @@ import { doc, setDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { collection, query, where, onSnapshot, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 const auth = getAuth(app);
-
+const projectCollections = [
+    "AudioVisualLabProjects",
+    "ElectronicsLabProjects",
+    "MechanicalLabProjects",
+    "CNCLabProjects",
+    "WoodLabProjects"
+];
 
 document.addEventListener("DOMContentLoaded", function() {
     const down = document.getElementById("staff-form");

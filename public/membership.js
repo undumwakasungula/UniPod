@@ -4,13 +4,7 @@ import { doc, collection, query, where, deleteDoc, onSnapshot, updateDoc, getDoc
 
 
 
-const projectCollections = [
-    "AudioVisualLabProjects",
-    "ElectronicsLabProjects",
-    "MechanicalLabProjects",
-    "CNCLabProjects",
-    "WoodLabProjects"
-];
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch Membership Applications
