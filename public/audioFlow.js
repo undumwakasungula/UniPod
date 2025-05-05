@@ -273,7 +273,7 @@ if (project_form) {
         let registered_client = document.getElementById("clientDropdown").value;
         let duration = document.getElementById("audio_duration").value;
         let projectID = generateProjectID();
-        //let TechId = technicianID ;
+        
         let currentTime = new Date();
         let timestamp = currentTime.toISOString();
         let authorization = "Pending"; 
@@ -284,7 +284,7 @@ if (project_form) {
                 Project: project,
                 Client: client || registered_client,
                 Project_ID: projectID,
-                //TechnicianID: TechId || "Unknown",
+                
                 Duration: duration,
                 Create_Date: timestamp,
                 Authorization: authorization
