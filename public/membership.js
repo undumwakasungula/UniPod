@@ -165,6 +165,8 @@ document.addEventListener("DOMContentLoaded", function () {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
           const clientID = user.uid;
+          console.log("onAuthStateChanged fired, user:", user);
+
   
           const projectPromises = projectCollections.map(async (col) => {
               const q = query(collection(db, col), where("Client", "==", clientID));
@@ -189,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Display Filtered Client Projects
     function displayClientProjects(projects) {
         const projectList = document.getElementById("ClientProjectdiv");
+        console.log("projectList DOM element:", projectList);
         projectList.innerHTML = projects.length === 0 ? "<p>No projects found.</p>" : "";
 
         projects.forEach(proj => {
