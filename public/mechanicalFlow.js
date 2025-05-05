@@ -269,7 +269,7 @@ if (project_form) {
         event.preventDefault();
         let project = document.getElementById("mech_project").value;
         let client = document.getElementById("mech_client").value;
-        let registered_client = document.getElementById("clientmechpdown").value;
+        let registered_client = document.getElementById("clientmechdown").value;
         let duration = document.getElementById("mech_duration").value;
         let projectID = generateProjectID();
         let currentTime = new Date();
