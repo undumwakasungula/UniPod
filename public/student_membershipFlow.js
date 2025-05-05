@@ -1,5 +1,5 @@
 import { db } from "./firebaseConfig.js"
-import { doc, collection,onSnapshot, addDoc,updateDoc,getDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import { doc, collection, addDoc,updateDoc,getDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 document.addEventListener("DOMContentLoaded",function(){
     const application_btton = document.getElementById("applyButton");

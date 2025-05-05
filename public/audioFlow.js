@@ -4,16 +4,6 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
 
 const auth = getAuth();
 document.addEventListener("DOMContentLoaded", function() {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            const technicianID = user.uid; // Get logged-in technician's unique ID
-            console.log("Logged-in Technician ID:", technicianID);
-            
-
-        } else {
-            console.log("No technician is logged in");
-        }
-    });
 
     //computer equipment form trigger buttons
     const equip_form = document.getElementById("audio-equipmentForm");
@@ -283,7 +273,7 @@ if (project_form) {
         let registered_client = document.getElementById("clientDropdown").value;
         let duration = document.getElementById("audio_duration").value;
         let projectID = generateProjectID();
-        let TechId = technicianID ;
+        //let TechId = technicianID ;
         let currentTime = new Date();
         let timestamp = currentTime.toISOString();
         let authorization = "Pending"; 
@@ -294,7 +284,7 @@ if (project_form) {
                 Project: project,
                 Client: client || registered_client,
                 Project_ID: projectID,
-                TechnicianID: TechId || "Unknown",
+                //TechnicianID: TechId || "Unknown",
                 Duration: duration,
                 Create_Date: timestamp,
                 Authorization: authorization
