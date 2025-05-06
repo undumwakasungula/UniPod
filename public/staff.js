@@ -142,17 +142,16 @@ document.addEventListener("DOMContentLoaded", function() {
                     <h3>${proj.Project || "Unnamed Project"}</h3>
                     <strong>${proj.collectionName}</strong>
                 </div>
-                <br>
+                
 
                 <div >
                     <p>Project ID: <span>${proj.Project_ID || "N/A"}</span></p>
                     <p>Duration(wks): <span>${proj.Duration || "N/A"}</span></p>
                     
                 </div>
-                <br>
                 
                 <dv>
-                <p>Duration(wks): <span>${proj.Authorization || "N/A"}</span></p>
+                <p>Status: <span>${proj.Authorization || "N/A"}</span></p>
                 <p>Start Date: <span>${formattedDate}</span></p>
                 </div>
             </div>`;
